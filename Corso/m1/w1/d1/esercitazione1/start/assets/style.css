@@ -1,0 +1,62 @@
+body {
+  background-color: antiquewhite;
+  font-family: "Monserrat", sans-serif;
+}
+table {
+  border-collapse: collapse;
+  column-span: 2;
+  text-align: center;
+}
+
+td,
+th {
+  border: 2px solid black;
+  padding: 8px;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.body-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.container {
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  flex-flow: row nowrap;
+  padding: 15px;
+  align-content: space-between;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.figlio1 {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 30rem;
+  text-align: center;
+}
+
+.figlio2 {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.figlio3 {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 30rem;
+  text-align: center;
+}

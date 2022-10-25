@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <style>
+      table {
+        width: 100%;
+      }
+
+      table td,
+      th {
+        border: 1px solid black;
+      }
+    </style>
+    <table>
+      <thead>
+        <caption>
+          Descrivo cosa tratta la tabella
+        </caption>
+
+        <tr>
+          <th>Nome</th>
+          <th>Cognome</th>
+          <th>Anni</th>
+        </tr>
+      </thead>
+      <tr>
+        <td>Davide</td>
+        <td>Piergiorgi</td>
+        <td>28</td>
+      </tr>
+      <tr>
+        <td>Banana</td>
+        <td>In Pigiama</td>
+        <td>2</td>
+      </tr>
+      <tfoot>
+        <tr>
+          <td>Numero utenti</td>
+          <td colspan="2">2</td>
+        </tr>
+      </tfoot>
+    </table>
+    <hr />
+    <table>
+      <tr>
+        <td>1</td>
+        <td rowspan="2">2-5</td>
+        <td>3</td>
+      </tr>
+      <tr>
+        <td>4</td>
+
+        <td>6</td>
+      </tr>
+      <tr>
+        <td>7</td>
+        <td>8</td>
+        <td>9</td>
+      </tr>
+    </table>
+    <hr />
+    <form method="post" action="inviamail.php">
+      <input name="nome" type="text" placeholder="Inserisci il nome" />
+      <hr />
+      <label for="consenso">Accetto trattamento dei dati</label>
+      <input name="consenso" type="checkbox" id="consenso" />
+      <hr />
+      <select name="city">
+        <option value="roma">Roma</option>
+        <option value="milano">Milano</option>
+        <option value="venezia">Venezia</option>
+      </select>
+      <hr />
+      <textarea name="messaggio" id="" cols="30" rows="10"></textarea>
+      <button>Invia</button>
+      <button type="reset">Resetta il form</button>
+    </form>
+  </body>
+</html>
