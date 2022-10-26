@@ -1,0 +1,58 @@
+body {
+  font-family: "Montserrat", sans-serif;
+}
+
+h3 {
+  color: tomato;
+}
+
+#boxHeader {
+  max-width: 900px;
+  margin: 0 auto;
+  align-items: center;
+}
+header {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+.logo {
+  width: 200px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.imgFoca {
+  width: 800px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+figcaption {
+  color: grey;
+  text-align: center;
+}
+
+#feature {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+div .boxino {
+  border-top: 4px solid tomato;
+  background-color: antiquewhite;
+  width: 100%;
+  text-align: center;
+  color: rgba(14, 40, 61, 0.514);
+  font-weight: 100;
+}
+
+#boxone {
+  max-width: 900px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
