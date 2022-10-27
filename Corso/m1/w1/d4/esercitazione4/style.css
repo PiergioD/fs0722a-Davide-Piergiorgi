@@ -31,6 +31,7 @@ body {
     rgba(38, 129, 152, 1) 71%
   );
   text-align: center;
+  border: 1px solid black;
 }
 
 #headtitleh1 {
@@ -63,6 +64,7 @@ body {
   background-color: white;
   width: 450px;
   height: 100%;
+  border: 1px solid black;
 }
 /* ELEMENTI NEL MAIN - ARTICLE */
 
