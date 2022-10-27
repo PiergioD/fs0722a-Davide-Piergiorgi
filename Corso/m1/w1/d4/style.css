@@ -1,0 +1,105 @@
+.quadrato {
+  background-color: blue;
+  border: 2px solid black;
+}
+
+#q1,
+#q3,
+#q4,
+#q5 {
+  width: 100px;
+  height: 100px;
+}
+
+#q2 {
+  max-width: 600px;
+  min-height: 50px;
+}
+
+#q3 {
+  /*overflow: hidden;*/
+  overflow-y: scroll; /*  con  valore: auto invece se il testo supera il contenitore, crea nell'asse y lo scroll*/
+}
+
+#q4 {
+  padding: 15px;
+
+  /* padding:10px 15px --> assey assex*/
+  /*padding 10px 15px 10px 15px in senso orario--> top right bottom left*/
+  box-sizing: border-box; /* fa si che il padding vefnga ritagliato all'interno dell'elemento! non va oltre!*/
+}
+
+#q5 {
+  background-color: royalblue;
+  border: 3px dotted black;
+  border-bottom: none; /* il bordo di sotto me lo toglie*/
+  border-radius: 20px;
+  margin: 100px; /*stesso modalità di padding*/
+}
+
+.full-height {
+  background-color: yellowgreen;
+  width: 100%;
+}
+
+/*creo contenitore dellimmagine*/
+#img-adattata,
+#bg-adattata,
+#bg-tagliata {
+  width: 100px;
+  height: 100px;
+  border: 1px solid black;
+}
+
+/* l'imagine riempie questo contenitore*/
+#img-adattata img {
+  max-width: 100%;
+}
+
+/*possiamo anche fare
+img{
+    max-width:100%
+}
+ tutte le immagini hanno questa proprietà!*/
+
+/*
+ usare anche questo tag *
+ *{
+box-sizing:border-box
+ }*/
+
+#img-tagliata {
+  overflow: hidden;
+  width: 100px;
+  height: 100px;
+  border: 1px solid black;
+}
+
+#img-tagliata img {
+  width: 200px;
+  margin-left: -50px;
+  margin-top: -60px;
+}
+/*posso anche farlo anche tramite console, che puoi vedere gli spostamenti che fai! ovviamente dopo devi copiare le modifiche da console a css!*/
+#bg-adattata {
+  background-image: url(img/CSS\ 3.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+/*si vede senza tagli a costo di lasciare il contain senza sfondo*/
+#bg-tagliata {
+  background-size: cover;
+  background-position: center;
+  background-image: url(img/CSS\ 3.png);
+}
+
+/*copre lo sfondo anche a costo di tagliare l'immagine, con center si centtra il background!*/
+
+section {
+  height: 500px;
+  background-size: cover;
+  background-image: url(img/CSS\ 3.png);
+  background-attachment: fixed;
+  background-position: center;
+}
+/*effetto scroll con il background img sotto!*/

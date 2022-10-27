@@ -1,0 +1,130 @@
+/* IMPOSTAZIONI GENERALI */
+
+body {
+  background-image: url(assets/img/sfondo.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+body {
+  margin-top: 8px;
+  font-family: "Poppins", sans-serif;
+}
+
+#container {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 800px;
+}
+/* HEADER */
+#containerHead {
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+  height: 350px;
+  width: 450px;
+  background: linear-gradient(
+    308deg,
+    rgba(34, 156, 159, 1) 10%,
+    rgba(38, 129, 152, 1) 71%
+  );
+  text-align: center;
+}
+
+#headtitleh1 {
+  color: white;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.headtitle a {
+  text-decoration: none;
+  font-family: "Poppins", sans-serif;
+  color: white;
+}
+
+#cuboHead {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#cuboHead img {
+  width: 350px;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+/* MAIN */
+#containerMain {
+  margin-left: auto;
+  margin-right: auto;
+  background-color: white;
+  width: 450px;
+  height: 100%;
+}
+/* ELEMENTI NEL MAIN - ARTICLE */
+
+#sectionFirst,
+#sectionSecond,
+#sectionThird {
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#sectionFirst,
+#sectionSecond a {
+  text-decoration: none;
+  color: blueviolet;
+  font-weight: 700;
+}
+
+#sectionFirst h2 {
+  font-size: 200%;
+  font-weight: 800;
+  margin-top: 30px;
+  color: black;
+}
+
+#sectionFirst p {
+  margin-top: 20px;
+  color: grey;
+  opacity: 0.8;
+}
+
+#sectionSecond p {
+  margin-top: 20px;
+}
+
+#sectionSecond h5 {
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+#sectionSecond ul {
+  margin: 0 auto;
+}
+
+#sectionSecond p {
+  margin-bottom: 20px;
+}
+/* TABELLE */
+
+#sectionThird p {
+  margin-top: 20px;
+}
+
+#sectionThird table {
+  margin-top: 20px;
+  border: 1px solid black;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* FORM */
+
+/* ELEMENTI NELL' ASIDE */
+
+/* FOOTER */ ;
