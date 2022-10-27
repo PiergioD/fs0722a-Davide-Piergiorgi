@@ -5,6 +5,7 @@ body {
   color: #393d41;
   font-weight: 1.2rem;
   font-family: "Open Sans", sans-serif;
+  min-width: 450px;
 }
 
 p {
@@ -36,20 +37,17 @@ h2 {
 }
 
 /*Header*/
+
 #Header {
   height: 400px;
-
   margin-bottom: 30px;
   border: 1px solid black;
   line-height: 1.65;
-}
-
-#imgHeader {
+  text-align: center;
   background-image: url(images/banner.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  background-attachment: local;
 }
 
 button {
@@ -87,6 +85,10 @@ h1 {
 /*immaginetta tonda*/
 #imground {
   border-radius: 60%;
+}
+
+#imground:hover {
+  transform: rotate(90deg);
 }
 
 /*sezione main col quadrato rossiccio*/
@@ -144,4 +146,25 @@ h4 {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  text-align: center;
+}
+
+#cuboFooter ul li,
+#cuboFooter a,
+#cuboFooter p {
+  color: white;
+  line-height: 1.65;
+}
+
+#cuboFooter ul li {
+  list-style-type: none;
+}
+
+#cuboFooter h4 {
+  margin-bottom: 30px;
+}
+
+#cuboFooter p {
+  border-top: 1px solid white;
+  padding-top: 20px;
 }
