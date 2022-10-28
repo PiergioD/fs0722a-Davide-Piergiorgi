@@ -5,7 +5,6 @@ body {
   color: #393d41;
   font-weight: 1.2rem;
   font-family: "Open Sans", sans-serif;
-  min-width: 450px;
 }
 
 p {
@@ -38,32 +37,39 @@ h2 {
 
 /*Header*/
 
-#Header {
+.Header {
   height: 400px;
   margin-bottom: 30px;
   border: 1px solid black;
   line-height: 1.65;
   text-align: center;
-  background-image: url(images/banner.jpg);
+}
+
+#headerBg {
+  background-image: url(../images/banner.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 }
 
-button {
-  margin-top: 30px;
+#button {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  margin-top: 60px;
+  margin-left: auto;
+  margin-right: auto;
   background-color: #f04c2f;
-
-  width: 120px;
-  height: 40px;
+  padding: 8px 12px;
   border-radius: 8px;
   border: none;
+  display: inline-block;
+  transition: background-color 0.5s ease-in-out;
 }
 
-button a {
-  text-decoration: none;
-  color: white;
-  font-weight: bold;
+#button:hover {
+  background-color: #baca5b;
+  color: #393d41;
 }
 
 h1 {
@@ -119,6 +125,17 @@ h4 {
 }
 
 /*box con immaginette*/
+#boxCentrali {
+  display: flex;
+  flex-direction: row;
+}
+
+@media (max-width: 1300px) {
+  #boxCentrali {
+    flex-direction: row;
+  }
+}
+
 .box {
   width: 400px;
   margin-left: auto;
