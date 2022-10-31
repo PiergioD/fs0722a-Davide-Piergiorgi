@@ -24,16 +24,4 @@ function xor(a, b) {
 }
 */
 
-// finire di implementare col prompt
-function peopleWithAgeDrink(age) {
-  console.log(age);
-  // let age = prompt("What is your age?", "per esempio 20");
-  // if (Number(age || 0) > 0) {
-  if (age <= 14) return console.log("drink toddy");
-  if (age <= 18) return console.log("drink coke");
-  if (age <= 21) return console.log("drink beer");
-  else console.log("drink whisky");
-}
-//}
-
-peopleWithAgeDrink(Math.floor(Math.random() * 100));
+console.log(Math.floor(Math.random() * 100));
