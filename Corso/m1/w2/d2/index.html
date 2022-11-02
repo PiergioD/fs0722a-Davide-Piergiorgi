@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    .blocco {
+      height: 100px;
+      width: 100px;
+      border: 1px solid black;
+      display: inline-block;
+    }
+  </style>
+  <body>
+    <input id="numero" type="number" />
+    <button onclick="mostraRisultato()">COntrolla se pari</button>
+
+    <div class="blocco" data-colored="false" data-colore="red" id="btn1"></div>
+    <div
+      class="blocco"
+      data-colored="false"
+      data-colore="yellow"
+      id="btn2"
+    ></div>
+    <div class="blocco" data-colored="false" data-colore="blue" id="btn3"></div>
+    <div
+      class="blocco"
+      data-colored="false"
+      data-colore="green"
+      id="btn4"
+    ></div>
+
+    <script>
+      function mostraRisultato() {
+        let numero = document.getElementById("numero");
+        console.dir(numero);
+        if (isEven(numero.value)) {
+          alert("pari");
+        } else {
+          alert("dispari");
+        } // richiamo la funzione! se pari mi esce messaggino pari e dispari dispari
+      }
+
+      function isEven(numero) {
+        return numero % 2 == 0;
+      } //numero pari o dispari?
+
+      let colora = function (elementoHTML) {
+        const element = elementoHTML.target;
+        const colore = element.getAttribute("data-colore");
+        const isColored = element.getAttribute("data-colored") === "true";
+        /*
+                    if (!isColored) {
+                      element.style.backgroundColor = colore;
+                      element.setAttribute("data-colored", true);
+                    } else {
+                      element.style.backgroundColor = "white";
+                      element.setAttribute("data-colored", false);
+                    }
+                    */
+        element.style.backgroundColor = isColored ? "white" : colore;
+        element.setAttribute("data-colored", !isColored);
+      };
+
+      const blocco1 = document.getElementById("btn1");
+      blocco1.addEventListener("click", colora);
+      const blocco2 = document.getElementById("btn2");
+      blocco2.addEventListener("click", colora);
+      const blocco3 = document.getElementById("btn3");
+      blocco3.addEventListener("click", colora);
+      const blocco4 = document.getElementById("btn4");
+      blocco4.addEventListener("click", colora);
+
+      // col click mi colora ddel colore segnato in data-colore i blocchi!
+      // on click mi toglie il colore! prova a fare la funzione con ternary piu cortra possibile!
+    </script>
+  </body>
+</html>
