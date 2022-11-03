@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="contenitore">
+      <input type="text" id="numeri" />
+      <div data-simbolo="0" onclick="aggiungiCifra(this)">0</div>
+      <div data-simbolo="1" onclick="aggiungiCifra(this)">1</div>
+      <div data-simbolo="2" onclick="aggiungiCifra(this)">2</div>
+      <div data-simbolo="3" onclick="aggiungiCifra(this)">3</div>
+      <div data-simbolo="4" onclick="aggiungiCifra(this)">4</div>
+      <div data-simbolo="5" onclick="aggiungiCifra(this)">5</div>
+      <div data-simbolo="6" onclick="aggiungiCifra(this)">6</div>
+      <div data-simbolo="7" onclick="aggiungiCifra(this)">7</div>
+      <div data-simbolo="8" onclick="aggiungiCifra(this)">8</div>
+      <div data-simbolo="9" onclick="aggiungiCifra(this)">9</div>
+      <div data-simbolo="+" onclick="aggiungiCifra(this)">+</div>
+      <div data-simbolo="-" onclick="aggiungiCifra(this)">-</div>
+      <div data-simbolo="*" onclick="aggiungiCifra(this)">x</div>
+      <div data-simbolo="/" onclick="aggiungiCifra(this)">/</div>
+      <div onclick="tot()">=</div>
+    </div>
+    <script>
+      // fare un tasto di reset
+      // fare un tasto elimina uno alla volta prendere la stringa scritta togliere ultimo carattere e risparare la stringa dentro
+      function aggiungiCifra(elemento) {
+        let cifraCliccata = elemento.getAttribute("data-simbolo"); // stringa
+        document.getElementById("numeri").value += cifraCliccata; // stringa! si concatena
+      } // this ultizzoat oon lick mi permette di avdre una copia dell'elemento in console
+
+      function tot() {
+        let numeri = document.getElementById("numeri");
+        numeri.value = eval(numeri.value); // eval prende una stringa e la codifica in javascript
+      }
+      /*EXTRA
+      function isSymbol() {
+        let simboli = ["x", "/", "+", "-"];
+        return simboli.includes(s);
+      }// mi resituisce true se il simbolo è unoo di quegli presenti nellaarray
+
+      isSyombol("+");
+
+      */
+    </script>
+  </body>
+</html>

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!--esercizietto con switch-->
+    <select onchange="mostraPrezzo()" id="frutti">
+      <select value="">
+        --
+      </select>
+      <select value="mele">
+        Mele
+      </select>
+      <select value="banane">
+        Banane
+      </select>
+      <select value="ananas">
+        Ananas
+      </select>
+      <select value="ciliegie">
+        Ciliegie
+      </select>
+    </select>
+    <div id="prezzo"></div>
+
+    <script>
+      /*
+            let obj = {};
+            {
+              let pizza = {
+                gusto: "margherita",
+                prezzo: 5,
+                mostraPrezzo: function (valuta) {
+                  console.log(
+                    `Il prezzo della pizza ${this.gusto} è di ${this.prezzo} ${valuta}`
+                  );
+                },
+              };
+              document.write(pizza.gusto); // mi legge il valore della proprietà gusto! di oggettopizza
+              pizza.gusto = "diavola";
+              document.write(pizza.gusto); // mi cambia! questa è la scrittura!
+              document.write(pizza); // non posso convertire in stringa un oggetto! devo per forza prendere una proprietà!
+              console.log(pizza); // meglio usare console.log per capire quel che cè dentro
+              pizza.mostraPrezzo("£"); // eseguo il metodo della funzione!
+            }
+            /////////////////////////////////////////////////////////////////////////////
+            // altro modo per creare un oggetto con una funzione costruttore
+            {
+              function pizza(_gusto, _prezzo) {
+                this.gusto = _gusto;
+                this.prezzo = _prezzo;
+                this.mostraPrezzo = function (valuta) {
+                  console.log(
+                    `Il prezzo della pizza ${this.gusto} è di ${this.prezzo} ${valuta}`
+                  );
+                };
+              }
+
+              // creo un nuovo oggetto mettendo proprietà gusto,prezzo e motodo mostraPrezzo
+              margherita.mostraPrezzo("$");
+              diavola.mostraPrezzo("$");
+
+              pizza.prototype.stile = "napoletana";
+              console.log(margherita); // mi darà in console, le proprietà dell 'oggetto, piu il protoype con dentro stile margherita!'
+              // posso accedere geenerati a degl oggetti creati precedentemente e aggiungere dei metodi o delle proprietà!
+              let margherita = new Pizza("margherita", 5);
+              let diavola = new Pizza("diavola", 1);
+              ///////////////////////////////////////////////////////////////////////////////////////////
+              // array
+
+              let arr = [];
+              let numeri = [10, 50, 90, 34]; // gli array posso contenerei tutti vari tipi di balaori! da oggetti ad altri array, numeri ecc..
+              // l'indice degli array parte da zero!
+              console.log(numeri[0]);
+              ///////////////////////////////////////////////////////////////////////////
+              // switch statement!
+
+              // voglio verificare quel valore della variabile!
+              /*
+                    function mostraPrezzo() {
+                      let frutta = document.getElementById("frutti").value;
+                      let messaggio;
+                      switch (frutta) {
+                        case "mele":
+                          messaggio = "le " + frutta + "costano 0.50";
+                          break;
+                        case "banane":
+                          messaggio = "le " + frutta + "costano 0.99";
+                          break;
+                        case "ananas":
+                        case "ciliegie":
+                          messaggio = "Le" + frutta + "costano 1 euro";
+                          break;
+                        default:
+                          messaggio = "Non abbiamo" + frutta;
+                      }
+
+                      document.getElementById("prezzo").innerHTML = messaggio;
+                    }
+                  }
+
+            }
+      */
+
+      //////WHILE LOOP
+      let i = 0;
+      while (i <= 10) {
+        document.write(i);
+        i++; // scrive numeri da 1 a 10
+      }
+
+      /////////////DO WHILE LOOP
+      document.write("<hr>");
+      let y = 0;
+      do {
+        // il condice viene eseguito almeno una votla anche se la condizione non è mai vera
+        document.write(y);
+        y++;
+      } while (y > 10); // anche se l'esecuzione non è vera, cic sarà almeno un esercuzione
+
+      ///////////// FOR LOOP
+      document.write("<hr>");
+      for (let i = 10; i <= 1; i--) {
+        document.write(i);
+      }
+      document.write("<hr>");
+      ///////////// for per array
+      let animali = ["gatto", "cane", "anatra", "orso"];
+      for (let i = 0; i <= animali.length; i++) {
+        document.write(animali[i] + "-"); // scrive tutti gli elementi dell'array divisi da un trattino
+      }
+
+      let numeri = [0, 1, 2, 3, 4, 5, 6, 7, 78, 4];
+      let somma = 0;
+      for (let i = 0; i < numeri.length; i++) {
+        somma += numeri[i];
+        document.write("somma attuale" + somma + "<br>"); // fa vedere gli step per ogni ciclo
+      }
+      document.write("somma:" + somma);
+
+      //////////proviamo con reduce()
+      console.log(numeri.reduce((acc, num) => acc + num));
+
+      ///////////////////////////////////////////////////
+      //cicli per array
+      document.write("<hr>");
+      //forEach
+      animali.forEach(function (elemento, i) {
+        document.write(i + elemento + "-"); // per ogni elemento dell'array fai document.write
+      });
+      document.write("<hr>");
+      //for of loop
+      for (let animale of animali) {
+        document.write(animale + "-");
+      }
+
+      let stringa = "testo da ciclare";
+      for (let lettera of stringa) {
+        document.write(lettera + "<br>");
+      }
+
+      ///////////// FOR IN LOOP per oggetti
+      let utente = {
+        nome: "mario",
+        cognome: "rossi",
+        anni: 30,
+      };
+
+      document.write("<ul>");
+      for (let prop in utente) {
+        document.write(`<li>${prop}: ${utente[prop]}</li>`);
+      }
+      document.write("</ul>");
+      // mi costruisce una tabella con proprità dell'oggetto
+    </script>
+  </body>
+</html>

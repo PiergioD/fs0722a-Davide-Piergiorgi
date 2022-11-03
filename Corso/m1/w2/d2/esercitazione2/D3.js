@@ -87,25 +87,26 @@ totalShoppingCartScont1(Math.trunc(Math.random() * 100));
   Utilizzando un blocco condizionale, crea un algoritmo per ordinarle secondo il loro valore, dal più alto al più basso.
   Alla fine mostra il risultato in console.
 */
-let num1 = 5;
-let num2 = 10;
-let num3 = 30;
 
-arr.push(num1);
-arr.push(num2);
-arr.push(num3);
+/* SCRIVI QUI LA TUA RISPOSTA */
+let num1 = 5321;
+let num2 = 343212;
+let num3 = 123123;
+let num4 = 333;
 let arr1 = [];
+arr1.push(num1);
+arr1.push(num2);
+arr1.push(num3);
+arr1.push(num4);
 
 let funzione4 = (arr) => {
   arr.sort(function (a, b) {
-    return a - b;
+    return b - a;
   });
-  return console.log(arr);
+  return arr;
 };
 funzione4(arr1);
-
-// da  finire perche non va!
-/* SCRIVI QUI LA TUA RISPOSTA */
+console.log(arr1);
 
 /* ESERCIZIO 8
   Crea un algoritmo per verificare che un valore fornito sia un numero oppure no (suggerimento: cerca su un motore di ricerca "typeof").
