@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    div {
+      font-weight: 800;
+    }
+
+    div p {
+      font-weight: 400;
+    }
+  </style>
+  <body>
+    <section id="commenti">
+      <div class="commento">
+        <b>Cosimo</b>
+        <p>Auguri!</p>
+        <input type="text" />
+      </div>
+      <div class="commento">
+        <b>Vanessa</b>
+        <p>Auguri!</p>
+        <input type="text" />
+      </div>
+      <div class="commento">
+        <b>Vincenzo</b>
+        <p>Auguri!</p>
+        <input type="text" />
+      </div>
+      <div class="commento">
+        <b>Giacomo</b>
+        <p>Auguri!</p>
+        <input type="text" />
+      </div>
+    </section>
+
+    <button id="start">Ringrazia</button>
+    <script>
+      let bottone = document.querySelector("#start"); // resituisce un sol elemento!
+      bottone.addEventListener("click", function () {
+        // non ce piu onclick! adesso si usano addEvent listenter
+        console.log(this); // mi riporta in console <button id="start">Ringrazia</button>
+
+        let comments = document.querySelectorAll(".commento"); // mi restituisce un array ciclabile
+        let ringraziamenti = ["grazie", "grazie mille", "Wow grazie"];
+        let punti = ["", "!", "!!!"];
+        let smile = ["", ":)", ":D"];
+        for (let comment of comments) {
+          let rand1 = randomNumber(ringraziamenti.length);
+          let rand2 = randomNumber(punti.length);
+          let rand3 = randomNumber(smile.length);
+          let nome = field.querySelector("b").textContent.split(" ")[0];
+          comment.querySelector(
+            "input"
+          ).value = `${ringraziamenti[rand1]} ${nome}${punti[rand2]}${smile[rand3]}`;
+        }
+      });
+      // per la seconda parte guarda la registrazione parte finale!
+      function randomNumber(max) {
+        // faccio una funzione che mi dia un numero random
+        return Math.floor(Math.random() * max);
+      }
+    </script>
+  </body>
+</html>
