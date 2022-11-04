@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="reset.css" />
+    <link rel="stylesheet" href="style.css" />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>Progetto Calcolatrice</title>
+  </head>
+  <body>
+    <!--box della calcolatrice-->
+    <div class="container_calc">
+      <!--display calcolatrice-->
+      <input class="display_calc" type="text" id="numeri" />
+
+      <!--pulsanti calcolatrice-->
+      <div class="grid">
+        <!--numeri e operazioni matematiche-->
+        <div div class="grid-item" data-simbolo="7" onclick="addCifr(this)">
+          7
+        </div>
+        <div class="grid-item" data-simbolo="8" onclick="addCifr(this)">8</div>
+        <div class="grid-item" data-simbolo="9" onclick="addCifr(this)">9</div>
+        <div class="grid-item" data-simbolo="/" onclick="addCifr(this)">/</div>
+        <div class="grid-item" data-simbolo="4" onclick="addCifr(this)">4</div>
+        <div class="grid-item" data-simbolo="5" onclick="addCifr(this)">5</div>
+        <div class="grid-item" data-simbolo="6" onclick="addCifr(this)">6</div>
+        <div class="grid-item" data-simbolo="*" onclick="addCifr(this)">x</div>
+        <div class="grid-item" data-simbolo="1" onclick="addCifr(this)">1</div>
+        <div class="grid-item" data-simbolo="2" onclick="addCifr(this)">2</div>
+        <div class="grid-item" data-simbolo="3" onclick="addCifr(this)">3</div>
+        <div class="grid-item" data-simbolo="-" onclick="addCifr(this)">-</div>
+        <div class="grid-item" data-simbolo="." onclick="addCifr(this)">.</div>
+        <div class="grid-item" data-simbolo="0" onclick="addCifr(this)">0</div>
+        <!--pulsante uguale-->
+        <div class="grid-item" data-simbolo="=" onclick="totale()">=</div>
+        <!--altre operazioni-->
+        <div class="grid-item" data-simbolo="+" onclick="addCifr(this)">+</div>
+        <div class="grid-item" data-simbolo="**2" onclick="addCifr(this)">
+          n²
+        </div>
+        <div class="grid-item" data-simbolo="/100" onclick="addCifr(this)">
+          %
+        </div>
+        <!--tasti cancella un elemento alla volta e cancella tutto-->
+        <div class="grid-item" onclick="canc1El()">C</div>
+        <div class="grid-item" onclick="cancel()">CE</div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

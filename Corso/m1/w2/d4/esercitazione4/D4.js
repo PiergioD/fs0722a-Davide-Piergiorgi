@@ -105,7 +105,7 @@ const starWarsCharacters = [
 Crea una variabile chiamata "characters" e inserisci un array vuoto
 */
 let characters = [];
-
+let characters1 = [];
 /* ESERCIZIO 2
 Usando un for loop, cicla l'array "starWarsCharacters" ed accedi alla proprietà "name". 
 Usa il valore contenuto inserendolo nell'array creato precedentemente. 
@@ -120,6 +120,12 @@ function char(arr) {
 
 char(characters);
 console.log(characters);
+console.log("---------------------------------------------");
+for (let i in starWarsCharacters) {
+  characters1.push(starWarsCharacters[i].name);
+}
+console.log(characters1);
+
 /* ESERCIZIO 3
   Seguendo i passaggi precedenti crea un array chiamato "femaleCharacters" e inserisci un oggetto con questa struttura: 
   {name: Leia Organa, hair_color: "brown", eye_color: "brown"}
@@ -151,7 +157,27 @@ console.log(coloreOcchi);
   Inserisci l'oggetto dei personaggi in "starWarsCharacters" nell'array corrispondente al colore dei loro occhi nell'oggetto "eyeColor" precedentemente creato
   Utilizza uno switch statement per determinare in quale proprietà inserire il personaggio
   */
-
+/*
+starWarsCharacters.forEach((character) => {
+  switch (character.eye_color) {
+    case "blue":
+      eyeColors.blue.push(character);
+      break;
+    case "yellow":
+      eyeColors.yellow.push(character);
+      break;
+    case "brown":
+      eyeColors.brown.push(character);
+      break;
+    case "red":
+      eyeColors.red.push(character);
+      break;
+    case "blue_gray":
+      eyeColors.blue_gray.push(character);
+  }
+}); // da riguardare!
+console.log(eyeColors.blue_gray);
+*/
 /* ESERCIZIO 6
   Usa un while loop per calcolare la massa totale dell'equipaggio
   */
@@ -216,6 +242,7 @@ const genderChanged = starWarsCharacters.map(function (personaggi) {
   if (personaggi.gender === "n/a") return (personaggi.gender = "robot");
 });
 console.log(genderChanged);
+console.log(starWarsCharacters);
 /* EXTRA ESERCIZIO 9
 
 Utilizzando gli elementi presenti nell'array "femaleCharacters" rimuovi dall'array "characters" le stringhe corrispondenti a personaggi con lo stesso nome"
@@ -225,7 +252,18 @@ Usa uno più for loop per raggiungere il risultato
 
 Una volta fatto crea un conosle.log per controllare la proprietà length di "characters" prima e dopo l'operazione
 */
-
+characters.forEach(function (character) {
+  femaleCharacters.forEach(function (fem) {
+    if (character == fem.name) {
+      characters.splice(characters.indexOf(character), 1);
+    }
+  });
+}); // da riguardare
+console.log(characters.length);
 /* EXTRA ESERCIZIO 10
 Crea una funzionalità che prenda un elemento casuale dall'array "starWarsCharacters" e ne stampi in console le proprietà in modo discorsivo
 */
+function randomCHaracter() {
+  let rnd = Math.round(MAth.random() * starWarsCharacters.length);
+  console.table(starWarsCharacters[rnd]);
+}
