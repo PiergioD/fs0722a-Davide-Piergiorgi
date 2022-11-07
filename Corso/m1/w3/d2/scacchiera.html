@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    #scacchiera {
+      height: 500px;
+      width: 500px;
+    }
+    /*css per fare senza usare js*/
+    .casella {
+      width: calc(100% / 8); /*width: calc(100% / 9);*/
+      height: calc(100% / 8); /*height: calc(100% / 8);*/
+      border: 1px solid black;
+      display: inline-block;
+      margin-bottom: -0.3rem;
+      margin-left: -0.3rem;
+      text-align: center;
+      color: red;
+    }
+  </style>
+  <div id="scacchiera"></div>
+
+  <body>
+    <script>
+      // creo una scacchiera con js
+      let scacchiera = document.querySelector("#scacchiera");
+
+      // let numeroDiv = 64; /*63*/
+
+      for (let i = 0; i < 8; i++) {
+        for (let x = 0; x < 8; x++) {
+          let colore = (i + x) % 2 == 0 ? "#000" : "#fff"; // do il colore hai cuboti possizioni pari // è divisibile per due? --> true se no false!
+
+          /*
+          scacchiera.innerHTML +=
+            '<div class="casella" style ="color:red;" style="background-color:' +
+            colore +
+            '">' +
+            i +
+            "-" +
+            x +
+            "</div>"; // li abbiamo creati*/
+
+          // creo un elemnto HTML, ma solo in memoria(non viene mostrato!)
+          let casellaDiv = document.createElement("div"); //
+          //console.log(casella) farà vedere tutte le caselle che ha creato!
+
+          casellaDiv.classList.add("casella"); // aggiungo la classe casella l'elemennto appena creato
+          casellaDiv.style.backgroundColor = colore; // darà il colore al cubotto
+          scacchiera.append(casellaDiv); // dato un target e un elemento, va mettere questo elementop tra parentesi dentro scacchiera(inserisco elemento nella scacchiera!Div)
+        }
+      }
+    </script>
+  </body>
+</html>
