@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // recuprare file da un file esterno o siti
+      // chiamre wuesta pagina e resituire il contenuto di questa pagina
+
+      let f = fetch("https://jsonplaceholder.typicode.com/todos");
+
+      f.then((res) => {
+        console.log(res);
+        return res.json();
+      }) // res nel primo tech coiente un oggetto che contiene l'esito della risposta
+        // usanto il metodo json() trasformo l'oggetto ottenendo i dati presenti nella pagina che ho richiesto
+        .then((res) => console.log(res));
+      // il valore del then primo va a finire nel then succcessivo
+    </script>
+  </body>
+</html>

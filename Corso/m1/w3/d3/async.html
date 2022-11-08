@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // questa promise gestisce un caso in cui l'insuccesso è previsto
+      let call = new Promise(function (success, error) {
+        //esempio
+
+        //setTimeout(function () {
+        // siamo suìimulando il tempo di attesa del serrver
+        let password = "password";
+
+        if (password == "password") success("Accesso consentito");
+        else error("C'e stato un errore!");
+        //},3000);
+      });
+      console.log(call);
+      // promise vuole una funzione ad argomento. questa funzione farà vedere due prarametri--> success()
+      // error()
+      // altre due callback da utlizzare nel momento oppertuno
+      // il codice asincrono viene sempre svolto dopo il codice sincrono
+      // non posso mai leggere i dati quando faccio il console.log di una data promise
+
+      // appena call ha finito,lancia then( che ha bisogno di una funzione di callback)
+      // ci da possibilita di un parametro! che in questo caso sara il risultato di success
+      call.then(
+        (risultato) => console.log(risultato),
+        (erroreRisultato) => console.log(erroreRisultato)
+      );
+
+      // altro esempio senza errore(non è obbligatorio inserire una callback anche per l'errroe)
+
+      let call2 = new Promise(function (success) {
+        success("Ecco il risultato");
+      });
+
+      call2.then((res) => console.log(res));
+    </script>
+  </body>
+</html>

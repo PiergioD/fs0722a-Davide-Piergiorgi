@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      class Veicolo {
+        constructor(nruote = 2, cambio = "marce", maxVel = 0) {
+          this.nruote = nruote;
+          this.cambio = cambio;
+          this.maxVel = maxVel;
+          this.vel = 0;
+        }
+
+        static checkWheelsNumber() {
+          return "i veicoli hanno 2 ruote";
+        }
+
+        accellera(n = 1) {
+          this.vel += n;
+        }
+
+        frena() {
+          this.vel--;
+        }
+
+        stop() {
+          this.vel = 0;
+        }
+      }
+
+      // estendo classe veicolo
+
+      class Bici extends Veicolo {
+        constructor() {
+          super(2, "marce", 40);
+        }
+        haLeRotelle(bool = false) {
+          // se è true aggiunge +2 a nruote
+          if (bool) {
+            this.nruote += 2;
+          }
+        }
+      }
+      console.log(Veicolo.checkWheelsNumber());
+      // posso lanciarlo senza aver creato una classe // perche è statico! è una funzione parcheggiata nella classe!
+      // gli altri metodi verranno creati quando creo una istanza con la classe e potranno essere usati successivamente
+
+      let bike = new Bici();
+      bike.accellera(); //+1
+      bike.accellera(); // +1
+      bike.frena(); // -1
+      console.log(bike);
+
+      let miniBike = new Bici();
+      miniBike.haLeRotelle(true); // mi aumente il numero di rotelle
+      console.log(miniBike);
+
+      ///////////////////////////////////////////////////////////////////////////////////////////////////
+
+      // esempio di metodi statici!
+      Object.freeze(); // metodo creato di object senza aver creato istanza! staico!
+
+      Array.isArray(); // altro metodo statico! perche non devo obbligatoriamente scrive new Array per usarlo
+    </script>
+  </body>
+</html>
