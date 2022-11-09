@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="target"></div>
+    <button id="crea">Crea</button>
+    <button id="elimina">Elimina</button>
+    <div id="box">testo del div <span>testo dello span</span></div>
+
+    <script>
+      //CREATE ELEMENT in un area
+
+      let crea = document.querySelector("#crea");
+      crea.addEventListener("click", () => {
+        let target = document.getElementById("target");
+
+        // creo un div
+        let div = document.createElement("div"); // crea un div oggetto ( non è ancora creato nella pagina! e momerizzato e basta) // div in uesto caso è elemento padre di divText
+        //div.innerHTML = "prova"; // scrivi dentro il div prova
+        // creo textnodep er il div
+        let divText = document.createTextNode("Elemento creato da JS"); // perche questo? è piu lento di di usare textContent!
+        el.addEventListener("click", () => {
+          el.remove();
+        });
+        // se ho creato il textNOde per i div devo usare un metodo come append per insierirlo nel div stesso
+        div.append(divText);
+        // scrivo il div nella pagina
+        target.append(div); // prendo div e lo sparo nel target( cosi mi crea div nella pagina)
+        // ci metto tutti i node e li metto in sequenza
+      });
+      //ELIMINO UN ELEMENTO con pulsante
+      /*
+            let elimina = document.querySelector("#elimina");
+            elimina.addEventListener(
+              "click",
+              () =>
+                //div.remove()); // nn funziona perche div è nellaa funzione! non esiste nel global scope! come ovviare a cio?
+                {
+                  let div = document.querySelectorAll("#target div"); // array! lo devi ciclare
+                  for (let el of div) {
+                    el.remove();
+                  }
+                } // per eliminarli tutti dovre i fare ciclo!
+            );
+      */
+      // eliminazione elemento cliccandoci sopra ( senza pulsante) // ma non va
+      /*
+            let div = document.querySelectorAll("#target div");
+            for (let el of div) {
+              el.addEventListener("click", () => {
+                el.remove();
+              });
+ // RICONTROLLA IL CODICE PERCHE MICHELE HA FATTO DIGRESSIONI E NON CI SONO STATO DIETRO!!
+ 
+              */
+      ////////////////////////////////////////////////////////////////////////////////////////////////
+      // navigare tra i node e textNode per recuperarne il contenuto
+      let box = document.querySelector("#box");
+      console.log(box.innerHTML); // prelevo tutto l'html dentro logetto
+      console.log(box.innerText); // prelevo testo del div e del figlio span
+      console.log(box.textContent); // stesso risultato di innerText! ma non fa differenza tra text del div e text del span
+
+      console.log(box.childNodes[0].textContent); // navigo nella gerarchia degli eleemti! mi torna una nodelist --> mi farà vedere i figli dei figli// prelevo solo il testo contenuto nel div(parent)
+      console.log(box.childNodes[1].childNodes); // posso vedere i figli dei figli
+      console.log(
+        box.childNodes[1].firstChild.textContent // parto dal div // richiedo lista dei child e afferro il secondo // dato che il secondo ha un solo figlio, decido di procedere selezionando first Child
+      ); // recupero il textContent del textNode(ossia il contenuto testuale di span)
+    </script>
+  </body>
+</html>
