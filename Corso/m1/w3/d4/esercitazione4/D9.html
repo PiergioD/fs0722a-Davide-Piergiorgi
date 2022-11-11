@@ -1,0 +1,222 @@
+<html>
+  <head>
+    <style>
+      .myHeading {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <h1 class="myClass">Questo è il titolo della pagina</h1>
+      <h2>Questo è il sottotitolo della pagina</h2>
+    </div>
+
+    <div>
+      <hr />
+
+      <ul id="firstList">
+        <li>Primo</li>
+        <li>Secondo</li>
+        <li>Terzo</li>
+      </ul>
+
+      <ul id="secondList">
+        <li>Primo</li>
+        <li>Secondo</li>
+        <li>Terzo</li>
+      </ul>
+
+      <a href="https://epicode.com"
+        >Questo link porta all'homepage di EPICODE</a
+      >
+
+      <div>
+        <p>Questo testo è qui solo per gli esercizi</p>
+      </div>
+
+      <div>
+        <input
+          type="text"
+          id="input-field"
+          placeholder="input field per gli esercizi"
+        />
+      </div>
+    </div>
+
+    <div class="footer">
+      <p>Anche questo testo è qua solamente per gli esercizi!</p>
+      <h2 style="color: red">
+        Salva questa pagina sul tuo computer e aprila con VSCode per vedere le
+        domande!
+      </h2>
+    </div>
+    <script>
+      /* ESERCIZIO 1
+       Scrivi una funzione per cambiare il titolo del documento in qualcos'altro.
+      */
+
+      const changeTitle = function (newTitle) {
+        let titolo = document.querySelector("h1");
+
+        titolo.innerHTML = newTitle;
+      };
+
+      changeTitle("nuovo titoletto");
+
+      /* ESERCIZIO 2
+       Scrivi una funzione per cambiare la classe del titolo della pagina in "myHeading".
+      */
+
+      const addClassToTitle = function () {
+        let titoletto = document.querySelector(".myClass");
+        // potevi usare anche setAttribute! o anche querySelector-->remove-->add
+        // anche fare document.querySelector("h1").classeName = 'myHeading'
+
+        titoletto.classList.add("myHeading");
+      };
+
+      addClassToTitle();
+      /* ESERCIZIO 3
+       Scrivi una funzione per cambiare il contenuto di tutti i p che sono discendenti di un div.
+      */
+
+      const changePcontent = function () {
+        let children = document.querySelectorAll("div>p");
+        children.forEach((ele) => {
+          ele.textContent = "nuovo paragrafone";
+        });
+      };
+
+      changePcontent();
+
+      /* ESERCIZIO 4
+       Scrivi una funzione per cambiare la proprietà href di ogni link a https://www.google.com
+      */
+
+      const changeUrls = function () {
+        let changeUrl = document.querySelectorAll("a");
+
+        changeUrl.forEach((ele) => {
+          ele.href = "https://www.google.com";
+          ele.textContent = "Questo link porta all'homepage di Google";
+        });
+      };
+      changeUrls();
+
+      /* ESERCIZIO 5
+       Scrivi una funzione per aggiungere un nuovo elemento alla seconda lista non-ordinata.
+      */
+
+      const addToTheSecond = function (content) {
+        var second_List = document.querySelector("#secondList");
+        var element_New = document.createElement("li");
+        var elementNew_Text = document.createTextNode(content);
+
+        element_New.appendChild(elementNew_Text);
+        second_List.appendChild(element_New); // senza apici!!!!!!!!!!! appenchild senza apiciiii
+
+        // fatto piu veloce second_List.innerHTML += '<li>${content}</li>'
+      };
+      addToTheSecond("nuovo elementino");
+
+      /* ESERCIZIO 6
+       Scrivi una funzione per aggiungere un secondo paragrafo al primo div.
+      */
+
+      const addParagraph = function (content) {
+        let div = document.querySelector("div>p"); // con querySelector prendo il primo div! con  .parentELement prendo elemento parente del p!
+        let newP = document.createElement("p");
+        let newPtesto = document.createTextNode(content);
+
+        newP.appendChild(newPtesto);
+        div.appendChild(newP);
+      };
+
+      addParagraph("nuovo paragrafino");
+      /* ESERCIZIO 7
+       Scrivi una funzione per far scomparire la prima lista non-ordinata.
+      */
+
+      const firstUlDisappear = function () {
+        let unList1 = document.querySelector("#firstList");
+        //unList1.style.opacity = 0; qua invece rimane ma diventa invisible
+        // questa è giusta! la cencella!
+        unList1.remove();
+      };
+      firstUlDisappear();
+      /* ESERCIZIO 8
+       Scrivi una funzione per rendere verde lo sfondo di ogni lista non-ordinata.
+      */
+
+      const paintItGreen = function () {
+        let liste = document.querySelectorAll("ul");
+        liste.forEach((ele) => {
+          ele.style.backgroundColor = "green";
+        });
+      };
+      paintItGreen();
+      /* ESERCIZIO 9
+       Rendi il tag h1 capace di cambiare colore del testo ogni volta che l'utente ci clicca sopra.
+      */
+
+      const makeItClickable = function () {
+        let title = document.querySelector("h1");
+        console.log(title);
+
+        title.addEventListener("click", function () {
+          if (this.style.color == "red") {
+            this.style.color = "blue";
+          } else {
+            this.style.color = "red";
+          }
+        });
+      };
+      makeItClickable();
+
+      /* ESERCIZIO 10
+       Cambia il testo del footer con qualcos'altro quando l'utente ci clicca sopra.
+      */
+      // da finire
+      const changeFooterText = function () {
+        let divFooter = document.querySelector(".footer");
+        let pFooter = divFooter.firstElementChild;
+        console.log(pFooter);
+        pFooter.addEventListener("click", () => {
+          pFooter.textContent = "Paragrafino Cliccato";
+        });
+      };
+      changeFooterText();
+      /* ESERCIZIO 11
+       Aggiungi un event listener al campo di testo nella pagina e fai in modo che dopo ogni lettera il suo valore venga mostrato in console.
+      */
+
+      const inputField = document.getElementById("input-field");
+
+      function input() {
+        inputField.addEventListener("input", function () {
+          let testo = inputField.value;
+          let testo2 = [];
+          for (let n = 0; n < testo.length; n++) {
+            testo2.push(testo[n]);
+          }
+          testo2 = testo2.join("");
+          console.log(testo2);
+        });
+      }
+
+      // vrsione spiccia // inputField.addeventlistener('input', function(){
+      //console.log(inputfield.value)
+      //} )
+      input();
+
+      /* ESERCIZIO 12
+       Crea un messaggio di benvenuto con un alert quando la pagina ha finito di caricarsi.
+      */
+
+      window.onload = function () {
+        alert("Benvenuto");
+      };
+    </script>
+  </body>
+</html>
