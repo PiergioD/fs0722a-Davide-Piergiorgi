@@ -556,8 +556,17 @@ const addCSs = () => {
   ***
 
 */
+const halfTree = (n) => {
+  // creo stringa vuota
+  let mezzaAlbero = "";
+  // ad ogni iterazione, faccio console.log dell'iterazione
+  for (i = 0; i < n; i++) {
+    // aggiungo un asterisco ad ogni iterazione
+    console.log((mezzaAlbero += "*"));
+  }
+};
 
-halfTree(4);
+halfTree(6);
 /* ESERCIZIO 28
   Crea una funzione chiamata "tree" che riceve un numero come parametro e costruisce un albero di "*" (asterischi) dell'altezza fornita.
 
