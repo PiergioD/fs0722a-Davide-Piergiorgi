@@ -7,6 +7,8 @@ body {
   background-position: center center;
   letter-spacing: 0.05em;
 }
+
+/*container princiaple*/
 #container {
   display: flex;
   color: white;
@@ -29,6 +31,7 @@ body {
   line-height: 50px;
   font-size: 40px;
 }
+
 #inputBox {
   background-color: transparent;
   text-decoration: none;
@@ -111,6 +114,8 @@ body {
   left: 0;
   pointer-events: none;
 }
+
+/*stelline*/
 .rating_star {
   font-size: 3em;
   cursor: pointer;
@@ -120,6 +125,9 @@ body {
 .rating_star:hover {
   filter: drop-shadow(1px 1px 4px #00ffff);
 }
+
+
+/*alert per il send feed*/
 .popUp {
   font-size: 30px;
   width: 670px;

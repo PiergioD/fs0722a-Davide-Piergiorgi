@@ -10,6 +10,7 @@ body {
   font-weight: 16px;
 }
 
+/* container di tutto*/
 #container {
   max-width: 1250px;
   margin-left: auto;
@@ -51,10 +52,12 @@ ul li {
   margin-left: 20px;
 }
 
+/* classe per mettere in grassetto*/
 .b {
   font-weight: bold;
 }
 
+/* div per mettere in riga la checkbox e il bottoncino*/
 #btn-checkbox {
   margin-top: 50px;
   display: flex;
@@ -62,6 +65,7 @@ ul li {
   justify-content: space-between;
 }
 
+/*bottoncino per il proceed*/
 #btn-proceed {
   background-color: darkgray;
   color: rgb(3, 3, 59);
@@ -71,12 +75,15 @@ ul li {
   box-shadow: 0 10px 50px 5px black;
   font-weight: 900;
 }
+
+/*check box */
 #checkbox {
   height: 20px;
   width: 20px;
   border: 1px solid white;
 }
 
+/*div del bottoncino per mettere lo stile alla scritta*/
 #div-proceed {
   font-weight: 900;
 }

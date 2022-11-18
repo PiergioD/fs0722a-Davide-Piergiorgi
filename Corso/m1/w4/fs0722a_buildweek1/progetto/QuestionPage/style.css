@@ -9,6 +9,7 @@ body {
   font-family: "Inter", sans-serif;
 }
 
+/*header della pagina con logo e timer*/
 .header {
   display: flex;
   justify-content: space-between;
@@ -20,20 +21,12 @@ body {
   margin-left: 108px;
 }
 
-#cont-Domande {
-  border: 1px solid wheat;
-  width: 900px;
-  height: 500px;
-  margin-top: 40px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
 #footer {
   margin-top: 40px;
   text-align: center;
 }
 
+/* timer delle domande*/
 #orologio {
   position: relative;
   height: 140px;
@@ -45,17 +38,20 @@ body {
   gap: 2px;
 }
 
+/* stile del numero*/
 #countdown-number {
   position: relative;
   color: white;
   font-size: 3rem;
 }
 
+/*stile delle scritte dentro timer*/
 .timer-text {
   color: white;
   font-size: 10px;
 }
 
+/*posizione e inizio rotazione del timer*/
 svg {
   position: absolute;
   top: 0;
@@ -65,6 +61,7 @@ svg {
   transform: rotateY(-180deg) rotateZ(-90deg);
 }
 
+/*cerchio blu che diminuisce col tempo usando animazione di 30 sec*/
 .cerchioBlu {
   stroke-dasharray: 376.4px;
   stroke-dashoffset: 0px;
@@ -77,6 +74,7 @@ svg {
   animation: countdown 30s linear infinite forwards;
 }
 
+/*cerchio sotto! cerchio completo che sta trasparente*/
 svg#bg-trasp circle {
   stroke-dasharray: 376.4px;
   stroke-dashoffset: 0px;
@@ -88,6 +86,7 @@ svg#bg-trasp circle {
   fill: none;
 }
 
+/*animazione del countdon*/
 @keyframes countdown {
   from {
     stroke-dashoffset: 0px;
@@ -97,11 +96,13 @@ svg#bg-trasp circle {
   }
 }
 
+/*container delle domande*/
 .container {
   max-width: 900px;
   margin: 32px auto;
 }
 
+/*stile delle domande*/
 #questionText {
   font-size: 50px;
   font-family: "Outfit" sans-serif;
@@ -109,6 +110,7 @@ svg#bg-trasp circle {
   margin-bottom: 60px;
 }
 
+/*griglia per le risposte*/
 .grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -121,6 +123,7 @@ svg#bg-trasp circle {
   left: 21.5%;
 }
 
+/*stile elementi griglia*/
 .grid-item {
   width: 100%;
   padding: 24px 0;
@@ -136,6 +139,7 @@ svg#bg-trasp circle {
   cursor: pointer;
 }
 
+/*footer con la progressione di question*/
 #footer {
   margin-top: 120px;
   font-weight: 550;

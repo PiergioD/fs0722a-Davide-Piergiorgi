@@ -24,6 +24,7 @@ body {
   height: auto;
   position: absolute;
 }
+
 .sottotitolo {
   display: flex;
   align-items: center;
@@ -69,18 +70,23 @@ body {
   height: 360px;
   padding-top: 30px;
 }
+
+/*cerchio per le percentuali corrette o sbagliate*/
 .cerchio_1 {
   text-align: center;
   float: left;
   width: 360px;
   height: 350px;
 }
+
+/*cerchio che sta sotto*/
 #val_cerchio1 {
   fill: none;
   stroke: #d20094;
   stroke-width: 50px;
 }
 
+/*cerchio che si muove*/
 #val_cerchio2 {
   fill: none;
   stroke: #00ffff;
@@ -89,6 +95,7 @@ body {
   stroke-dashoffset: 0px;
   animation: anim 2s linear forwards;
 }
+/*frames per l'animazione*/
 @keyframes anim {
   0% {
     stroke-dashoffset: 0px;
@@ -110,6 +117,8 @@ body {
   box-shadow: 0px 0px 20px 6px black;
   border-radius: 50%;
 }
+
+/*stile per le scritte dentro il cerchio*/
 #circle-text {
   position: absolute;
   top: -17em;
@@ -145,6 +154,7 @@ body {
   padding-bottom: 55px;
 }
 
+/*stile del bottone rate us*/
 .btn-rate {
   width: 200px;
   height: 55px;
