@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Caricamento condizionale</title>
+  </head>
+  <style>
+    /*
+    #testata {
+      background: url(../d1/beach-2.jpg);
+      background-size: cover;
+      width: 100%;
+      height: 300px;
+    }
+    
+fino a 480px non si vede ed è sbagliato perhce non è mobile fisrt
+    @media only screen and(max-width:480px) {
+      #testata {
+        display: none;
+      }
+    }
+    */
+
+    /* soluizione corretta*/
+    #testata {
+      background: none;
+    }
+
+    @media only screen and (min-width: 768px) {
+      #testata {
+        background: url(../d1/beach-2.jpg);
+        background-size: cover;
+        width: 100%;
+        height: 300px;
+      }
+    }
+  </style>
+  <body>
+    <div id="testata"></div>
+  </body>
+</html>

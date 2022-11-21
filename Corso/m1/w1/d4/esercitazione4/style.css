@@ -70,7 +70,10 @@ body {
 
 #sectionFirst,
 #sectionSecond,
-#sectionThird {
+#sectionThird,
+#sectionFourth,
+#sectionFifth,
+#sectionSixth {
   max-width: 400px;
   margin-left: auto;
   margin-right: auto;
@@ -121,12 +124,75 @@ body {
 #sectionThird table {
   margin-top: 20px;
   border: 1px solid black;
-  margin-left: auto;
-  margin-right: auto;
+  width: 400px;
+  height: 200px;
 }
 
-/* FORM */
+caption {
+  font-weight: 700;
+  font-style: italic;
+}
 
+thead tr {
+  background-color: rgba(35, 42, 109, 0.5);
+}
+
+tbody tr:nth-child(even) {
+  background-color: rgba(127, 127, 127, 0.5);
+}
+
+#sectionFourth {
+  margin-top: 20px;
+}
+
+#sectionFourth a {
+  text-decoration: none;
+  color: blueviolet;
+  font-weight: 700;
+}
+
+#videoYoutube {
+  max-width: 400px;
+  margin-top: 10px;
+  border-radius: 30px;
+  max-height: 200px;
+}
+/* FORM */
+#sectionFifth {
+  margin-top: 20px;
+  background-color: rgba(127, 127, 127, 0.5);
+  max-width: 400px;
+  max-height: 300px;
+  text-align: center;
+}
+
+#sectionFifth,
+#sectionSixth h5 {
+  font-size: 2rem;
+  font-weight: 500;
+  margin-top: 20px;
+  padding-top: 15px;
+}
+
+#sectionFifth p {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-size: 1.1rem;
+}
+
+#sectionFifth input {
+  margin-bottom: 15px;
+}
 /* ELEMENTI NELL' ASIDE */
+#sectionSixth h5 {
+  text-align: center;
+}
+
+.box-articoli {
+  background-color: rgba(127, 127, 127, 0.5);
+  max-width: 400px;
+  max-height: 140px;
+  margin-top: 20px;
+}
 
 /* FOOTER */ ;

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=yes, initial-scale=1.0, minimum-scale=0.9, maximum-scale=1.1"
+    />
+    <!--la proprieta ainitial scale imposta il fattore di zomm iniziale(quando la pagina viene caricata)
+    La proprietà user scalable permette di consentire o meno all'utente di ridimensionare la pagina
+    con mimnum scale e maximum posso stabilire quanto l'utente puo zommare!
+    -->
+    <title>Media queries</title>
+  </head>
+  <style>
+    body {
+      background-color: red; /*mobile first*/
+    }
+
+    @media screen and (min-width: 480px) {
+      /* smarthphone landscape*/
+      body {
+        background-color: yellow;
+      }
+    }
+    @media screen and (min-width: 768px) {
+      /*tablet*/
+      body {
+        background-color: green;
+      }
+    }
+
+    @media screen and (min-width: 1024px) {
+      /*laptop*/
+      body {
+        background-color: blue;
+      }
+    }
+
+    @media screen and (min-width: 1200px) {
+      /*desktop*/
+      body {
+        background-color: grey;
+      }
+    }
+
+    /*riduco lo la width della pagina e mi cambia colore!!*/
+
+    /*per la stampante*/
+    @media print {
+      body {
+        background-color: white;
+      }
+    }
+  </style>
+  <body></body>
+</html>

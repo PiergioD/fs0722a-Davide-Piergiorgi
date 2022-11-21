@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Srcset</title>
+  </head>
+  <body>
+    <!--immagini di default e immagini diverse che vengono caricate secondo la risoluazione-->
+    <picture>
+      <source media="(min-width:1024px)" srcset="img_white_flower.jpeg" />
+      <source media="(min-width:800px" srcset="img_pink_flowers.jpeg" />
+      <img src="../d1/img_orange_flowers.jpeg" alt="flowers" />
+    </picture>
+  </body>
+</html>
