@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Position Absolute</title>
+  </head>
+  <style>
+    .relative {
+      position: relative;
+      width: 400px;
+      height: 200px;
+      border: 3px solid red;
+      left: 500px;
+      /* si postano tutti a sinistra perche gli aboslute sono positzionati ripetto allaancestor*/
+    }
+
+    .absolute {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 200px;
+      height: 100px;
+      border: 3px solid blue;
+      text-align: center;
+    }
+
+    .absolute2 {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 150px;
+      height: 100px;
+      border: 3px solid green;
+      text-align: center;
+    }
+  </style>
+  <body>
+    <h2>Position Absolute</h2>
+    <p>
+      un lemente che ha position absolute si posiziona relativamente rispetto al
+      suo genitore(contenitore piu vicino)
+    </p>
+    <p>
+      se un div con position aboslute non ha genitori, usa il body come genitore
+    </p>
+    <div class="relative">
+      Questo div rosso ha position Relative
+      <div class="absolute">QUesto div blu ha position absolute</div>
+      <div class="absolute2">Questo div verder ha position aboslute</div>
+    </div>
+  </body>
+</html>

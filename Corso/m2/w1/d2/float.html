@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Float</title>
+  </head>
+  <style>
+    body {
+      margin: 0px;
+    }
+
+    .container {
+      width: 1100px;
+      margin: 0 auto;
+      border: 1px solid black;
+    }
+
+    header {
+      background-color: navy;
+      text-align: center;
+    }
+
+    header h1 {
+      color: white;
+      font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+      margin: 0;
+    }
+
+    nav {
+      background-color: blueviolet;
+      height: 30px;
+    }
+
+    nav ul {
+      margin: 0;
+      padding: 0;
+      list-style-type: none;
+    }
+    /*voglio affiancare gli elementi li ( di base sono block)1! inline non accetta margin, padding o hegiht o width! bisogna utlizzare inline-block*/
+    nav li {
+      /*anziche display inline, usiamo float*/
+      float: left;
+      /*float romper la caratteristica del display block e fa fluttuarre gli elementi da sinistra a destra! gli attributi a cui assegnamo float NON contribuiscono all altezza del contenitore!*/
+      border-right: 1px solid white;
+      padding: 0 80px;
+    }
+
+    /*si puo utilizzare anche last child*/
+    nav li#ultimo {
+      border-right: none;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      /*con display block a mi occupa tutta lagrandezza del concentiore in cui è*/
+      display: block;
+      /*st4ssi pixel del contenitore, mi darà vertical align middle*/
+      line-height: 30px;
+    }
+    nav a:hover {
+      background-color: white;
+      color: blueviolet;
+    }
+    /*main*/
+    /*gli elementi con float vanno SEMPRE scritti prima degli altri elementi senza float*/
+    main p {
+      padding: 20px;
+      margin: 0 auto;
+      text-align: justify;
+    }
+    section {
+      padding: 0 30px;
+    }
+    aside {
+      float: left;
+      width: 300px;
+    }
+
+    #right {
+      float: right;
+      width: 270px;
+    }
+
+    .left {
+      float: left;
+      width: 50px;
+    }
+
+    .right {
+      float: right;
+      width: 50px;
+    }
+
+    /*footer*/
+
+    footer {
+      background-color: blueviolet;
+      color: white;
+      text-align: center;
+      /*con clear, il footersi posiziona sottov(non ci sono elementi ne a sinistra ne a desttra tra footer e il suo contenitore!)*/
+      clear: both;
+    }
+
+    footer p {
+      margin: 0;
+    }
+  </style>
+  <body>
+    <div class="container">
+      <!--intestazione-->
+      <header>
+        <h1>Epicode</h1>
+        <nav>
+          <ul>
+            <li><a href="#">Html</a></li>
+            <li><a href="#">Css</a></li>
+            <li><a href="#">Javascript</a></li>
+            <li><a href="#">Typescript</a></li>
+            <li id="ultimo"><a href="#">Angular</a></li>
+          </ul>
+        </nav>
+      </header>
+      <!--corpo centrale-->
+      <main>
+        <aside>
+          <img src="img_orange_flowers.jpeg" alt="fiori" /><br />
+          <img src="img_white_flower.jpeg" alt="fiore" />
+        </aside>
+        <section>
+          <aside id="right">
+            <img src="img_orange_flowers.jpeg" alt="fiori" /><br />
+            <img src="img_white_flower.jpeg" alt="fiore" />
+          </aside>
+          <img src="img_orange_flowers.jpeg" alt="fiori" class="right" />
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique,
+            deleniti itaque. Cum at veniam blanditiis quam sint eius vitae
+            mollitia maiores, sunt est asperiores iure aperiam beatae facere
+            labore a?Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+            Tenetur quis beatae voluptatum illo autem ullam quibusdam ex
+            quaerat. Placeat voluptatum sint cum perspiciatis. Ipsam vero ea
+            atque voluptate blanditiis et!
+          </p>
+          <img src="img_orange_flowers.jpeg" alt="fiori" class="left" />
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad minima
+            obcaecati, adipisci tenetur odio perspiciatis qui voluptatibus eos
+            delectus eius, rerum, beatae voluptatem? Labore suscipit vitae, odio
+            itaque dicta Lorem ipsum dolor sit amet, consectetur adipisicing
+            elit. Ipsa harum perferendis voluptatibus, beatae ipsam tempora quos
+            id odio sunt delectus animi quo modi autem quod quam. Voluptas
+            numquam nisi natus.
+          </p>
+          <img src="img_orange_flowers.jpeg" alt="fiori" class="right" />
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur,
+            accusantium rem! Hic, iste facilis aliquid, incidunt neque ipsam
+            animi ex voluptatum fugit tempore consectetur labore molestias vel
+            perferendis voluptatem autem. Lorem ipsum dolor sit amet consectetur
+            adipisicing elit. Earum dolorum doloremque iste error in maxime,
+            magni molestias atque harum sapiente distinctio iure quae autem
+            dolorem similique eveniet laudantium tempore voluptatem?
+          </p>
+          <img src="img_orange_flowers.jpeg" alt="fiori" class="left" />
+          <p class="left-text">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique,
+            deleniti itaque. Cum at veniam blanditiis quam sint eius vitae
+            mollitia maiores, sunt est asperiores iure aperiam beatae facere
+            labore a? Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+            Eum nobis quas molestias mollitia minus dolore commodi nostrum animi
+            tempore ea omnis qui eligendi impedit, repudiandae possimus tenetur
+            quidem quasi eveniet! Lorem ipsum dolor sit amet consectetur
+            adipisicing elit. Quidem velit harum, tempore magni qui voluptas
+            sequi perferendis corrupti. Error, quibusdam vitae. Corrupti
+            aspernatur repellat quo sunt placeat hic omnis perferendis!
+          </p>
+          <img src="img_orange_flowers.jpeg" alt="fiori" class="right" />
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad minima
+            obcaecati, adipisci tenetur odio perspiciatis qui voluptatibus eos
+            delectus eius, rerum, beatae voluptatem? Labore suscipit vitae, odio
+            itaque dicta rerum. Lorem ipsum, dolor sit amet consectetur
+            adipisicing elit. Sapiente natus placeat modi, quo consectetur
+            veritatis voluptatibus repellendus aperiam, illum reprehenderit
+            nobis blanditiis magni soluta cupiditate autem accusamus. Incidunt,
+            tenetur possimus? Lorem ipsum dolor sit, amet consectetur
+            adipisicing elit. Facilis, tempore ab dignissimos officia numquam
+            provident magni, cupiditate dolorem rem minima quibusdam
+            perspiciatis nemo dicta aspernatur nihil officiis, est delectus
+            accusantium.
+          </p>
+          <img src="img_orange_flowers.jpeg" alt="fiori" class="left" />
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur,
+            accusantium rem! Hic, iste facilis aliquid, incidunt neque ipsam
+            animi ex voluptatum fugit tempore consectetur labore molestias vel
+            perferendis voluptatem autem. Lorem ipsum dolor sit amet,
+            consectetur adipisicing elit. Accusantium nobis perferendis
+            voluptates. Sunt illum dolores expedita quia maiores sit voluptates
+            facilis mollitia, cupiditate, unde, nihil consequatur error. Et,
+            impedit eligendi. Lorem, ipsum dolor sit amet consectetur
+            adipisicing elit. Corrupti voluptatibus ea veniam facere officia
+            doloremque natus, maiores dolorum voluptates praesentium, debitis
+            placeat eaque quasi, eveniet dignissimos culpa magni similique in!
+          </p>
+        </section>
+        <footer><p>footer</p></footer>
+      </main>
+    </div>
+  </body>
+</html>

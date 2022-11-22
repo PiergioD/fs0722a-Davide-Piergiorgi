@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>z-index</title>
+  </head>
+  <style>
+    .container {
+      width: 1024px;
+      margin: 0 auto;
+      border: 2px solid black;
+      position: relative;
+      height: 800px;
+    }
+
+    .container div {
+      position: absolute;
+      width: 150px;
+      height: 150px;
+    }
+
+    #rosso {
+      background-color: red;
+      top: 20px;
+      left: 20px;
+      /*piu è alto il valore di zindex piiu lemento sta sopra! chi ha il piu alto vince!*/
+      /*a parità quindi quando non viene indicato, chi viene scrittpo dopo sta piiu in alto!*/
+      z-index: 3;
+    }
+
+    #blu {
+      background-color: blue;
+      top: 40px;
+      left: 40px;
+      z-index: 2;
+    }
+
+    #verde {
+      background-color: green;
+      top: 60px;
+      left: 60px;
+      z-index: 1;
+    }
+
+    img {
+      position: absolute;
+      left: 0;
+      top: 0;
+      z-index: -1;
+    }
+
+    /*valori possibili
+    auto--> valore uguale a tutti i parents
+    numero--> qualsiasi numero intero o negativo
+    initial--> valore di default(0)
+    inherit--> ereditùà dal genitore*/
+  </style>
+  <body>
+    <h2>Proprietà z-index</h2>
+    <div class="container">
+      <div id="rosso"></div>
+      <div id="blu"></div>
+      <div id="verde"></div>
+    </div>
+    <img src="beach-2.jpg" alt="" />
+    siccome immagine ha z-index a -1 verra posizionata sotto!
+  </body>
+</html>

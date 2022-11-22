@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PositionSticky</title>
+  </head>
+  <style>
+    .sticky {
+      position: sticky;
+      position: -webkit-sticky; /*per farlo funzionare anche con safari*/
+      top: 0; /*è obbligatorio pseicifacre almeno una posizione*/
+      border: 2px solid black;
+      background-color: grey;
+      padding: 5px;
+      border-radius: 5px;
+    }
+
+    .testo {
+      padding-bottom: 2000px;
+    }
+  </style>
+  <body>
+    <h2>Position Sticky</h2>
+    <p>Prova a fare <b>scroll</b> per capire come funzione sticky</p>
+
+    <div class="sticky">IO sono quello <code>Sticky</code></div>
+    <div class="testo">
+      <p>
+        in uquesto esempio mi aspetto che quando faccio scroll, l'elemento che
+        ha
+        <code>position:sticky</code> si ancori(<em>sticks</em>) al top della
+        pagina(<code>top:0</code>) Quando faccio scroll al contrario, si rimuove
+      </p>
+      <p>
+        un elemento con <code>position:sticky</code> passa da una position
+        relative ad un position fixed se si scrolla o meno! è posizionato
+        relative finche ce uno scroll e quando raggiunge la positizione diventa
+        sticked(attaccato) nella posizione nuova (come un posizion fixed)
+      </p>
+      <p>
+        per funzionare corretamente cros browser devo aggiungere il prefisso
+        -webkit per safari
+      </p>
+      <p>
+        <strong
+          >FUNZIONA SUL ELEMENTI SIBLINGS CIOE FRATELLI! CIOE CHE FUNZIONA TRA
+          ELEMENTI ALLO STESSO LIVELLO DI HTML(ELEMENTI FRATELLI) NON FUNZIONA
+          INVECE SE APPLICATO AD UN ELEMENTO CHILD!</strong
+        >
+      </p>
+    </div>
+  </body>
+</html>
