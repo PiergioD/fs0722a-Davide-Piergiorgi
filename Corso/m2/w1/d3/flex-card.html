@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FlexCard</title>
+  </head>
+  <style>
+    .cards {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: stretch;
+    }
+
+    .card {
+      /*flex basis in percentuale o pixel*/
+      flex: 0 0 200px;
+      margin: 10px;
+      border: 1px solid #ccc;
+      box-shadow: 2px 2px 6px 0px rgba(0, 0, 0, 0.3);
+    }
+
+    .card {
+      /*rendo responsive*/
+      max-width: 100%;
+    }
+
+    .card .test {
+      padding: 0 20px 20px;
+    }
+
+    .card .test > button {
+      background-color: gray;
+      border: 0;
+      color: white;
+      padding: 10px;
+      width: 100%;
+    }
+  </style>
+  <body>
+    <!--conteniore cards-->
+    <main class="cards">
+      <!--singola carta-->
+      <article class="card">
+        <img src="images/15l.jpeg" alt="sample photo" />
+        <div class="test">
+          <h3>Seamlessly visualize quality</h3>
+          <p>
+            Collaboratively administrate empowered markets via plug-and-play
+            networks.
+          </p>
+          <button>Here's why</button>
+        </div>
+      </article>
+      <!--carta 2-->
+      <article class="card">
+        <img src="images/16l.jpeg" alt="sample photo" />
+        <div class="test">
+          <h3>Seamlessly visualize quality</h3>
+          <p>
+            Collaboratively administrate empowered markets via plug-and-play
+            networks.
+          </p>
+          <button>Here's why</button>
+        </div>
+      </article>
+      <!--carta3-->
+      <article class="card">
+        <img src="images/22m.jpeg" alt="sample photo" />
+        <div class="test">
+          <h3>Seamlessly visualize quality</h3>
+          <p>
+            Collaboratively administrate empowered markets via plug-and-play
+            networks.
+          </p>
+          <button>Here's why</button>
+        </div>
+      </article>
+      <!--carta4-->
+      <article class="card">
+        <img src="images/23m.jpeg" alt="sample photo" />
+        <div class="test">
+          <h3>Seamlessly visualize quality</h3>
+          <p>
+            Collaboratively administrate empowered markets via plug-and-play
+            networks.
+          </p>
+          <button>Here's why</button>
+        </div>
+      </article>
+      <!--carta5-->
+      <article class="card">
+        <img src="images/25m.jpeg" alt="sample photo" />
+        <div class="test">
+          <h3>Seamlessly visualize quality</h3>
+          <p>
+            Collaboratively administrate empowered markets via plug-and-play
+            networks.
+          </p>
+          <button>Here's why</button>
+        </div>
+      </article>
+      <!--carta6-->
+      <article class="card">
+        <img src="images/27m.jpeg" alt="sample photo" />
+        <div class="test">
+          <h3>Seamlessly visualize quality</h3>
+          <p>
+            Collaboratively administrate empowered markets via plug-and-play
+            networks.
+          </p>
+          <button>Here's why</button>
+        </div>
+      </article>
+    </main>
+  </body>
+</html>

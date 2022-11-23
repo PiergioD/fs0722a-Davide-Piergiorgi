@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gridGallery</title>
+  </head>
+  <style>
+    /*questo lo tiene gia reposnsive! non ce bisogno di media query se non per width delle img*/
+    .grid {
+      display: grid;
+      /*autofill dimensionati col contenuto e min max 200px minimo di grandezza e 1fr è una frazione della colonna della griglia*/
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      grid-gap: 20px;
+      align-items: stretch;
+    }
+
+    .grid img {
+      border: 1px solid #ccc;
+      box-shadow: 2px 2px 6px 0px rgba(0, 0, 0, 0.3);
+      max-width: 100%;
+    }
+  </style>
+  <body>
+    <main class="grid">
+      <img src="images/28m.jpeg" alt="" />
+      <img src="images/29m.jpeg" alt="" />
+      <img src="images/30m.jpeg" alt="" />
+      <img src="images/32m.jpeg" alt="" />
+      <img src="images/33m.jpeg" alt="" />
+      <img src="images/25m.jpeg" alt="" />
+    </main>
+  </body>
+</html>
