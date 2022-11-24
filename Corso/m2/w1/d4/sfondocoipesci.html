@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Immagine coi Pesci</title>
+  </head>
+  <style>
+    #container {
+      margin: 0 auto;
+      border: 1px solid black;
+      max-width: 1100px;
+      height: 700px;
+      background-color: aqua;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    #sfondo {
+      background-image: url(images/fondo.jpg);
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      width: 700px;
+      height: 500px;
+      border: 1px solid black;
+    }
+
+    .corallo {
+      z-index: 2;
+      position: relative;
+      width: 320px;
+      top: -217px;
+    }
+
+    /*da finire! mettere almeno un pesce*/
+    .cardinale {
+      position: absolute;
+      animation-name: animazione_pesce_01;
+
+      width: 60px;
+      height: 60px;
+      position: absolute;
+      top: 270px;
+      right: 50px;
+    }
+
+    @keyframes animazione_pesce_01 {
+      from {
+        transform: translate(0, 0);
+      }
+      20% {
+        transform: translate(-140px, -90px) rotate(10deg) scale(1, 1.6);
+      }
+      40% {
+        transform: translate(-280px, -70px) rotate(-1deg);
+      }
+      60% {
+        transform: translate(-420px, -105px) rotate(-10deg) scale(1, 1.6);
+      }
+      80% {
+        transform: translate(-560px, -65px) scale(1, 1.6);
+      }
+      to {
+        transform: translate(-750px, 50px);
+      }
+    }
+  </style>
+  <body>
+    <div id="container">
+      <div id="sfondo">
+        <img class="corallo" src="images/corallo.gif" alt="corrallosinistra" />
+        <img class="corallo" src="images/corallo2.gif" alt="corallodestra" />
+        <img
+          class="cardinale"
+          src="images/cardinale.gif"
+          alt="pesciolinoCardinale"
+        />
+      </div>
+    </div>
+  </body>
+</html>

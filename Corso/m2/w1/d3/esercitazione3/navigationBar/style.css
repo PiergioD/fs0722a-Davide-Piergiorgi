@@ -1,29 +1,29 @@
 body {
   width: 100vw;
   height: 100vh;
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 90px;
 }
 
-#containerNav {
-  margin-left: auto;
-  margin-right: auto;
-  max-width: 1000px;
+* {
+  box-sizing: border-box;
 }
 
 nav {
-  margin-left: auto;
-  margin-right: auto;
   border-radius: 40px;
-  display: flex;
   background-color: beige;
   color: rgb(136, 92, 63);
   padding: 1em;
   font-family: sans-serif;
   font-size: 1.3em;
-  width: 700px;
-  flex-direction: row;
-  justify-content: center;
+  /*width 60%*/
+  /*border radius 100px*/
+  /*align items center*/
   margin-top: 50px;
   box-shadow: 2px 2px 6px 0px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
 
 nav > ul {
@@ -35,24 +35,50 @@ nav > ul {
   align-items: center;
 }
 
-ul li img {
-  width: 15%;
+@media screen and (max-width: 800px) {
+  nav > ul {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+
+  .shop {
+    display: flex;
+    align-content: center;
+    order: 1;
+    -webkit-order: 1;
+  }
+
+  .logo-ape {
+    max-width: 20%;
+  }
 }
 
-nav li {
+.item-piccolo {
+  /*sono gli item small,  quindi mettiamo flex*/
+  /*flex 1 0 100px*/
   padding: 8px 12px;
   background-color: rgb(206, 191, 107);
   border-radius: 30px;
   text-align: center;
-  margin-left: 10px;
+  margin: 10px 10px;
+  flex: 1 0 50px;
 }
 
 .shop {
-  padding: 12px 0;
+  background-color: rgb(206, 191, 107);
+  border-radius: 30px;
   text-transform: uppercase;
   font-weight: 600;
   display: flex;
   flex-direction: row;
   justify-content: center;
-  flex: 2;
+  align-content: center;
+  /*flex 2 0 200px*/
+  flex: 2 0 100px;
+}
+
+.logo-ape {
+  max-width: 50px;
+  max-height: 50px;
+  display: flex;
 }

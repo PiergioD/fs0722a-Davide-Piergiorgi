@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Animazioni TIming</title>
+  </head>
+  <style>
+    #box {
+      width: 520px;
+      border: 1px solid black;
+      padding: 5px;
+    }
+
+    .box {
+      width: 100px;
+      height: 100px;
+      margin: 10px;
+      border: 1px solid black;
+    }
+
+    #box1 {
+      border-color: #f90;
+      animation-name: animazione-box;
+      animation-duration: 10s;
+      /*se il delay non è impostato, il daly di feault è 0*/
+      animation-delay: 0s;
+      animation-iteration-count: 1;
+      animation-fill-mode: forwards;
+      animation-timing-function: ease;
+    }
+    #box2 {
+      border-color: darkgreen;
+      animation-name: animazione-box;
+      animation-duration: 10s;
+      /*se il delay non è impostato, il daly di feault è 0*/
+      animation-delay: 0s;
+      animation-iteration-count: 1;
+      animation-timing-function: ease-in;
+      /*l'animazione rimane dove finiscce, non torna indietro!*/
+      animation-fill-mode: forwards;
+    }
+    #box3 {
+      border-color: blue;
+      animation-name: animazione-box;
+      animation-duration: 10s;
+      /*se il delay non è impostato, il daly di feault è 0*/
+      animation-delay: 0s;
+      animation-iteration-count: 1;
+      animation-timing-function: ease-out;
+      animation-fill-mode: forwards;
+    }
+    #box4 {
+      border-color: lightskyblue;
+      animation-name: animazione-box;
+      animation-duration: 10s;
+      /*se il delay non è impostato, il daly di feault è 0*/
+      animation-delay: 0s;
+      animation-iteration-count: 1;
+      animation-timing-function: ease-in-out;
+      animation-fill-mode: forwards;
+    }
+    #box5 {
+      border-color: brown;
+      animation-name: animazione-box;
+      animation-duration: 10s;
+      /*se il delay non è impostato, il daly di feault è 0*/
+      animation-delay: 0s;
+      animation-iteration-count: 1;
+      animation-timing-function: linear;
+      animation-fill-mode: forwards;
+    }
+
+    @keyframes animazione-box {
+      0% {
+        /*stato iniziale*/
+        transform: translate(0, 0);
+      }
+      /*al 100% dellanimazione, sposta di 400px sulla destra, contemporanemante ruota di 90deg e borders radius di 50px*/
+      100% {
+        transform: translate(400px, 0) rotate(90deg);
+        border-radius: 50px;
+      }
+    }
+  </style>
+  <body>
+    <div id="box">
+      <div id="box1" class="box"></div>
+      <div id="box2" class="box"></div>
+      <div id="box3" class="box"></div>
+      <div id="box4" class="box"></div>
+      <div id="box5" class="box"></div>
+    </div>
+  </body>
+</html>

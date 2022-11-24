@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AnimazioniTesto</title>
+  </head>
+  <style>
+    #box {
+      margin: 20px auto;
+      padding: 5px;
+      width: 400px;
+      background-color: grey;
+      border: 1px solid black;
+    }
+
+    #box h1 {
+      margin: 0;
+      padding: 5px;
+      /*versione animation estesa*/
+      animation-name: animazione_testo_02; /*cambio nome animazione*/
+      animation-duration: 5s;
+      animation-delay: 1s;
+      animation-iteration-count: 1;
+      animation-timing-function: ease;
+      /*con lanimazione mi ritorna nella posizione originario! io voglio che mi rimangga li! metto la modifica nel css*/
+      transform: translate(180px, 0);
+    }
+
+    /*dopo un secondo che carico la pagina mi fa per una volta sola l'animazione--> il testo da opacity 0 a opacity 1*/
+    @keyframes animazione_testo_01 {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+
+    @keyframes animazione_testo_02 {
+      /* allo 0 percento, uso translate(x,y)*/
+      0% {
+        transform: translate(0, 0);
+      }
+      100% {
+        transform: translate(180px, 0);
+      }
+    }
+
+    /*voglio unire le due animazioni, basta che unisco opacity e transform nel keyframes*/
+  </style>
+  <body>
+    <div id="box"><h1>Testo di Prova</h1></div>
+  </body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Transioni MUlti proprietà</title>
+  </head>
+  <style>
+    #box {
+      width: 200px;
+      height: 200px;
+      background-color: red;
+      /*nelle transition property l'importante che siano misurarbili*/
+      transition-property: background-color, width, opacity;
+      transition-duration: 10s;
+      transition-delay: 1s;
+      transition-timing-function: ease-out;
+    }
+
+    #box:hover {
+      background-color: blue;
+      width: 500px;
+      opacity: 0.5;
+    }
+  </style>
+  <body>
+    <div id="box"></div>
+  </body>
+</html>

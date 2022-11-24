@@ -1,0 +1,259 @@
+body {
+  margin: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+#container {
+  display: flex;
+}
+
+@media screen and (max-width: 767px) {
+  #container {
+    flex-direction: column;
+  }
+}
+
+h1,
+h2 {
+  padding-left: 15px;
+  font-weight: 800;
+}
+h1 {
+  margin-top: 0;
+  margin-bottom: 24px;
+  line-height: 1;
+  color: rgb(136, 92, 63);
+}
+
+@media screen and (max-width: 575px) {
+  h1,
+  h2 {
+    text-align: center;
+  }
+}
+@media screen and (min-width: 576px) {
+  h1 {
+    font-size: 44px;
+  }
+  h2 {
+    font-size: 36px;
+  }
+  h3 {
+    font-size: 24px;
+  }
+}
+/*menu navigazione*/
+nav {
+  border-radius: 40px;
+  background-color: beige;
+  color: rgb(136, 92, 63);
+  padding: 1em;
+  font-family: sans-serif;
+  font-size: 1.3em;
+  /*width 60%*/
+  /*border radius 100px*/
+  /*align items center*/
+  margin-top: 50px;
+  box-shadow: 2px 2px 6px 0px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  display: flex;
+}
+
+nav > ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+@media screen and (min-width: 800px) {
+  nav {
+    width: 13%;
+    display: flex;
+  }
+  nav > ul {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+
+  .shop {
+    display: flex;
+    align-content: center;
+    order: 1;
+    -webkit-order: 1;
+  }
+
+  .logo-ape {
+    max-width: 20%;
+  }
+}
+
+.item-piccolo {
+  /*sono gli item small,  quindi mettiamo flex*/
+  /*flex 1 0 100px*/
+  padding: 8px 12px;
+  background-color: rgb(206, 191, 107);
+  border-radius: 30px;
+  text-align: center;
+  margin: 10px 10px;
+  flex: 1 0 50px;
+}
+
+.shop {
+  background-color: rgb(206, 191, 107);
+  border-radius: 30px;
+  text-transform: uppercase;
+  font-weight: 600;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: center;
+  /*flex 2 0 200px*/
+  flex: 2 0 100px;
+}
+
+.logo-ape {
+  max-width: 50px;
+  max-height: 50px;
+  display: flex;
+}
+
+/*prodotti*/
+
+.containerFlex {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.containerProduct {
+  max-height: 120vh;
+  background-color: beige;
+  display: flex;
+  flex-direction: column;
+  border-radius: 75px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 2px 2px 6px 0px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  flex-basis: 100%;
+}
+
+.containerProduct img {
+  max-width: 25vw;
+  object-fit: cover;
+}
+
+.testo {
+  color: rgb(136, 92, 63);
+  padding: 30px;
+  font-family: sans-serif;
+  font-size: 1.5em;
+  font-weight: 500;
+  line-height: 1em;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.caratteristiche {
+  display: flex;
+  flex-direction: column;
+  margin-right: 1em;
+}
+
+.btn-add {
+  background-color: rgb(206, 191, 107);
+  font-size: 1.5rem;
+  font-weight: 600;
+  font-family: sans-serif;
+  text-decoration: none;
+  color: rgb(136, 92, 63);
+  width: 30%;
+  padding: 12px 15px;
+  border-radius: 30px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+@media screen and (min-width: 576px) {
+  .containerProduct {
+    flex-basis: 50%;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .containerProduct {
+    flex-basis: 33.333%;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .containerProduct {
+    flex-basis: 25%;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .containerProduct {
+    flex-basis: 20%;
+  }
+}
+
+@media screen and (min-width: 576px) and (max-width: 767px) {
+  .containerProduct:last-child {
+    display: none;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 991.8px) {
+  .containerProduct:nth-last-child(2) {
+    display: none;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 1199.8px) {
+  .containerProduct:last-child {
+    display: none;
+  }
+}
+
+/*articolo*/
+.boxFlexArticle {
+  display: flex;
+  flex-direction: column;
+}
+
+#containerArticle {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  text-align: left;
+}
+
+#containerArticle article {
+  max-width: 80vw;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  background-color: beige;
+  box-shadow: 2px 2px 6px 0px rgba(0, 0, 0, 0.3);
+  padding: 15px;
+  border-radius: 15px;
+}
+
+h2,
+p {
+  font-family: sans-serif;
+  color: rgb(136, 92, 63);
+}
+
+.testoArticolo {
+  margin-left: 15px;
+}
+
+@media screen and (max-width: 800px) {
+  #containerArticle article {
+    flex-direction: column;
+  }
+} ;

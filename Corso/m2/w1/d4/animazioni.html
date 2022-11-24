@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Animazioni</title>
+  </head>
+  <style>
+    #myDIV {
+      margin: auto;
+      border: 1px solid black;
+      width: 200px;
+      height: 100px;
+      background-color: coral;
+      color: white;
+      animation: mymove linear 5s infinite; /*nome animazione,timing function,delay, iteration count(quante volte si devono ripetere), direction,mode*/
+    }
+
+    @keyframes mymove {
+      /*posso distribuire in piu punti del tempo tutte le proprieta che voglio modificare*/
+      /*from*/
+
+      100% {
+        transform: rotate(
+          360deg
+        ); /* a metà dell'animazione cosa fa? aspetto intermedio della mia animazione*/
+        /*al 100% cosa fa? animazione perpetua con un giro di 360deg*/
+      }
+
+      /*to*/
+    }
+  </style>
+  <body>
+    <h2>Animazione di una trasformazione</h2>
+    <p>
+      gradualmente ruoteremo un div di 180 gradi e poi tornera alla posizione di
+      partenza
+    </p>
+    <div id="myDIV">
+      <h1>myDIV</h1>
+    </div>
+  </body>
+</html>

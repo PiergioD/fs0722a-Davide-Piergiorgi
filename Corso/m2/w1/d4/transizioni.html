@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Transizioni</title>
+    <style>
+      div {
+        width: 100px;
+        height: 100px;
+        border-radius: 70%;
+        background: red;
+        /*quale dimentsione cambia? quanto tempo ci mette a diventare alla dimensione di hover?*/
+
+        /* transition: width 2s;*/
+        /*con la transition posso cambiare tutto cio che posso misurarr*/
+        transition: width 4s, height 5s, border-radius 4s;
+        /*posso anche direi di entrare con un certo ritardo, ma  anche nello stato cambiato, per tornare indietro ci sarò il delay*/
+        transition-delay: 1s;
+      }
+
+      /*tolgo il curose sul quadrato, mi torna a dimensione normale sempre con transition*/
+      div:hover {
+        border-radius: 10%;
+        width: 300px;
+        height: 300px;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>La proprietà transizione</h2>
+    <p>
+      Allo stato hover, il mio div cambierà i valori di alcune o una proprietà
+    </p>
+    <div></div>
+  </body>
+</html>

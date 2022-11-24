@@ -6,31 +6,31 @@ body {
 }
 
 #containerProduct {
-  max-width: 400px;
+  max-width: 25vw;
   margin-top: 30px;
   background-color: beige;
   display: flex;
   flex-direction: column;
-  border-radius: 30%;
+  border-radius: 75px;
   display: flex;
   justify-content: center;
   align-items: center;
   box-shadow: 2px 2px 6px 0px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
 }
 
 #containerProduct img {
-  width: 100%;
-  border-top-left-radius: 40%;
-  border-top-right-radius: 40%;
+  max-width: 25vw;
+  object-fit: cover;
 }
 
 .testo {
   color: rgb(136, 92, 63);
   padding: 30px;
   font-family: sans-serif;
-  font-size: 1.5rem;
+  font-size: 1.5em;
   font-weight: 500;
-  line-height: 8px;
+  line-height: 1em;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -44,7 +44,6 @@ body {
 
 .btn-add {
   background-color: rgb(206, 191, 107);
-  line-height: 20px;
   font-size: 1.5rem;
   font-weight: 600;
   font-family: sans-serif;
