@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bootstrap demo</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Hello, world!</h1>
+      <!-- Content here -->
+      <p class="text-danger">.text-danger</p>
+      <!--classe padding left e right nel paragrafo( sezione margin p padding, 2 e la misura del padding! NON SCRIVO CSS ! SCRIVO SOLO CLASSI NEL HTML)-->
+      <p class="px-5">paragrafo con padding</p>
+      <!--CON MX auto mi da al centratura orizzontale!-->
+      <div class="mx-auto" style="width: 200px">Centered element</div>
+      <!--allineamento di testo! ogni classe mi mette il testo in un certo modo-->
+      <p class="text-start">Start aligned text on all viewport sizes.</p>
+      <p class="text-center">Center aligned text on all viewport sizes.</p>
+      <p class="text-end">End aligned text on all viewport sizes.</p>
+      <!--font size!!-->
+      <p class="fs-1">.fs-1 text</p>
+      <p class="fs-2">.fs-2 text</p>
+      <p class="fs-3">.fs-3 text</p>
+      <p class="fs-4">.fs-4 text</p>
+      <p class="fs-5">.fs-5 text</p>
+      <p class="fs-6">.fs-6 text</p>
+      <!--display -->
+      <span class="d-block p-2 text-bg-primary">d-block</span>
+      <span class="d-block p-2 text-bg-dark">d-block</span>
+      <!--colori background-->
+      <div class="p-3 mb-2 bg-secondary text-white">.bg-secondary</div>
+      <!--padding 3, amrgin - bottom 2. colore di sfondo grgio ,scritta bianca-->
+      <!--shadow!-->
+      <div class="shadow-sm p-3 mb-5 bg-body rounded">Small shadow</div>
+      <!--overflow-->
+
+      <!--ce anche float!-->
+      <div class="float-start">Float start on all viewport sizes</div>
+      <br />
+      <div class="float-end">Float end on all viewport sizes</div>
+      <br />
+      <div class="float-none">Don't float on all viewport sizes</div>
+      <!--cotnenitore con display flex<!-->
+      <!-- ad ogni item ho messo padding,margin bottom, colore di sfondo,colore testo e bordo con colore verdognolo, con un width del 50%-->
+      <div class="d-flex flex-column mb-3">
+        <div
+          class="p-2 p-3 mb-2 bg-danger text-white border border-success w-50"
+        >
+          Flex item 1
+        </div>
+        <div
+          class="p-2 p-3 mb-2 bg-danger text-white border border-success w-50"
+        >
+          Flex item 2
+        </div>
+        <div
+          class="p-2 p-3 mb-2 bg-danger text-white border border-success w-50"
+        >
+          Flex item 3
+        </div>
+      </div>
+      <div class="d-flex flex-column-reverse">
+        <div
+          class="p-2 p-3 mb-2 bg-danger text-white border border-success w-50"
+        >
+          Flex item 1
+        </div>
+        <div
+          class="p-2 p-3 mb-2 bg-danger text-white border border-success w-50"
+        >
+          Flex item 2
+        </div>
+        <div
+          class="p-2 p-3 mb-2 bg-danger text-white border border-success w-50"
+        >
+          Flex item 3
+        </div>
+      </div>
+      <!--sizing con colore di sfondo e padding-->
+      <div class="w-25 p-3 bg-danger mt-4">Width 25%</div>
+      <div class="w-50 p-3 bg-success mt-4">Width 50%</div>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
