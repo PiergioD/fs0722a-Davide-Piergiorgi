@@ -1,0 +1,5 @@
+/*ho usati i css pepr cambiare il colore di classe active! con js possiamo dire che questa classe passa ad un link diverso*/
+.page-link.active {
+  background-color: black;
+  border-color: black;
+}
