@@ -1,0 +1,27 @@
+.boxHeader {
+  display: flex;
+  padding: $padding-header;
+  color: $colore-test0;
+  .testo {
+    padding: $padding-header;
+    h1 {
+      font-size: $size-titolo;
+    }
+
+    p {
+      font-weight: 700;
+    }
+  }
+
+  img {
+    border-radius: $radius-bordi;
+    box-shadow: $shadow-base;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .boxHeader {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+}

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="main.css" />
+    <title>Sass seconda parte</title>
+  </head>
+  <body>
+    <!--le variabili in sass, tipizzate dinamicamente
+    valori possibili?-> -NUMERO(1,2,3 10px 3em)
+                        -STRINGHE DI TESTO ('hello', "goodbye", ciao-> senza apici va anche bene per non collide con altri tipi di variabili)
+                        -COLORE(red,blue, #ffcc00, rgba(10,0,230,0.2))
+                        -BOOLEAN(true o false)
+                        -NULL
+                        -LISTA DI VALORI(5px 10px 5px opuure Helvetica,Arial,sans-serif)
+                        -MAPPA CHIAVE/VALORE(nome:federico , cognome:banana)
+                                            - $set-colori: (grigio:#ccc , blu:#00f)
+
+    le variabili servono come sempre a memorizzare dei valori! i valori corrisponderanno ai paramteri delle regoli di stile css
+imposto una variabile, la utilizzo in una specifica proprietà e la assegno al selettore
+TIPICAMENTE IN SASS LE VARIABILI NON VENGONO RIASSEGNATE! HANNO UNA NATURA VICINA ALLE CONST
+ESEMPIO
+
+$main-margin-top:30px-> nello stile qquesto parametro puo essere ripetuto piu volte per piu   elementi
+SE MODIFICO IL VALORE DI SASS INTERNVENGO SOLO UNA VOLTA SULLA VARIABILE, E MODIFICO TUTTI GLI ELEMENTI A CUI è ASSOCIATA LA VARIABILE!
+
+.button {margin-top: $main-margin-top}
+.left {margin-top: $main-margin-top}
+.h1 {margin-top: $main-margin-top}
+
+SASS utilizza operatori logici, operatori di comprazione, operatori numerici
+== e !=
++ - * /  5px*2px
+2px ===2px
+2px>1px
+
+IN SASS, CON LE STRINGHE, GLI APICI DOPPI SONO NECESSARI SE IL VALORE è COMPOSTO DA PIU PAROLE
+ESEMPIO
+
+p { font-family: "Times New Roman", Georgia, serif}
+
+MAPPE
+
+chiave valore
+
+$map:(k1:v1, k2:v2) coppiechiuse tra parentesi e separate da virigole
+le mappe sono immutabili, se una funzione manipola una mappa, non aggiorna la vecchia e ne crea una nuova!
+    -->
+
+    <!----------------------PARTIALS----------------->
+    <!--SASS ci permette di lavorare su singoli piccoli file che si occupano di porzione di codice specifico.  I singoli partials poi possono essere ricombinati in un unico css!
+    questo rende il lavoro modulare piu facilmente gestibile
+
+sintassi-> un file partials si distingue perche prevedere un _ iniziale
+
+_header.scss -> si occupa di formattare le proprietà child del tag <header>
+_footer.scss -> si occupa di formattare le proprietà child del tag <footer>
+
+    DENTRO I FILE PARTIALS LA SINTASSI è LA STESSA IDENTICA SASS(.scss) DI TUTTI GLI ALTRI FILE!
+
+    style.scss -> file principale che incorpora gli altri partials
+
+
+    sintassi-> @import 'nome_del_file_partial'
+
+    il file scss principale puo 1-incorporare solntanto partials
+                                2-incorporare partials + ospitare sintassi csss
+
+ esempio di main.scss:
+
+ @import 'header';
+ $colore: #abc;
+ body {
+    background-color:$colore;
+ }
+ @import 'footer'
+-->
+
+    <div class="container">
+      <h1>Variabili e Partials</h1>
+      <button class="btn">Prova</button>
+    </div>
+  </body>
+</html>

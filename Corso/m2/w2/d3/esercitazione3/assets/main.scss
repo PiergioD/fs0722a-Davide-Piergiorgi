@@ -1,0 +1,16 @@
+@import "variabili";
+@import "nav";
+@import "boxHeader";
+@import "bottoni";
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: $font-family;
+}
+
+header {
+  background-color: $colore-sfondo;
+  padding: $padding-header;
+  border-bottom: 2px solid $colore-test0;
+}

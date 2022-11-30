@@ -17,7 +17,7 @@
       <nav class="navbar navbar-expand-lg bg-light px-5">
         <div class="container-fluid">
             <div class="row">
-          <a class="navbar-brand col" href="#"><img src="img/logo-frigerio.png" alt="logo-company" class="d-block w-25"></a>
+          <a class="navbar-brand col" href="#"><img src="img/logo-frigerio.png" alt="logo-company" height="40"></a>
           <button
             class="navbar-toggler col"
             type="button"
@@ -45,7 +45,7 @@
                 <a class="nav-link" href="#lasta">Last Minute</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Recensioni</a>
+                <a class="nav-link" href="#commenti">Recensioni</a>
               </li>
             </ul>
             <form class="d-flex" role="search">
@@ -67,17 +67,23 @@
         <!--inizio HEADER---------------------------------------------------->
         <header class="col bg-light p-5 mt-5">
             
-            <h1 class="display-2 p-4 border-bottom">Frigerio Viaggi</h1>
+            <h1 class="display-2 p-4">Frigerio Viaggi</h1>
             <p class="display-6 mb-4"><i>Scopri le destinazioni piu calde del momento!</i></p>
             <a class="btn btn-info text-white" href="#" role="button">Prenota Ora</a>
         </header>
         <!--FINE HEADER------------------------------------>
         <main class="mt-5">
-            <!--SEZIONE SALDI-->
-            <h2 class="text-align-start mb-4" id="saldi">Saldi</h2>
-            <div class="row d-flex flex-wrap justify-content-center">
-                <div class="card col-lg-3 col-md-5 col-5 p-4 border border-0">
-                    <div class="border border-4 border-info">
+            <!--SEZIONE SALDI------------------------------------------>
+            <div class="d-flex justify-content-between"><h2 class="text-align-start mb-4" id="saldi">Saldi</h2>
+              <button type="button" class="btn btn-sm btn-outline-info border-0 align-self-center mb-4"
+              data-bs-toggle="collapse" data-bs-target="#nascondiSaldi">
+              Nascondi sezione
+          </button></div>
+            
+            <div class="row collapse show justify-content-center" id="nascondiSaldi">
+              <!--prova piu tardi con col-12 col-sm-6 col-md-6 col-lg-3-->
+                <div class="card col-12 col-sm-6 col-md-4 col-lg-3 p-4 border border-0">
+                    <div class="border border-4 border-info shadow bg-body rounded">
                     <img src="/img/isola-tropicale.webp" class="card-img-top" alt="tropicalisland">
                     <div class="card-body">
                       <h5 class="card-title">Titolo</h5>
@@ -86,8 +92,8 @@
                     </div>
                 </div>
                   </div>
-                  <div class="card col-lg-3 col-md-5 col-5 p-4 border border-0">
-                    <div class="border border-4 border-info">
+                  <div class="card col-12 col-sm-6 col-md-4 col-lg-3 p-4 border border-0">
+                    <div class="border border-4 border-info shadow bg-body rounded">
                     <img src="/img/isola-tropicale.webp" class="card-img-top" alt="tropicalisland">
                     <div class="card-body">
                       <h5 class="card-title">Titolo</h5>
@@ -96,8 +102,8 @@
                     </div>
                 </div>
                   </div>
-                  <div class="card col-lg-3 col-md-5 col-5 p-4 border border-0">
-                    <div class="border border-4 border-info">
+                  <div class="card col-12 col-sm-6 col-md-4 col-lg-3 p-4 border border-0">
+                    <div class="border border-4 border-info shadow bg-body rounded">
                     <img src="/img/isola-tropicale.webp" class="card-img-top" alt="tropicalisland">
                     <div class="card-body">
                       <h5 class="card-title">Titolo</h5>
@@ -106,8 +112,8 @@
                     </div>
                 </div>
                   </div>
-                  <div class="card col-lg-3 col-md-5 col-5 p-4 border border-0">
-                    <div class="border border-4 border-info">
+                  <div class="card col-12 col-sm-6 col-md-4 col-lg-3 p-4 border border-0">
+                    <div class="border border-4 border-info shadow bg-body rounded">
                     <img src="/img/isola-tropicale.webp" class="card-img-top" alt="tropicalisland">
                     <div class="card-body">
                       <h5 class="card-title">Titolo</h5>
@@ -119,9 +125,15 @@
         </div>
             <!--fine sezione saldi----------------------------------->
             <!--sezione Welcome Summer------------------------------>
-            <h2 class="text-align-start mb-4" id="welcomS">Welcome Summer</h2>
-            <div class="row">
+            <div class="d-flex justify-content-between"><h2 class="text-align-start mb-4" id="welcomS">Welcome Summer</h2>
+              <button type="button" class="btn btn-sm btn-outline-info border-0 align-self-center mb-4"
+              data-bs-toggle="collapse" data-bs-target="#nascondiSummer">
+              Nascondi sezione
+          </button></div>
+            <!--per i bottoni per far sparire il contenuto guarda in bootstrap: collapse-->
+            <div class="row collapse show" id="nascondiSummer">
                 <!--item1-->
+                <!--prova piu tardi con col-12 col-sm-6 col-xl-4-->
                 <div class="col-lg-4 col-md-6 col-sm-6 col-6 p-2 border border-0">
                 <div class="card border border-0">
                     <div class="shadow-sm bg-body rounded border border-0">
@@ -208,50 +220,138 @@
         </div>
             <!--fine sezione welcome summer-------------------------->
             <!--sezione offerta del giorno-->
+            <!--fai div row con dentro div col-lg-8 per img e col-lgl-4 per il testo!-->
             <section class="d-lg-block d-md-none d-sm-none">
             <h2 class="text-align-start mb-4">Offerta del giorno</h2>
             <!--offerta card-->
-            <div class="card border border-0">
-                <div class="card-body">
-                    <img src="img/isola-tropicale.webp" class="card-img-bottom w-50  float-start p-3" alt="...">
-                    <div class="p-3">
-                  <h5 class="card-title display-4">Titolo</h5>
-                  <p class="card-text"><small class="text-muted">15.01.2021-31.01.2021</small></p>
-                  
-                  <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea, dignissimos qui fugit optio rerum accusantium hic sunt? Iste possimus eum accusamus voluptas, quos unde error aliquam natus sequi, explicabo expedita.</p>
-                  <a href="#" class="btn btn-dark text-white rounded-pill">Best Offer</a>
-                </div>
-                </div>
-                
-              </div>
+            <div class="row">
+<div class="col col-lg-8">
+  <img src="img/isola-tropicale.webp" alt="trpocia" class="img-fluid rounded shadow">
+</div>
+<div class="col col-lg-4">
+  <h4>Titolo</h4>
+  <p class="text-muted font-monospace">15.01.2021-31.01.2021</p>
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum enim necessitatibus, dignissimos corporis esse alias mollitia autem aliquid voluptatibus ipsa, at quod fugiat sunt nihil, libero vero velit debitis perspiciatis!</p>
+  <a href="#" class="btn btn-dark rounded-pill text-white">Best offer</a>
+</div>
+            </div>
             </section>
             <!--fine offerta del giorno-->
             <!--inizio last minute-->
             <section >
-                <h2 class="text-align-start mb-4" id="lasta">Offerta del giorno</h2>
+                <h2 class="text-align-start mb-4" id="lasta">Last Minutes</h2>
             <div class="row">
-                <div class="card col-lg-2 p-2 border border-0">
-                    <img src="img/isola-tropicale.webp" class="card-img-top " alt="...">
+                <div class="card col-lg col-md-4 col-6 p-2 border border-0">
+                    <img src="img/isola-tropicale.webp" class="card-img-top shadow bg-body rounded" alt="...">
                   </div>
-                  <div class="card col-lg-2 p-2 border border-0">
-                    <img src="img/isola-tropicale.webp" class="card-img-top " alt="...">
+                  <div class="card col-lg col-md-4 col-6 p-2 border border-0">
+                    <img src="img/isola-tropicale.webp" class="card-img-top shadow bg-body rounded" alt="...">
                   </div>
-                  <div class="card col-lg-2 p-2 border border-0">
-                    <img src="img/isola-tropicale.webp" class="card-img-top " alt="...">
+                  <div class="card col-lg col-md-4 col-6 p-2 border border-0">
+                    <img src="img/isola-tropicale.webp" class="card-img-top shadow bg-body rounded" alt="...">
                   </div>
-                  <div class="card col-lg-2 p-2 border border-0">
-                    <img src="img/isola-tropicale.webp" class="card-img-top " alt="...">
+                  <div class="card col-lg col-md-4 col-6 p-2 border border-0">
+                    <img src="img/isola-tropicale.webp" class="card-img-top shadow bg-body rounded" alt="...">
                   </div>
-                  <div class="card col-lg-2 p-2 border border-0">
-                    <img src="img/isola-tropicale.webp" class="card-img-top " alt="...">
+                  <div class="card col-lg col-md-4 col-6 p-2 border border-0">
+                    <img src="img/isola-tropicale.webp" class="card-img-top shadow bg-body rounded" alt="...">
                   </div>
-                  <div class="card col-lg-2 p-2 border border-0">
-                    <img src="img/isola-tropicale.webp" class="card-img-top " alt="...">
+                  <div class="card col-lg col-md-4 col-6 p-2 border border-0">
+                    <img src="img/isola-tropicale.webp" class="card-img-top shadow bg-body rounded" alt="...">
                   </div>
             </div>
         </section>
-            <!--fine last minute-->
+            <!--fine last minute----------------------------------->
+          <!--inizio sezioni commenti----------------------------->
+            <section>
+              <h2 class="text-align-start mb-4" id="commenti">Dicono di noi</h2>
+              <div class="d-flex pb-4">
+                <img class="border border-2 border-info rounded-circle" height="60"
+                    src="https://aeealberta.org/wp-content/uploads/2018/10/profile.png" />
+                <div class="px-4">
+                    <h6>Username</h6>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                        eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                        enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                        nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+                        reprehenderit in voluptate velit esse cillum dolore eu fugiat
+                        nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+                        sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    </p>
+                </div>
+            </div>
+            <div class="d-flex pb-4">
+                <img class="border border-2 border-info rounded-circle" height="60"
+                    src="https://aeealberta.org/wp-content/uploads/2018/10/profile.png" />
+                <div class="px-4">
+                    <h6>Username</h6>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                        eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                        enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                        nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+                        reprehenderit in voluptate velit esse cillum dolore eu fugiat
+                        nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+                        sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    </p>
+                </div>
+            </div>
+            <div class="d-flex pb-4">
+                <img class="border border-2 border-info rounded-circle" height="60"
+                    src="https://aeealberta.org/wp-content/uploads/2018/10/profile.png" />
+                <div class="px-4">
+                    <h6>Username</h6>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                        eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                        enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                        nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+                        reprehenderit in voluptate velit esse cillum dolore eu fugiat
+                        nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+                        sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    </p>
+                </div>
+            </div>
+            </section>
+            <!--fine sezioni commenti---------------------------------->
         </main>
+
+      </div>
+              <!--sezione footer------------------------------------------------>
+              <footer
+              class="container-fluid bg-dark text-light d-flex flex-column justify-content-center align-items-center py-5">
+              <button type="button" class="btn btn-outline-secondary mb-4" data-bs-toggle="modal"
+                  data-bs-target="#exampleModal">
+                  Contattaci
+              </button>
+      
+              <span>© 2021 Kalina Travel LTD. All Rights Reserved.</span>
+          </footer>
+          <!--fine footer-------------------------------------------->
+    </div>
+    <!--finestra modale con form---------------------------------------------->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header border-0">
+            <h1 class="modal-title display-4" id="exampleModalLabel">Contattaci</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <!--form della finestra modale--------------------------->
+            <div class="mb-3">
+              <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Inserisci la tua email">
+            </div>
+            <div class="mb-3">
+              <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Scrivi il tuo messaggio"></textarea>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Chiudi</button>
+            <button type="button" class="btn btn-primary">Salva</button>
+          </div>
+        </div>
       </div>
     </div>
     <script

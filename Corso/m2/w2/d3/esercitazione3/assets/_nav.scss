@@ -1,0 +1,22 @@
+nav {
+  h2 {
+    font-weight: 900;
+  }
+  padding: $padding-header;
+  display: flex;
+  justify-content: space-between;
+
+  li {
+    margin-right: $padding-header;
+    display: inline;
+    a {
+      font-weight: 700;
+      text-decoration: none;
+      color: $colore-test0;
+      &:hover {
+        text-decoration: underline;
+        color: $colore-hover;
+      }
+    }
+  }
+}

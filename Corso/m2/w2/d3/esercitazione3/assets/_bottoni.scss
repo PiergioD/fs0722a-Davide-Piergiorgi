@@ -1,0 +1,37 @@
+.btn-1 {
+  border-radius: $radius-bordi;
+  background-color: $colore-test0;
+  font-size: 1.1em;
+  color: $colore-sfondo;
+  font-weight: 700;
+  width: $width-bottoni;
+  height: $height-bottoni;
+  margin-left: $padding-header;
+  margin-top: $padding-header;
+  transition: ease-out 0.5s;
+  box-shadow: inset 0 0 0 0 #e9e3e7;
+  &:hover {
+    color: $colore-test0;
+    transform: scale(1.2);
+    box-shadow: inset 0 100px 0 0 #e9e3e7;
+  }
+}
+
+.btn-2 {
+  border-radius: $radius-bordi;
+  font-size: 1.1em;
+  font-weight: 700;
+  background-color: $colore-test0;
+  color: $colore-sfondo;
+  width: $width-bottoni;
+  height: $height-bottoni;
+  margin-left: $padding-header;
+  margin-top: $padding-header;
+  transition: ease-out 0.5s;
+  box-shadow: inset 0 0 0 0 #e9e3e7;
+  &:hover {
+    color: $colore-test0;
+    transform: scale(1.2);
+    box-shadow: inset 0 100px 0 0 #e9e3e7;
+  }
+}
