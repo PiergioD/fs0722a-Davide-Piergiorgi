@@ -52,3 +52,7 @@ aside {
 .galleria {
   @include gallery;
 }
+
+footer {
+  @include footer;
+}
