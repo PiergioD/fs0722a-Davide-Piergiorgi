@@ -39,9 +39,14 @@ nav li a:hover {
 .boxHeader .testo p {
   font-weight: 700;
 }
-.boxHeader img {
+.boxHeader .img {
+  /*ombra per le immagini! drop-shadow, mettici un hover*/
   border-radius: 15px;
   box-shadow: 2px 2px 6px 0px rgba(0, 0, 0, 0.3);
+  transition: ease-out 0.3s;
+}
+.boxHeader .img:hover {
+  transform: scale(1.1);
 }
 
 @media screen and (max-width: 900px) {
@@ -97,5 +102,5 @@ body {
 header {
   background-color: #cfcfcf;
   padding: 30px;
-  border-bottom: 2px solid rgb(73, 69, 69);
+  box-shadow: 2px 2px 6px 0px rgba(0, 0, 0, 0.3);
 }/*# sourceMappingURL=main.css.map */

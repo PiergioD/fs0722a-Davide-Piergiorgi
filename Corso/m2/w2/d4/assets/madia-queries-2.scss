@@ -1,0 +1,29 @@
+// definire i mixins per i due maggiori breakpoint mobile e table
+
+// break point è una variabile che puo avere diversi valori
+
+@mixin devices($breakpoint) {
+  @if $breakpoint == tablet {
+    @media only screen and (max-width: 730px) {
+      @content;
+    }
+  }
+  @if $breakpoint == mobile {
+    @media only screen and (max-width: 480px) {
+      @content;
+    }
+  }
+}
+
+// gestisco il responsive
+.responsive {
+  background-color: beige;
+  @include devices(tablet) {
+    background-color: lightblue;
+    //codice per tablet
+  }
+
+  @include devices(mobile) {
+    background-color: aquamarine;
+  }
+}

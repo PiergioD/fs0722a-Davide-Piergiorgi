@@ -1,0 +1,9 @@
+@for $m from 1 through 5 {
+  // ogni iterazione fa 1*12 poi 2*12 , 3*12 ecc
+  // e ad ognuno metter color verde
+  // cancelletto importante per la sintassi!!!! guarda css
+  .p#{$m} {
+    padding-left: $m * 12px;
+    color: #27772f;
+  }
+}

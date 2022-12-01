@@ -1,0 +1,71 @@
+/*EXTEND*/
+.box {
+  /*qualunque cosa agiugnio qui, ce laavra anche myBox! come se usassi la virgola! (guarda il css)*/
+  border: 1px solid black;
+  background-color: green;
+  margin-bottom: 10px;
+  width: fit-content;
+  padding: 10px;
+}
+
+.myBox {
+  @extend .box;
+  font-size: 20px;
+}
+
+/*KEYWORD %*/
+
+%box2 {
+  border: 1px solid black;
+  background-color: blue;
+  width: 300px;
+  margin: 10px;
+  padding: 20px;
+}
+
+.myfirstbox {
+  @extend %box2;
+  font-size: 10px;
+}
+
+.mysecondbox {
+  @extend %box2;
+  font-size: 20px;
+}
+
+/*MIXINS*/
+
+/*è utile se un valore si ripete tante volte nello stesso css! */
+/*il nome del mixin è aribtrario*/
+@mixin baseButton($bgColor) {
+  padding: 10px 20px;
+  display: inline-block;
+  text-transform: uppercase;
+
+  background-color: $bgColor;
+  outline: 1px solid $bgColor;
+  box-shadow: 0 0 10px $bgColor;
+
+  color: white;
+  border: 1px solid white;
+
+  &:hover {
+    color: $bgColor;
+    background-color: white;
+    box-shadow: none;
+  }
+}
+
+/*$bgColor funziona come segna posto e diventa green*/
+button.green {
+  @include baseButton(green);
+}
+
+/*il $bgColor diventa red!*/
+button.red {
+  @include baseButton(red);
+}
+
+button.viola {
+  @include baseButton(violet);
+}

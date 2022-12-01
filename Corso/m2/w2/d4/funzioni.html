@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FUnzioni Sass</title>
+  </head>
+  <body>
+    <!--Sass estende la possibilità di generare css tramite le funzioni-->
+    <!-- due tipi di funzioni
+
+       1. funzioni customizzate che scriviamo noi
+       2. funzioni predefinite dentro sass
+
+La direttiva per creare un funzione-> @function
+    -->
+    <!-- esempio di una funzione custom
+        VOglio calcolare da pizel a em
+        $context è il valore di default
+    @function em($pixel,$context:16px){
+        @return ($pixel/$context)*1em
+    }
+    
+    scss
+    h1{
+        font-size:em(18px);
+    }
+
+    css
+    h1 {
+        font-size:1.125em
+    }
+    -->
+    <!--
+        funzioni speciali:
+
+        url()->gestire un percorso assoluto o relativo
+        calc()-> permette di fare operazioni aritmetiche
+        clamp()-> restringe tra un valore minimo e un valore massimo assegnati
+        min(),max(),min()max-> stabilisce un minimo un massimo o tutti e due
+    -->
+
+    <!--sass ha anche dei modul built-in-->
+    <!--sass:math->operazioni mathematic
+         math:ceil(5.7);-> arrotonda superiore
+         mat.clamp(30px,20px,10px)
+
+
+
+        sass:color-> dispone di propreita per gestione colori(darken(orange,15%)prendi il colore orange e me lo fai piu scuro)
+        lighten(orange,20%) ->piu chiaro
+        trasparentize(#f00,0.51) -> aggiungo canale alpha(trasparenza)
+    
+    -->
+  </body>
+</html>

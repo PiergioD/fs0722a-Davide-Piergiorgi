@@ -12,5 +12,5 @@ body {
 header {
   background-color: $colore-sfondo;
   padding: $padding-header;
-  border-bottom: 2px solid $colore-test0;
+  box-shadow: $shadow-base;
 }

@@ -1,0 +1,75 @@
+// contgainer principale
+@mixin container {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  padding: 50px;
+}
+
+// nav
+@mixin navBar {
+  background-color: $colore-nav;
+
+  ul {
+    padding: 40px;
+    display: flex;
+    justify-content: flex-end;
+    li {
+      list-style-type: none;
+      margin-right: 15px;
+      transition: ease 0.5s;
+      a {
+        color: $font-color-nav;
+        font-weight: $font-weight-testo;
+        text-decoration: none;
+        padding: 12px 20px;
+        background-color: $colore-pulsanti-nav;
+        border-radius: 20px;
+      }
+      &:hover {
+        transform: scale(1.3);
+      }
+    }
+  }
+}
+
+// aside
+@mixin asideBar {
+  cursor: pointer;
+  color: $font-color-nav;
+  list-style: none;
+  padding: 15px 25px;
+  border-bottom: 1px solid white;
+  transition: all ease 0.6s;
+  &:hover {
+    box-shadow: 15vw 0 0 $colore-nav inset;
+  }
+}
+
+//galleria grid immagini
+
+@mixin gallery {
+  margin-top: 30px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 4, 1fr;
+  grid-gap: 30px;
+}
+
+@for $m from 1 through 4 {
+  .img-#{$m} {
+    width: 30vw;
+    border-radius: 20px;
+    box-shadow: $shadow-base;
+    transition: all ease 0.3s;
+    &:hover {
+      transform: scale(1.1);
+      z-index: 3;
+      @media screen and (max-width: 700px) {
+        &:hover {
+          transform: scale(1.6);
+        }
+      }
+    }
+  }
+}

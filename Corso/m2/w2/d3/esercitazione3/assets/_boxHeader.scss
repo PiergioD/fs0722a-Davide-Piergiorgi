@@ -13,9 +13,14 @@
     }
   }
 
-  img {
+  .img {
+    /*ombra per le immagini! drop-shadow, mettici un hover*/
     border-radius: $radius-bordi;
     box-shadow: $shadow-base;
+    transition: ease-out 0.3s;
+    &:hover {
+      transform: scale(1.1);
+    }
   }
 }
 
