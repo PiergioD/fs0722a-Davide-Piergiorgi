@@ -1,0 +1,7 @@
+@function cambiaColoreTesto($color) {
+  @if (lightness($color) > 50) {
+    @return darken($color, 100%); // ritorna nero
+  } @else {
+    @return lighten($color, 100%); // ritorna bianco
+  }
+}

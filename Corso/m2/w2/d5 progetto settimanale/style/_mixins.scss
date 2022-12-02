@@ -1,0 +1,33 @@
+@mixin bg-header($bg-image) {
+  background-image: $bg-image;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+@mixin fontFooter {
+  background: $colore-sfondo;
+  color: $colore-font-footer;
+  h2 {
+    font-weight: $font-weight-titoli;
+  }
+  ul {
+    list-style: none;
+    li {
+      padding: 8px;
+      a {
+        color: $colore-font-footer;
+        text-decoration: none;
+        font-weight: 700;
+      }
+    }
+  }
+  p {
+    font-weight: 700;
+  }
+}
+
+@mixin senzaShadow {
+  font-weight: 700;
+  text-shadow: none;
+}

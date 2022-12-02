@@ -8,6 +8,7 @@
 
 // nav
 @mixin navBar {
+  box-shadow: $shadow-base;
   background-color: $colore-nav;
 
   ul {
@@ -78,7 +79,7 @@
 //footer
 @mixin footer {
   padding: 30px;
-
+  box-shadow: $shadow-base;
   background-color: rgba(53, 56, 57, 0.6);
   text-align: center;
   p {

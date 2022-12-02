@@ -1,0 +1,82 @@
+@import "variabili";
+@import "mixins";
+@import "function";
+
+body {
+  font-family: $font-pagina;
+  text-shadow: $text-shadow-white;
+}
+
+// NAV
+nav {
+  z-index: 999;
+  text-shadow: $text-shadow-black;
+  background: $colore-sfondo;
+  a {
+    transition: ease 0.4s;
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+  .navbar-nav {
+    a {
+      transition: ease 0.4s;
+      &:hover {
+        transform: scale(1.2);
+      }
+    }
+  }
+}
+
+// HEADER
+header {
+  @include bg-header(url(../img/sfondo-bello.jpg));
+  p {
+    @include senzaShadow;
+  }
+
+  .btn {
+    transition: ease 0.5s;
+    background: $colore-sfondo;
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+}
+//MAIN
+main {
+  background-color: $colore-sfondo-main;
+  // per attivarla, cambia colore nel partial variabili
+  color: cambiaColoreTesto($colore-sfondo-main);
+}
+
+// SECTION
+
+section {
+  background-color: $colore-section;
+
+  p {
+    @include senzaShadow;
+  }
+
+  .card {
+    background-color: $colore-section;
+  }
+}
+
+// IMAGINETTA DEL CAROSELLO
+article {
+  p {
+    @include senzaShadow;
+  }
+
+  img {
+    max-height: 5em;
+    max-width: 5em;
+  }
+}
+
+//FOOTER
+footer {
+  @include fontFooter;
+}
