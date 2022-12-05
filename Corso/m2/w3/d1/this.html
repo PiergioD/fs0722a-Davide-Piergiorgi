@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>This Keyword</title>
+  </head>
+  <body>
+    <script>
+      //esempio 1
+      let teacher = {
+        name: "Federico",
+        surname: "De Ambrosis",
+        sayHello: function () {
+          alert("Hello World, i am " + this.name + " " + this.surname);
+        },
+      };
+
+      teacher.sayHello();
+      // possiamo bypasare this accedendo a una variabile esterna-> RENDE IL CODICE INSTABILE!
+      //
+
+      //esempio 2
+
+      let user = {
+        name: "JOhn",
+        age: 30,
+        sayHi() {
+          alert(user.name); // acccedo alla variabile esterna anziche this
+        },
+      };
+
+      let admin = user;
+      user = null; // sovrascrivo user!
+      admin.sayHi(); // errore! non possiamo leggere la proprieta name di null
+
+      // THIS puo essere utlizzata anche fuori dagli oggetti, in qualsiasi funzione, anche se non è metodo di oggetto
+
+      function sayHI() {
+        alert(this.name); // non ce alcun errore di sintassi-> perche this viene valutato al momento dell'esecuzione!
+      }
+
+      sayHI(); // undefined! ->anche in modalità strict. se cerchiamo di acceddere a this.name-> errore
+
+      // le arrow functiuon non hanno this
+    </script>
+  </body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Oggetti JS</title>
+  </head>
+  <body>
+    <!--tipi di dato primitivi (stringhi,numeri, booleani ecc..) cio che non è un primitivo è un oggetto!
+    L'OGGETTO è UN CONTENITORE DI DATI ETEROGENEI CHE FORMA UNA STRUTTURA DATI UNICA!
+
+    Dentro un oggetto ci posso eesere dei dati detti proprietà -> key/values pairs!(nome/valore) e funzionalità -> dette metodi-> rappresentati da funzioni
+    
+    
+    -->
+    <script>
+      ////////////////     ///////////////////////////////////////////////////////////////////////////////
+      //dichiaro oggetto vuoto-> notazione letterale-> usa le parentesi graffe
+      let oggettoVuoto = {};
+      // inserisco delle proprietà cioe delle coppie nome:valore
+      let persona = { nome: "Mario", cognome: "Rossi" };
+      //let persona1 = { "primo-nome": "mario", "secondo.nome": rossi }; // contravvengo alle regole di naming quindi devo utilizzare ""
+
+      // una proprietà puo avere come valore qualsiasi espressione derivante da un espressione js COMPRESO UN ALTRO OGGETTO
+
+      let persona3 = {
+        nome: "mario",
+        cognome: "rossi",
+        indirizzo: {
+          // la propreita indiirzzo èè a sua volta un oggetto composto da specifiche propreita!
+          via: "via roma",
+          numero: 1,
+          cap: 20100,
+        },
+      };
+
+      // come accedere alle propreita di un oggetto
+      // dot notation  oggetto.proprietà
+
+      let nome = persona3.nome; // approccio piu utilizzato, è piu compate e familiare ad altri linguaggi di programmazzione
+      let nome1 = persona3["nome"]; // altro approccio --> obbligatorio quando i nome della proprieta non segue le regoole di naming
+
+      // se provo ad accedere ad una propreità non defniita in un oggeto, mi resituirà il valore undefined!
+
+      var eta = persona.età; // undefined!(non lho definita nell'oggetto)
+
+      // creazione per definizione
+      // assegnamo un valore a una proprietà che non è definita nela nostro oggetto--> creiamo una nuova proprieta inizializzandola con un valoree
+
+      persona3.eta = 42;
+      // oggetto sono entità dinamiche, possono evolvere/modificarsi durante l'esecuzione di uno script--> definizione incrementale
+      // l'oggetto avrà un rappresentazione base che puo essere arricchità via via con le proprietà che vogliamo!
+      ////////////////////////////////////////////////////////////////////////////////////////
+      //METODI
+      // attivita che un oggetto puo compiere
+
+      function visualizzaNomeCognome() {
+        return "mario rossi";
+      } // funzione che resituisce una stringa
+      persona3.nomeCognome = visualizzaNomeCognome; // asssegnamo il nome della funzione a una proprietà dell'oggetto persona
+
+      // assegnamo alla proprietà la  funzione tramite il suo nome( non il risultato della chiamata alla funzione)
+
+      // la proprieta nome e cognome contiene una funzione e quindi è un metodo
+
+      let nomeCognome = persona3.nomeCognome();
+      // per eseguirlo faccio riferimento ad esseo con le () perche è una chiamata funzione
+
+      // alternativa per eseguire funzione
+      persona3.nomeCognome = function () {
+        return "mario rossi";
+      };
+
+      // questo metodo non è di grande utilita-> visualizza sempre la stessa stringga anche se cambiassi il valore delle proprieta! COME RENDERLO DINAMICO? VIAUSLIAZZARE IL VALORE CORRENTE DELLE PROPRIETà??
+      ////////////////////////////////////////////////////////////////////////////////////////////
+      // KEYWORD THIS
+
+      persona3.nomeCognome = function () {
+        return this.nome + "" + this.cognome;
+      };
+
+      console.log(persona3);
+      // restituisco i valore correnti delle proprieta
+    </script>
+  </body>
+</html>

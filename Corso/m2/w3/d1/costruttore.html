@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Costruttori Oggetti</title>
+  </head>
+  <body>
+    <!--con la notazione letterale possiamo costruire degli oggetti rapidamente-->
+    <!-- immaginaimo di avere bisogno di piu oggetti dello stesso tipo-->
+
+    <!--esempiio: piu oggetti perosna che condividono la stessa struttura-->
+
+    <script>
+      var persona = {
+        nome: "Mario",
+        cognome: "Rossi",
+        indirizzo: "Via Garibaldi,50 - Roma",
+        email: "mario.rossi@epicode.it",
+        mostraNomeCOmpleto() {},
+        calcolaCodiceFIscale() {},
+      };
+
+      // se usassimo solo la notazione letereale saremmo costretti a ripetere la definizione per ogni oggetto
+
+      // otteniamo un codice non riutilizzabile
+
+      //PER RIDEFINIRE DA ZERO OGGETTO CHE HANNO LA STESSA STRUTTURA ESISTE UN COSTRUTTORE
+      // un costruttore è una funzione js che invochiamo con l'operatore new
+
+      function persona() {
+        // definisco le proprietà dell'oggetto assegnadole a se stessa (this)
+        this.nome = "";
+        this.cognome = "";
+        this.indirizzo = "";
+        this.email = "";
+        this.mostraNomeCOmpleto = function () {};
+        this.calcolaCodiceFIscale = function () {};
+      }
+
+      // per creare un oggetto di tipo persona invoco la funzione premettendo l'operatore new
+      // costruttore scritto con la prima lettera maiuscola è piu facile disinguerla da una funzione
+      var marioRossi = new Persona();
+      // new è fondamentale perchè altrimenti eseguiamo una funzione!
+      marioRossi.nome = "mario";
+      marioRossi.cognome = "rossi";
+      // ecc ecc
+
+      // posso farne un altro!
+      var giuseppeVerdi = new Persona();
+      giuseppeVerdi.nome = "giuseppe";
+      //ecc ecc
+
+      // creo oggetti con la stessa struttura e imposto solo i valori specifici
+
+      // POSSO ANCHE PARAMETRIZZARLA!
+      function persona(nome, cognome) {
+        // definisco le proprietà dell'oggetto assegnadole a se stessa (this)
+        this.nome = nome;
+        this.cognome = cognome;
+        this.indirizzo = "";
+        this.email = "";
+        this.mostraNomeCOmpleto = function () {};
+        this.calcolaCodiceFIscale = function () {};
+      }
+
+      var marioROsi = new Persona("mario", "rossi");
+      var giuseppeVErdi = new Persona("giuseppe", "verdi");
+    </script>
+  </body>
+</html>

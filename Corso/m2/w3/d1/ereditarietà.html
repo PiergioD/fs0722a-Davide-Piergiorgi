@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ereditarietà</title>
+  </head>
+  <body>
+    <!--posiamo modificare la struttura degli oggetti anche dopo la creazione-->
+    <script>
+      //var MarioRossi = new Persona("Mario", "Rossi");
+      //var GiuseppeVerdi = new Persona("Giuseppe", "Verdi");
+
+      //MarioRossi.telefono = "32432143124"; // posso aggiungere all'ogggetto qualcopsa
+      //CREO UNA NUOVA PROPRIETA A MARIO ROSSI SENZA INFLUENZARE LA STRUTTURA DI GIUSEPPE VERDI
+
+      // quando creo oggetti posso partire da una struttura di dati comune definita da un costruttore e poi possiamo personalizzare in base alle nostre esigenze!
+
+      // PROTOTYPE!-> persona.prototype.telefono ='34231432'
+      // tutti gli offetti che avevamo creato col costruttore persona() ora hanno anche la proprietà telefono
+
+      function Student(name, age) {
+        this.name = name;
+        this.age = age;
+      }
+
+      var studente1 = new Student("luigi bianchi", 43);
+      var studente2 = new Student("mario rossi", 32);
+      console.log(studente1, studente2);
+
+      // estendo il costruttore base mettendo una nuova proprieta con valore un array vuoto
+      // non è una proprieta dell'ogeto ma è accwessibile come se lo fosse!
+      //IL PROTOTIPO HA UN RIFERIMENTO A UN ALTRO OGGETTO!
+      Student.prototype.skills = [];
+      console.log(studente1, studente2);
+
+      // agigungo valori nel'array
+      studente1.skills = ["html", "css", "js"];
+      studente2.skills = ["surfare", "ballare", "suonare"];
+
+      console.log(studente1, studente2);
+
+      // Eredità prototipale-> prototypal inheritance
+      // se una proprieta non si torva in oggetto la si cerca nel prototipo
+      // il prototipo di un oggetto puo essere a sua volta un altro protoypo--> si risale nella catena dei prototypi per cercare la proprieta!
+    </script>
+  </body>
+</html>
