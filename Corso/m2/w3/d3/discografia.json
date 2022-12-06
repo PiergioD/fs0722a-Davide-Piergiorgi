@@ -1,0 +1,34 @@
+{
+  "discografia": [
+    {
+      "titolo": "Red",
+      "artist": "King Crimson",
+      "year": "1974",
+      "songs": [
+        { "canzone1": "One More Red Nightmare" },
+        { "canzone2": "Starless" },
+        { "canzone3": "Red" }
+      ]
+    },
+    {
+      "titolo": "Heavy Metal Be-Bop",
+      "artist": "Brecker Brothers",
+      "year": "1978",
+      "songs": [
+        { "canzone1": "Some Skunk Funk" },
+        { "canzone2": "Inside Out" },
+        { "canzone3": "East River" },
+        { "canzone4": "Sponge" }
+      ]
+    },
+    {
+      "titolo": "Grace for Drowning",
+      "artist": "Steven Wilson",
+      "year": "2011",
+      "songs": [
+        { "canzone1": "Deform to form a star" },
+        { "canzone2": "Remainder the black dog" }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Esempi Modulo</title>
+  </head>
+  <body>
+    <script type="module">
+      // dichiaro script modulo perche avremo una sintassi particolare!
+      // usiamo moduli per l'ersercizio in eredietarieta.html
+      // il percorso deve sempre iniziare col ./ o ../
+      import { User } from "./moduliJS/User.js";
+      import { Student } from "./moduliJS/Student.js";
+      import { Teacher } from "./moduliJS/Teacher.js";
+      // vanno messi in una cartella a parte, sia per la sintassi e sia per ordine
+
+      var utente = new User("mario", "rossi", 30);
+      var studente = new Student("giuseppe", "verdi", 20);
+      var professore = new Teacher("carlo", "bianchi", 54);
+
+      studente.courses = ["web design", "oop"];
+      professore.skills = ["html", "css", "js"];
+
+      console.log(utente, studente, professore);
+    </script>
+  </body>
+</html>

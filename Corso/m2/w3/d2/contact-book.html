@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>COntact book</title>
+  </head>
+  <body>
+    <!--input e bottone in cui scrivero elementi che compariranno nella lista-->
+    <input type="text" id="nuovoUtente" /><button id="aggiungi">
+      Aggiungi
+    </button>
+    <ul id="listaUtenti"></ul>
+
+    <script>
+      //variabili
+      let lista = document.getElementById("listaUtenti");
+      let inputUser = document.getElementById("nuovoUtente");
+      let aggiung_btn = document.getElementById("aggiungi");
+
+      // array vuoto in cui pushero
+      let users = [];
+
+      aggiung_btn.addEventListener("click", () => {
+        // vogliio che sia un oggetto! combino .value e class
+        let usr = new User(inputUser.value);
+        // creo una istanza di User, la pusho nell'array
+        users.push(usr);
+        // ho bisogno di una funzione che mi scrive nella pagina la lista users!
+        writeInlist();
+      });
+
+      // funzione per scriver html
+      function writeInlist() {
+        // dichiarare innerHtml stringa vuota serve per non fare stampare a forEach molteplici stringhe! ma solo una alla volta al click di btn
+        lista.innerHTML = "";
+        users.forEach((el) => {
+          lista.innerHTML += `<li>${el.logUser()}</li>`;
+        });
+        // per ogni elemento dell'array users( che sono oggetti creati con classe) stampo un elemento lista richiamando il metodo presente nella classe(passaggio in piu! potevo ssemplicemente scrivere tutto quanto in questa funzione!)
+        console.log(users);
+      }
+
+      /*CLASS per crearci un nuovo oggetto*/
+      class User {
+        constructor(_name) {
+          this.name = _name;
+        }
+        // METODO per stamparmi il nome che richiamero nella funzione writeinlist()
+        logUser() {
+          return `<b>${this.name}</b>`;
+        }
+      }
+    </script>
+  </body>
+</html>

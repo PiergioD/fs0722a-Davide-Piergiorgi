@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ereditarietà classi</title>
+  </head>
+  <body>
+    <script>
+      class User {
+        //dichiariazione opzionale
+        name = "";
+        surname = "";
+        age = "-1";
+        constructor(_name, _surname, _age) {
+          this.name = _name;
+          this.surname = _surname;
+          this.age = _age;
+        }
+      }
+
+      class Student extends User {
+        courses = [];
+      }
+
+      class Teacher extends User {
+        skills = [];
+      }
+      // creo istanze oggetto con classse base piu estensioni
+      let utente = new User("mario", "rossi", 30);
+      let studente = new Student("giuseppe", "verdi", 20);
+      let professore = new Teacher("carlo", "bianchi", 54);
+
+      // aggiungo valori agli arrray vuoti
+      studente.courses = ["web designer", "oop"];
+      professore.skills = ["html", "css", "js"];
+
+      // poi stampo in cinsole
+      console.log(utente);
+      console.log(studente);
+      console.log(professore);
+
+      // super non srve èerche ereditiamo tutta la classe e la estendiamo con un array e basta
+    </script>
+  </body>
+</html>

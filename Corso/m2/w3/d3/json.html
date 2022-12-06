@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JSON</title>
+  </head>
+  <body>
+    <!--JSON-> javascript object notation
+    è un formato per lo scambio di dati
+    JSON non è stato creato! si basa sulla notazione letterale degli oggetti!(gia ben presente nel linguaggio js)
+JSON è stato riscoperto come formato per lo scambio di dati speicalmente da quando esiste AJAX
+
+sintassi di JSON si originan dagli oggetti letterali in js
+
+    
+    -->
+
+    <script>
+      var JSON = {
+        proprieta1: "valore",
+        proprieta2: "valore",
+        proprieta3: "valore",
+      };
+
+      // coppie proprietà/valore separate dalla virgola ad eccezzione dell'0ultima
+      // lintero oggetto viene racchiuso tra parentesi gradffe
+      // a differenza di notazione JS-> DENTRO A JSON SOLO VALORI SEMPLICI!(NO FUNZIONI O VALORI COMPLESSI)
+
+      // stringhe,numeri,array,oggetti,booleani,null
+
+      // esempio
+
+      let prova = {
+        nome: "epicode.it",
+        link: "https://www.epicode.it",
+        argomento: "standard del web",
+        aree: [
+          {
+            area: "css",
+            url: "https://css.epicode.it",
+          },
+          {
+            area: "javascript",
+            url: "https://javascript.epicode.it",
+          },
+        ],
+      };
+
+      // inizia conn una coppia di parentesi graffe(che racchiudono la struttura!)
+      // seguono cpìoppie proprieta/valore
+      // json chiede che i valori e le proprietà siano tra ""
+
+      oggetto.home; // epicode.it
+      oggetto.link; // https://www.epicode.it
+      var aree = oggetto.aree; // array
+      for (var i = 0; i < aree.length; i++) {
+        //
+      }
+
+      //JSON VIENE USATO DA JS TRAMITE AJAX
+      // faccio una richiesta e viene restituito l'oggetto
+
+      $.ajax({
+        url: "json.html",
+        type: "GET",
+        dataType: "json",
+        success, //...
+      });
+    </script>
+  </body>
+</html>

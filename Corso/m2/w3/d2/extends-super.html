@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Extends Super</title>
+  </head>
+  <body>
+    <p>
+      <mark
+        >Usare keyword extends per ereditare tutti i metodi di unaltra
+        classe</mark
+      >
+    </p>
+    <p>
+      <mark>Usare il metodo super per chimare la funzinoe constructor</mark>
+    </p>
+    <p>
+      <mark>Stampare in un paragarafo col metodo .innerHtml</mark>
+    </p>
+
+    <p id="demo"></p>
+    <script>
+      // classe di partenza
+      class Computer {
+        constructor(brand) {
+          this.computerName = brand;
+        }
+        present() {
+          return "Ho un computer " + this.computerName;
+        }
+      }
+
+      class Model extends Computer {
+        //constructor di model
+        constructor(brand, mod) {
+          // richiamo la costruccotre della classe partenza, non è obligatorio richiamre tutto ma quello che ci interessa
+          // super lo usiamo in una classe che estende meno caratteristiche
+          super(brand);
+          this.model = mod;
+        }
+        show() {
+          return this.present() + ", è un " + this.model;
+        }
+      }
+
+      myComputer = new Model("Apple", "MacBookAir");
+
+      document.getElementById("demo").innerHTML = myComputer.show();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Esercizietto1</title>
+  </head>
+  <body>
+    <script>
+      class Person {
+        constructor(name, age) {
+          this.name = name;
+          this.age = age;
+        }
+
+        checkEta(persona) {
+          if (this.age > persona.age)
+            return console.log(`${this.name} è piu grande di ${persona.name}`);
+          else if (persona.age > this.age)
+            return console.log(`${this.name} è piu piccolo di ${persona.name}`);
+          else
+            return console.log(
+              `${this.name} e ${persona.name} hanno la stessa età!`
+            );
+        }
+      }
+      let p1 = new Person("Franco", 32);
+      let p2 = new Person("Eleuterio", 29);
+      let p3 = new Person("Mauriello", 57);
+
+      p1.checkEta(p2);
+      p1.checkEta(p3);
+    </script>
+  </body>
+</html>

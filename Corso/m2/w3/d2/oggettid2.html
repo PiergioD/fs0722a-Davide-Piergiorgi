@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Oggetti</title>
+  </head>
+  <body>
+    <!--
+        javascript è un linguaggio di programmazione 'a oggetti' basato sul concetto di prototipo! gli laltri linguaggi sono pbasati sul concetto di classe-> un 'oggetto è sempre un istanza di una classe'
+
+        un oggetto non puo essistere se prima non è sttata definitita una classe!-> crere delle sottoclasse(javascript prototype)
+
+        nei linguaggi tradizionali(java,C#)-> la classe definisce tutte le caratteristiche che puo avere un oggetto
+        -> in JS possiamo definire alcune caratteristiche e poi arricchirlo(prototype)
+
+        ECMA6-> si introduce class con lo scopo di avvicinare javasript agli sviluppatori che provengono da altri contesti
+        -> uniformare gli approci alla scrittura del codice-> aggoingo la possibilita di definre gli oggetti a partire da classi!
+
+        UNA CLASSE è UN MODO ALTERNATIVO DI DEFINIRE UN COSTRUTTORE
+    -->
+
+    <script>
+      // allinterno della classe definisce il costruttore tramite la keyword constructor!
+      class Persona {
+        constructor(nome, cognome) {
+          this.nome = nome;
+          this.cognome = cognome;
+          this.email = "";
+          this.indirizzo = "";
+        }
+
+        mostraNomeCompleto() {
+          return this.nome + " " + this.cognome;
+        }
+      }
+
+      // il costrutto class è una semplificazione sintattica
+      // possiamo creare un nuovo oggetto a partire dalla classe definita(operatore new)
+      let marioRossi = new Persona("mario", "rossi");
+
+      // possiamo ottenere valori di proprietà (GET) oppure settare (SET)
+
+      // SOTTOCLASSI E EREDITARIETà
+      // possiamo creare delle sottoclassi estendendo una classe
+
+      // extends è una keyword che sonsente di dichiarare che la nuova classe programmatore deriva dalla classe persona
+      class Programmatore extends Persona {
+        constructor(nome, cognome) {
+          super(nome, cognome);
+          this.linguaggiConosciuti = [];
+        }
+      }
+      // all'iterno del costruttore della classe programmatore richiamamiamo il costruttore dela classe persona tramite l'invocazione di super()
+      // super ci permette di fare riferimento alla super classe
+      // dentro js class è ssemplicemente un costruttore di oggetti(literal object)
+
+      //KEYWORDD STATIC
+      // ci permette did definire un metodo definito interno alla classe e ne dipende strettamente!
+      // non puo essere richiamato nell'oggetto, ma soltanto nella classe!
+
+      class Animali {
+        constructor(specie) {
+          this.specie = specie;
+        }
+        // funziona soltanto dentro la  classe!
+        static mostra() {
+          return this.specie;
+        }
+      }
+
+      var gatto = new Animali("specie_di_gatto");
+      gatto.mostra(); // non funziona!
+      Animali.mostra(); // FUNZIONA!
+    </script>
+  </body>
+</html>
