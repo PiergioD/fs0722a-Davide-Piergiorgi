@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PRomise con AJax</title>
+  </head>
+  <body>
+    <h2>Ajax + promise + modules</h2>
+    <ul id="lista"></ul>
+    <script type="module">
+      import { AsyncCalls } from "./moduli/AsyncCalls.js";
+
+      let asyncCalls = new AsyncCalls();
+
+      asyncCalls
+        .ajaxCall("https://jsonplaceholder.typicode.com/todos/", "get")
+        .then((response) => {
+          let res = JSON.parse(response);
+          let li = "";
+          // per ogni elemento del json stampo proprieta title e completed
+          res.forEach((element) => {
+            li += `<li><b>${element.title}</b> <b>${element.completed}</b></li>`;
+          });
+          document.getElementById("lista").innerHTML = li;
+        });
+    </script>
+  </body>
+</html>

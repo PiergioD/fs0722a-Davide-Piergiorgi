@@ -22,35 +22,6 @@ class Pagination {
     this.pageSize = pageSize;
     this.currentPage = currentPage;
   }
-  creaTabella() {
-    let result = "";
-    // filtro e foreach per array
-    // i bottoni partono false.
-    data.items
-      .filter((row, index) => {
-        let start = (this.currentPage - 1) * this.pageSize;
-        let end = this.currentPage * this.pageSize;
-        if (index >= start && index < end) return true;
-      })
-      .forEach((ele) => {
-        result += `<tr>
-          <th scope="row">${ele.id}</th>
-          <td>${ele.nome}</td>
-          <td>${ele.cognome}</td>
-          <td>${ele.classe}</td>
-        </tr>`;
-      });
-    bodyTabella.innerHTML = result;
-  }
-  nextPage() {
-    if (this.currentPage * this.pageSize < this.items.length)
-      this.currentPage++;
-    creaTabella();
-  }
-  previousPage() {
-    if (this.currentPage > 1) this.currentPage--;
-    creaTabella();
-  }
 }
 
 //creo oggetto con array e pagesize e currentpage
@@ -60,27 +31,35 @@ console.log(data);
 //event listeners su bottoni
 btnSuccessivo.addEventListener("click", nextPage, false);
 btnPrecedente.addEventListener("click", previousPage, false);
+btnPrimo.addEventListener("click", firstPage, false);
+btnUltimo.addEventListener("click", lastPage, false);
 
-//funzioni callback dei bottoni
+//FUNZIONI CALL BACK BOTTONI
 function previousPage() {
   if (data.currentPage > 1) data.currentPage--;
   creaTabella();
 }
-
+//pagina successiva
 function nextPage() {
   if (data.currentPage * data.pageSize < data.items.length) data.currentPage++;
+  creaTabella();
+}
+//ultima pagina
+function lastPage() {
+  data.currentPage = Math.ceil(data.items.length / data.pageSize);
+  creaTabella();
+}
+// prima pagina
+function firstPage() {
+  data.currentPage = 1;
   creaTabella();
 }
 
 // funzione per creare elemento tabello
 function creaTabella() {
   let result = "";
-
-  // filtro e foreach per array
-
   // i bottoni partono false.
   data.items
-
     .filter((row, index) => {
       let start = (data.currentPage - 1) * data.pageSize;
       let end = data.currentPage * data.pageSize;
@@ -96,3 +75,6 @@ function creaTabella() {
     });
   bodyTabella.innerHTML = result;
 }
+
+//////////////////////////////////////
+//OBIETTIVO FINALE --> METTERE TUTTO QUANTO A METODO

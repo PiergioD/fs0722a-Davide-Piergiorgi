@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ajax</title>
+  </head>
+  <body>
+    <!--eseguire delle richieste http in javascript-->
+    <!-- oggetto built-in XMLHTTPrequest è risultato scomodo perchè prolisso-->
+    <!--jquery $.ajax() successo di questo metodo perche piu rapido 
+    non posso sempre ricorrrere sempre a jquery! con vanilla js ce
+
+    API fetch-> sintassi piu semplice e sopratuttto è meglio integrata col modella a oggetti su cui si basa javascript 
+
+    fetch prevede la gestione delle chiamate asincrone con un meccanismo chiamato promise
+    
+    -->
+    <script>
+      // fetch e l0'url  a cui voglio chiedere ddati(richiesta http)
+      fetch("https://www.epicode.it")
+        // gestisco il risultato in una promise-> in caso di successo, sono entrato in .then
+        // entro in then(ho avuto successo) -> ci viene fornita una risposta sotto forma di oggetto RESPONSE
+        .then((response) => {
+          console.log(response);
+        })
+        .catch((error) => console.log("si è verificato un errore"));
+    </script>
+
+    <!--prprietà dell'oggetto response-->
+    <!--
+status-> è un valore che indica il codice di stato http(200->successo)
+statusTExt -> è una stringa associata al codice di stato("ok" stringa associata al caso 200)
+ok-> valore booleano(200/299 riposta positiva | altrimenti false)
+
+    -->
+
+    <!-- promise viene risolta ogni volta che ce una risposta da parte del server, ma se entro nel ramo then non è detto che arrivino i dati-->
+
+    <script>
+      fetch("https://www.epicode.it")
+        .then((response) => {
+          if (response.ok) {
+            console.log("contenuto ricevuto");
+          }
+          if ((response.status >= 100) & (response.status < 200))
+            console.log("informazioni per il client");
+          if ((response.status >= 300) & (response.status < 399))
+            console.log("redirezione");
+          if ((response.status >= 400) & (response.status < 499))
+            console.log("richiesta errata");
+          if ((response.status >= 500) & (response.status < 599))
+            console.log("errori sul server");
+        })
+        .catch((error) => console.log("si è verificato un errore"));
+      // anche la condizione errore sul server entra nel ramo .then(la promise è risolta positivamente)
+      // catch ci entro solo quando il server non risponde del tutto(o non è connesso)
+    </script>
+
+    <!--LEGGERE IL CONTENUTO DELLA RISPOSTA!-->
+    <!--response ci mette  adisposizione dei metodi per leggere il cotenuto resituito dal server in base al tipo di contenuto che arriva-->
+
+    <!--
+        text()-> resituisce un contenuto in forma testuale
+        json()-> fa il parsing del contenuto e lo resituisce sotto forma di oggetto
+        blob()-> restituisce il contenuto sotto forma di dati non strutturati
+        arrayBuffer()-> resituisce un contenuto strutturato in arrayBuffer
+    -->
+    <script>
+      fetch("https//wwwepicode.it/api/articoli/123")
+        .then((response) => {
+          if (response.ok) {
+            response.json();
+          }
+        })
+        .then((articolo) => console.log(articolo.titolo))
+        .catch((error) => console.log("si è verificato un errore"));
+      // di solito non ho soltanto la url nella richiesta ma devo specificare altri parametri
+
+      fetch("https//wwwepicode.it/api/articoli/123", {
+        method: "post",
+        headers: new Headers({
+          "Content-type": "application/json",
+        }),
+        body: JSON.stringify({
+          titolo: "titolo articolo",
+          autore: "mario rossi",
+        }),
+      });
+      //.then(...).catch(...);
+
+      // altro metodo
+      /*
+             let richiesta= new Request("https//wwwepicode.it/api/articoli/123"),{
+               method: "post",
+               headers: new Headers({
+                 //"Content-type": "application/json" // mi aspetto dei dati
+                 "Content-type":"application/x-www-form-urlencoded; charset=UTF-8" // dati da un form
+               }),
+
+               body: JSON.stringify({
+                   titolo:"titolo articolo",
+                   autore:"mario rossi"
+               })
+               body : new FormData(document.getElementById('titolo')...)
+             }.then(...).catch(...);*/
+      ////////////////////////////////////////////////////////////////////////////////////
+      // le funzioni asincrone async/await
+      // eseguire operazioni asincrone in javascript
+
+      //1. funzioni di callback(funzioni che vengono passate come parametri di altre funzioni)
+      //2. promise-> dove posso vedere lo stato di esecuzione di un attivita!
+
+      // async/await sono basate sul meccanismo delle promise e semplicaficano la sintassi
+
+      // async dichiara una funzione asincrona
+
+      // await sospende l'esecuzione in attesa che la promise sia risolta(o rigettata)
+
+      // TRy/CAtch
+
+      // getUtente ha davanti async
+      async function getUtente(userId) {
+        try {
+          // try/catch che intercetta i casi della promise(è andata bene o andata male)
+          let response = await fetch("/utente/" + userId); // await getUtente viene sospeso finche fetch viene risolto
+        } catch {
+          console.log("errore");
+        }
+      }
+
+      //promise
+      // tre stati possibili
+
+      //1.resolve-> valore è disponibile-> attivita asincrona resituisce un valore
+      //2. rejected-> non viene resituito nessun valore
+      // 3. pending-> ne risolta ne rigettata-> attivita asincrona è partita ma non ha dato ancora risultati
+
+      let promise = new Promise(handler); // il parametro della promise ci permette di gestire la risoluzione o il rigetto
+
+      let promise1 = new Promise(function (resolve, reject) {
+        // funzioi come parametri
+        if (condizione) {
+          resolve(valore); // invco quando la promise è risolta( i dati sono disponibili)
+        } else {
+          reject(motivo); // invoco quando la promise non è risolta
+        }
+      });
+
+      // promise e then
+      let myPromise = httpGet("/utente/123");
+
+      myPromise.then(
+        function (utente) {
+          // eseguo in caso di promise risolta
+          console.log("il server ha risposto con l'utente" + utente.nome);
+        },
+        function (error) {
+          // eseguo in caso di promise non risolta
+          console.log("si è verificato un errore" + error.message);
+        }
+      );
+    </script>
+  </body>
+</html>

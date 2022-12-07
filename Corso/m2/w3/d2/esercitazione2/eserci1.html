@@ -25,12 +25,16 @@
             );
         }
       }
-      let p1 = new Person("Franco", 32);
+      let p1 = new Person("Quintino", 32);
       let p2 = new Person("Eleuterio", 29);
       let p3 = new Person("Mauriello", 57);
 
       p1.checkEta(p2);
       p1.checkEta(p3);
+      p2.checkEta(p1);
+      p2.checkEta(p3);
+      p3.checkEta(p1);
+      p3.checkEta(p2);
     </script>
   </body>
 </html>

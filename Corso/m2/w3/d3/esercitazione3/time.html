@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Timer</title>
+  </head>
+  <body>
+    <div id="testo"></div>
+    <script>
+      // variabili
+      testo = document.getElementById("testo");
+      let count = 0;
+
+      // intervallo ogni secondo mi stampi stringa con fuori i secondi
+      setInterval(counter, 1000);
+
+      // funzione per stampare ogni secondo
+      function counter() {
+        testo.innerHTML = "";
+        let secondi = ++count;
+        let timer = `<p>Sono passati ${secondi} secondi</p>`;
+        testo.innerHTML += timer;
+        sessionStorage.secondsCount = secondi;
+      }
+    </script>
+  </body>
+</html>
