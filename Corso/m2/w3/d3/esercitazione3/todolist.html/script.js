@@ -74,7 +74,7 @@ const resetInputField = () => {
   input.value = "";
 };
 
-//ripulisco il locastorage
+//ripulisco il locastorage e gli elementi creati todo
 btnClear.addEventListener("click", function () {
   localStorage.clear();
   while (todoContainer.firstChild) {
