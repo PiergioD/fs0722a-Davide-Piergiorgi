@@ -67,7 +67,7 @@ function artistiHomepage(artisti) {
   boxArtisti.insertAdjacentHTML("beforeend", card);
 }
 
-// fetch per l'header
+// fetch per l'header///////////////////////////////////////////////////////////////////////
 const id = 9076739;
 loadJSON(`https://striveschool-api.herokuapp.com/api/deezer/album/${id}`).then(
   (id) => {
@@ -103,7 +103,7 @@ async function prova1(url) {
     console.error(`${err}`);
   }
 }
-// richiamo funzione
+// richiamo funzione//////////////
 albums.forEach((ele) => prova1(ele));
 
 // fdunzione asincrona per mostrare artisti random in ASCOLTA ANCHE/////////////////
@@ -120,7 +120,7 @@ async function stampaArtista(id) {
   }
 }
 
-// richiamo funzione nel ciclo
+// richiamo funzione nel ciclo////////////////////////////////////////////////////////
 for (let artista of artists) {
   stampaArtista(artista);
 }

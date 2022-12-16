@@ -3,7 +3,7 @@ async function loadJSON(url) {
   return await res.json();
 }
 
-// variabili
+// variabili//////////////////////////////////////////////////////////////////////////
 let lista = document.querySelector("ol");
 let i = 1;
 let nomeArtista = document.querySelector(".nome-artista");
@@ -21,7 +21,7 @@ const albums = [
   "65373012",
 ];
 
-// variabili per footer
+// variabili per footer//////////////////////////////////////////////////////////////
 let btn_play = document.getElementById("play1");
 let nomeArtist = document.querySelector("#nome-artista");
 let btn_succ = document.querySelector(".traccia-succ");
@@ -46,7 +46,7 @@ let j = 0;
 let index;
 let numeriLike = document.getElementById("like");
 
-//funzione per calcolare il minutaggio
+//funzione per calcolare il minutaggio//////////////////////////////////////////////////////
 function convertiInMinuti(durata) {
   let minuti = Math.floor(durata / 60);
   let secondi = durata - minuti * 60;
@@ -57,7 +57,7 @@ function convertiInMinuti(durata) {
   }
 }
 
-// funzione per lista canzoni
+// funzione per lista canzoni/////////////////////////////////////////////////////////////
 function listaSongs(data) {
   let html = ` <li class="row border-bottom border-secondary align-items-center titolo hover">
     <div class="col-1 numero d-none d-md-inline">${i}</div>
@@ -73,7 +73,7 @@ function listaSongs(data) {
   lista.insertAdjacentHTML("beforeend", html);
 }
 
-// funzione per stampare album
+// funzione per stampare album///////////////////////////////////////////////////////////
 function renderAlbum(data) {
   const html = `<a href="../albumPage/album.html?albumId=${data.album.id}" class="text-decoration-none text-white col-6 col-md-2 mb-4">
     <div class="card">
@@ -90,7 +90,7 @@ function renderAlbum(data) {
   ).textContent = `Discografia di ${data.artist.name}`;
 }
 
-// funzione asincrona on load per caricare tutto
+// funzione asincrona on load per caricare tutto/////////////////////////////////////////////////////////////////////////
 window.onload = async () => {
   let url = new URLSearchParams(window.location.search);
   let id = url.get("artistId");
@@ -107,7 +107,7 @@ window.onload = async () => {
     // richiamo funzioni per popolare html
   });
 
-  //load JSON per caricare i 5 brani dell artista selezionato
+  //load JSON per caricare i 5 brani dell artista selezionato////////////////////////
   loadJSON(
     `https://striveschool-api.herokuapp.com/api/deezer/artist/${id}/top?limit=50`
   ).then((res) => {
@@ -137,7 +137,7 @@ window.onload = async () => {
     });
 
     console.log(tracceAudio);
-    //funzione per riprodurre musica
+    //funzione per riprodurre musica///////////////////////////////////////////
     function playMusic(brano) {
       window.requestAnimationFrame(progress_animation);
       imgCanzone.setAttribute("src", res.data[index].album.cover_small);
@@ -195,7 +195,7 @@ window.onload = async () => {
     }
   });
 
-  //Load JSON per la sezione altri album dell'artista
+  //Load JSON per la sezione altri album dell'artista////////////////////////////////
   loadJSON(
     `https://striveschool-api.herokuapp.com/api/deezer/artist/${id}/top?limit=50`
   ).then((res) => {
@@ -216,6 +216,7 @@ window.onload = async () => {
   )} brani`;
 };
 
+// funzione per animazione della barra di progressione della canzone
 function progress_animation() {
   var rect = container.getBoundingClientRect();
   var percentage = audio.currentTime / audio.duration;
@@ -224,6 +225,7 @@ function progress_animation() {
   window.requestAnimationFrame(progress_animation);
 }
 
+// funzione per la canzone
 function playMusic(brano) {
   window.requestAnimationFrame(progress_animation);
 
