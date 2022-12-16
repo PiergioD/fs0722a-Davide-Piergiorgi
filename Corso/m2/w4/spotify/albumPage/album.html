@@ -17,14 +17,14 @@
     <div class="container-fluid" id="container-madre">
       <div class="row text-white">
         <!--menu sidebar----------------------------------------------------------------->
-        <div class="col-0 col-md-2" id="sidebar-color">
+        <div class="col-12 col-md-2"  id="sidebar-color">
 
-          <div class="col-12  sidebar">
+          <div id="sidebar" class="col-12 col-md-2">
             <img src="../assets/Spotify_Logo_RGB_White.png" width="150" class="m-3 d-none d-md-block"
               alt="Logo Spotify">
             <div id="menu" class="w3-sidebar w3-light-grey w3-bar-block col-12  row ">
               <a href="../homepage/index.html"
-                class="w3-bar-item w3-button text-decoration-none text-white text-opacity-50 col-4 col-md-12 "><i
+                class="w3-bar-item w3-button text-decoration-none text-white text-opacity-50 nero col-4 col-md-12 "><i
                   class="bi bi-house-door-fill text-white p-2 text-opacity-50 fs-4"></i><span
                   class="align-text-bottom ms-2">Home</span></a>
               <a href="#"
@@ -55,44 +55,27 @@
 
             </div>
             <div id='scroll' class="overflow-auto d-none d-md-block ps-3 pt-3">
-              <p>early stage syndrome (sett ott 2022)</p>
-              <p>Be the young</p>
-              <p>saggio vibes(lug-ago 2022)</p>
-              <p>main character energy (mag-giu 2022)</p>
-              <p>that fucking mood</p>
-              <p>An Emily Winchester kind of mood</p>
-              <p>landing page (mar-apr 2022)</p>
-              <p>2021 lol</p>
-              <p>cosa cazzo vuol dire questa affermazione(gen-feb 2022)</p>
-              <p>honey and glass (nov-dic 2021)</p>
-              <p>(Revenge) Training Arc</p>
-              <p>Lidia Emily</p>
-              <p>Minecraft e Nintendo switch</p>
-              <p>Silvano d'orba? i hardly know her</p>
-              <p>Culo 2021</p>
-              <p>frah Quintale</p>
-              <p>Francesco Guccini Mix</p>
-              <p>lorem</p>
-              <p>lorem</p>
-              <p>Lorem</p>
-              <p>lorem</p>
-              <p>lorem</p>
-              <p>Lorem</p>
-              <p>lorem</p>
-              <p>lorem</p>
-              <p>Lorem</p>
-              <p>lorem</p>
-              <p>lorem</p>
-              <p>Lorem</p>
-              <p>lorem</p>
-              <p>cacca</p>
-
+              <p>I tuoi brani preferiti del 2022</p>
+              <p>Videogames OST</p>
+              <p>Canzoni italiane</p>
+              <p>Best of Bersani</p>
+              <p>Muse</p>
+              <p>Gamberelli Limonelli</p>
+              <p>chitarra</p>
+              <p>OST</p>
+              <p>Pearl Jam</p>
+              <p>I tuoi brani preferiti del 2021</p>
+              <p>Relaxing</p>
+              <p>Random</p>
+              <p>90's Playlist</p>
+              <p>Random Music</p>
+              <p>Playlist cacca</p>
             </div>
           </div>
         </div>
         <!--fine menu sidebar---------------------------------------------->
         <!--bottoncino user------------------------------------------------>
-        <div id="album-container" class="col-12 col-md-10">
+        <div id="album-container" class="col-12 col-md-10 ">
           <!--------------Inizio barra sticky con utente---------------->
           <section class="sticky-top d-flex justify-content-between align-content-center d-none d-md-flex"
             id="barra-sticky">
@@ -115,9 +98,9 @@
                 Eleuterio CoppaDiRame
               </button>
               <ul class="dropdown-menu dropdown-menu-dark">
-                <li><a class="dropdown-item" href="#">Action</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
-                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                <li><a class="dropdown-item" href="#">Account</a></li>
+                <li><a class="dropdown-item" href="#">Profilo</a></li>
+                <li><a class="dropdown-item" href="#">Impostazioni</a></li>
               </ul>
             </div>
 
@@ -130,23 +113,23 @@
           </section>
           <!--------------Fine card album---------------->
           <!--tasti play----------------------------------->
-          <div class="ps-5">
-            <button class="verde bg-dark border border-0"> <i
+          <div class="ps-5 buttons">
+            <button class="verde  border border-0"> <i
                 class=" bi bi-play-circle-fill fs-1 text-success me-3 d-none d-md-inline"></i></button>
-            <i class="bi bi-heart fs-2 me-3"></i>
+            <i class="bi bi-heart fs-2 me-3" onclick="colora()"></i>
             <i class="bi bi-arrow-down-circle fs-2"></i>
             <div class="dropdown d-inline">
               <button class="btn text-light fs-2 " type="button" data-bs-toggle="dropdown" aria-expanded="false">
                 <i class="bi bi-three-dots"></i>
               </button>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Action</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
-                <li><a class="dropdown-item" href="#">Something else here</a></li>
+              <ul class="dropdown-menu dropdown-menu-dark">
+                <li><a class="dropdown-item" href="#">Aggiungi in coda</a></li>
+                <li><a class="dropdown-item" href="#">Vai a Radio della playlist</a></li>
+                <li><a class="dropdown-item" href="#">Aggiungi al profilo</a></li>
               </ul>
             </div>
             <div class="d-inline d-md-none float-end pe-5">
-              <button type="button">
+              <button class="verde  border border-0" type="button">
                 <i class="bi bi-play-circle-fill fs-1 text-success me-3"></i>
               </button>
               <i class="bi bi-shuffle fs-2"></i>
@@ -155,7 +138,7 @@
           <!--inizio tabella--------------------------------->
           <table class="table table-borderless text-light mx-auto">
             <thead>
-              <tr>
+              <tr class="listaId">
                 <th scope="col">#</th>
                 <th scope="col">Titolo</th>
                 <th scope="col">Riproduzioni</th>
@@ -176,61 +159,54 @@
           </main>
         </div>
       </div>
-      <!--inizio footer-->
-
-
     </div>
+    <!--inizio footer-->
     <footer>
       <div class=" text-center">
         <div class="row">
           <div class="card mb-3 col-6 col-md-3">
             <div class="row g-0">
-              <div class="col-6 col-md-4">
-                <img src="" class="d-none d-md-inline img-fluid rounded-start pt-4" id="imgCanzone" alt="">
+              <div class="col-6 col-md-6">
+                <img src="" class="img-fluid rounded-start pt-4" id="imgCanzone" alt="">
               </div>
-              <div class="col-8">
+              <div class="col-6 col-md-6">
                 <div class="card-body text-start">
-                  <h5 class="text-light pt-2 nome-traccia"></h5>
-                  <span><small class="d-none d-md-inline text-muted nome-artista"></small><i
-                      class="d-none d-md-inline bi bi-heart ps-3 text-light"></i></span>
+                  <h5 class="text-light text-wrap pt-2 nome-traccia"></h5>
+                  <span><small class="d-none d-md-inline text-muted nome-artista"></small></span>
                 </div>
               </div>
             </div>
           </div>
-          <div class="col-6 d-none d-md-inline">
-            <div class="text-light pb-3">
-              <button class="border  bg-dark border-0 text-white "> <i
-                  class="bi bi-shuffle d-none d-md-inline fs-4"></i></button>
-              <button class="bg-dark text-white border-0"><i
-                  class="bi bi-caret-left-fill  d-none d-md-inline fs-4 traccia-prec"></i></button>
-
-              <button class="pausa bg-dark border-0 text-white"> <i
-                  class="bi bi-pause-circle-fill d-none d-md-inline fs-3"></i></button>
-              <button class="bg-dark border-0 text-white" id="bottone-play"> <i
-                  class="bi bi-play-circle-fill d-none d-md-inline fs-3  "></i></button>
-
-              <button class="bg-dark border-0 text-white"> <i
-                  class="bi bi-caret-right-fill d-none d-md-inline fs-4 traccia-succ"></i></button>
-              <button class="repeat bg-dark border-0 text-white"> <i
-                  class="bi bi-repeat d-none d-md-inline fs-4"></i></button>
-            </div>
+          <div class="col-6 d-flex justify-content-center">
+            <div class="text-light align-self-center">
+              <button class=" text-white border-0"><i
+                  class="bi bi-caret-left-fill  d-none d-md-inline fs-4 traccia-prec"></i>
+              </button>
+                  <i class="bi bi-heart d-inline d-md-none fs-3"></i>
+              <button class="pausa  border-0 text-white"> <i
+                  class="bi bi-pause-circle-fill  fs-3"></i></button>
+              <button class=" border-0 text-white" id="bottone-play"> <i
+                  class="bi bi-play-circle-fill  fs-3  "></i></button>
+              <button class=" border-0 text-white"> <i
+                  class="bi bi-caret-right-fill d-none d-md-inline fs-4 traccia-succ"></i>
+              </button>              
+            <div class="d-none d-md-inline">
             <div class="progress">
               <div class="progress-bar progress-bar-striped bg-success elapsed" role="progressbar"
-                aria-label="Success striped example" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-            </div>
+                aria-label="Success striped example" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+              </div>
+              </div>
           </div>
-        <div class="col-6 col-md-3 text-light pt-3">
-          <i class="bi bi-heart d-inline d-md-none fs-3"></i>
-          <i class="bi bi-play-circle-fill d-inline d-md-none fs-3"></i>
-          <button class="bg-dark text-light mute"><i class="bi bi-volume-up fs-5 d-none d-md-inline"></i></button>
-          <input class="d-none d-md-inline" type="range" id="volume" min="0" max="100" step="1" value="50" />
-
-          <i class="bi bi-arrows-angle-expand d-none d-md-inline fs-6"></i>
-        </div>
         </div>
       </div>
-  </div>
+        <div class="col-6 col-md-3 text-light pt-4 d-none d-md-inline">
+          <input class="d-none d-md-inline" type="range" id="volume" min="0" max="100" step="1" value="50" />
+        </div>
+        
+        
+      </div>
   </footer>
+   
   <!-- fine footer------------------------------------->
   </div>
 

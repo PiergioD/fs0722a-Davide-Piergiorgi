@@ -47,9 +47,9 @@ function convertiInMinuti(durata) {
 // funzione per creare elemento tabella con lista track
 function listaTracks(data) {
   const html = `<tr>
-    <td class="d-none d-md-inline index" scope="row">${i}</td>
+    <td class="d-none d-md-inline index mt-1" scope="row">${i}</td>
     <td class="titolo">${data.title}</td>
-    <td class="" >${data.rank} </td>
+    <td class="listaId" >${data.rank} </td>
     <td class="d-md-none"><div class="dropdown d-inline"></td>
     <td class="d-md-none"><button class="btn text-light fs-2 " type="button" data-bs-toggle="dropdown"
         aria-expanded="false">
@@ -86,7 +86,7 @@ function headerAlbum(data) {
 function renderAltriALbum(data) {
   const html = `
     
-    <a href="../albumPage/album.html?albumId=${data.album.id}" id="ultimo2" class="col-lg-2 text-decoration-none">
+    <a href="../albumPage/album.html?albumId=${data.album.id}"  class="col-6 col-lg-2 m-3 mx-auto text-decoration-none">
     <div class="col-lg-3 text-white">
     <div class="card card2">
         <img src=${data.album.cover_medium}
@@ -239,4 +239,9 @@ function progress_animation() {
   elapsed.style.width = percentage * rect.width + "px";
 
   window.requestAnimationFrame(progress_animation);
+}
+
+function colora() {
+  let i = document.querySelector(".bi-heart");
+  i.style.color = "red";
 }

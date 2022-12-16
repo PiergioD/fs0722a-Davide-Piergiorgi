@@ -6,9 +6,10 @@ async function loadJSON(url) {
 // variabili
 let lista = document.querySelector("ol");
 let i = 1;
-let nomeArtista = document.querySelector("#nome-artista");
+let nomeArtista = document.querySelector(".nome-artista");
 let fans = document.querySelector("#fans");
 let cantante = document.querySelector("#cantante");
+let imgBraniPiaciuti = document.querySelector("#img-braniPiaciuti");
 let sfondo = document.querySelector("#sfondo");
 let altriAlbum = document.getElementById("containerAlbum");
 const albums = [
@@ -22,7 +23,7 @@ const albums = [
 
 // variabili per footer
 let btn_play = document.getElementById("play1");
-let nomeArtist = document.querySelector(".nome-artista");
+let nomeArtist = document.querySelector("#nome-artista");
 let btn_succ = document.querySelector(".traccia-succ");
 let btn_prec = document.querySelector(".traccia-prec");
 let nomeTraccia = document.querySelector(".nome-traccia");
@@ -43,6 +44,7 @@ const tracceAudio = [];
 let tracce = document.querySelectorAll(".titolo");
 let j = 0;
 let index;
+let numeriLike = document.getElementById("like");
 
 //funzione per calcolare il minutaggio
 function convertiInMinuti(durata) {
@@ -57,12 +59,12 @@ function convertiInMinuti(durata) {
 
 // funzione per lista canzoni
 function listaSongs(data) {
-  html = ` <li class="row border-bottom border-secondary align-items-center titolo">
+  let html = ` <li class="row border-bottom border-secondary align-items-center titolo hover">
     <div class="col-1 numero d-none d-md-inline">${i}</div>
     <div class="col-4 col-md-1 canzone">
         <img src="${data.album.cover_small}" alt="imgAlbum" class="">
     </div>
-    <div class="col-8 col-md-6 ">${data.title}</div>
+    <div class="col-8 col-md-6 ps-4">${data.title}</div>
     <div class="col-2 views d-none d-md-block">${data.rank}</div>
     <div class="col-2 durata d-none d-md-block">${convertiInMinuti(
       data.duration
@@ -73,7 +75,7 @@ function listaSongs(data) {
 
 // funzione per stampare album
 function renderAlbum(data) {
-  const html = `<a href="../albumPage/album.html?albumId=${data.album.id}" class="text-decoration-none text-white col-md-2">
+  const html = `<a href="../albumPage/album.html?albumId=${data.album.id}" class="text-decoration-none text-white col-6 col-md-2 mb-4">
     <div class="card">
         <img src="${data.album.cover_medium}"
             class="card-img-top" alt="...">
@@ -97,9 +99,10 @@ window.onload = async () => {
     `https://striveschool-api.herokuapp.com/api/deezer/artist/${id}`
   ).then((res) => {
     console.log(res);
-    nomeArtista.textContent = res.name;
     fans.textContent = res.nb_fan + " Ascoltatori Mensili";
     cantante.textContent = `di ${res.name}`;
+    nomeArtist.textContent = res.name;
+    imgBraniPiaciuti.setAttribute("src", res.picture_small);
     sfondo.style.backgroundImage = `url('${res.picture_xl}')`;
     // richiamo funzioni per popolare html
   });
@@ -127,7 +130,7 @@ window.onload = async () => {
         console.log(index);
         playMusic(element.preview);
         nomeTraccia.innerText = element.title;
-        nomeArtista.innerHTML = element.artist.name;
+        nomeArtista.innerText = element.artist.name;
         imgCanzone.setAttribute("src", element.album.cover_small);
       });
       j++;
@@ -154,6 +157,7 @@ window.onload = async () => {
     audio.addEventListener("ended", function () {
       index++;
       playMusic(tracceAudio[index]);
+
       nomeTraccia.innerText = res.data[index].title;
     });
 
@@ -161,6 +165,7 @@ window.onload = async () => {
     btn_succ.addEventListener("click", function () {
       index++;
       playMusic(tracceAudio[index]);
+
       nomeTraccia.innerText = res.data[index].title;
       imgCanzone.setAttribute("src", res.data[index].album.cover_small);
     });
@@ -169,6 +174,7 @@ window.onload = async () => {
     btn_prec.addEventListener("click", function () {
       index--;
       playMusic(tracceAudio[index]);
+
       nomeTraccia.innerText = res.data[index].title;
       imgCanzone.setAttribute("src", res.data[index].album.cover_small);
     });
@@ -204,6 +210,10 @@ window.onload = async () => {
       }
     });
   });
+
+  numeriLike.innerText = `Hai messo mi piace a ${Math.round(
+    Math.random() * 33
+  )} brani`;
 };
 
 function progress_animation() {
