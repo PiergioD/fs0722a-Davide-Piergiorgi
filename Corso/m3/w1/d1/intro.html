@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!--pROBELMI DI JAVASCRIPT
+        1. tenede a dinventare disordinato!(e quindi difficile fare manutenzione)
+        2. poca capacità di abbracciare le caratteristiche dell'orientamento ad oggetti
+        3. il controllo del tipo dato 
+        4. nessun controllo degli errrori( non ce debug in fase di compilazione)
+    
+    TYPESCRIPT-> è javascript per lo sviluppo su scala di applicazioni
+
+    differenze:
+
+    1. è un linguaggio fortemenete tipizzato(dichiareo i tipi di dati)
+    2. orientato agli oggetti
+    3. è contemporanemante un linguaggio e un insieme di oggetti
+    Typescript è javacsript piu alcune funzionalità aggiungitve( è un superset(.ts) tipizzato di javascript(.js))
+    typescript viene COMPILATO IN js(sono i file .js che aggancio poi al browser)
+
+    Dalle conosvenze base di javacsript aggiuingo sintasse dedicate di typescript e poi compilo da .ts a .js
+
+    il codice typescript viene convertito nel suo equivalente javascsript per essere eseguito
+
+
+    il codice compilato è compatibile con qualsiasi framerwork, libreria, etc javacsript esistente
+    
+
+
+    Perche dobbiamo usare typescript?
+
+    -transpiler -> mentre interpreto il codice .ts per generare l'output .js , ho il controllo degli errori
+    -strong static typing -> sia il controllo del tipo di dato, sia una sintassi per dedurlo o modificarlo
+
+    Componeneti di Typescript
+    -linguaggio(sintassi,keyword,annotazione di tipo)
+    - compiler(tsc) converte le istruzioni typescript nell'equivalente javascript
+Type script language service-> servizio che aiuta la compilazione del codice .ts
+
+- qualsiaSI script javacript è anche codice typescript valido( quindi posso fare il passaggio gradualmente )
+
+
+poassaggi 
+1-salvo il file in formato .ts
+apro il terminale
+3. tsc + nome del file(controllo di essere nella cartella)
+4. node +nome del file.js (eseguo nel terminale il console log)
+    
+
+flag del compilatore
+
+--help(stampa la guida)
+--watch(controlla le modifiche ai file e li ricompila)
+--module(carica moduli esterni)
+--target(imposta la versione ecma di destinazione)
+--out ( compilare il file in un unico output)
+
+
+tscconfig.json
+// PER USCIRE DAL WATCH FARE CTRL+C
+
+
+alternativa a watch è usare tsc + nome del file (ogni volta)
+
+POSSO compilare piu file tsc assieme-> file1.ts,file2.ts,file3.ts
+
+regole di sintassi basilari
+- nomenclatura degli identificatori (regole molto simili a js)
+-> possoono incluodere caratteri o cifre ma non posso iniziare con una cifra
+-> non possono usare caratteri speciali ad eccezzione di $ e _
+-> non posso essere parole chiave(switch,for,while,this,static,try ecc ecc)
+-> devono essere undici
+-> case sensitive(fa distinzione tra maiuscole e minuscole)
+-> non possono contenere spazi
+
+ok-> firstName, first_name,num1, $result
+no-> Var, first name, first-name, 1number
+
+Typescript ingora gli spazi(uso spazi e tab per tenere il codice piu ordinato)
+-i ; sono facoltativi(se metto piu istruzioni su una riga li devo separare con ;)
+- i commenti possono essere singleline // o multiriga /**/
+
+-typescript è javacsreipt orientato agli oggetti-> consiedriamo un programma come una raccolta di oggetti che comunicano tra loro tramite metodi
+-> gli oggetti rappresentano un entita(hanno tre caratteristiche :stato,comportamento,identità)
+-> gli ogeti hanno delle clasi cioe dei modelli su cui vengono creati
+-> gli oggetit hanno dei metodi per comunicare tra di loro
+-->
+
+    <!-- TIPI DI DATI IN TYPESCRIPT
+-number -string -boolean -null(la variabile è impostata su un valore che non è definito) -undefined(la variabile non ha alcun valore)
+
+-void -> assenza di valore -> utilizzato quando una fnzione non resituisce nessun tipo di valore
+
+function myFunc():void {console.log('messaggio')}
+- lo uso ssulle funzione perche se dichiaro una vbariabile:void poi potro assegnare solo valori null e undefined
+
+-any -> la variabile contiene qualsiasai tipo di dato( come javascript)
+var myVar:any = 123;
+myVar = 'una stringa';
+myVar = true; // assume dinamicamente qualsisasi valore come in js
+
+i tipi definititi dall'utente : enum,classi,interfacce,array,tuple
+
+-->
+  </body>
+</html>
