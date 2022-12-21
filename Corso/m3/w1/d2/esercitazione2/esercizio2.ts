@@ -55,3 +55,5 @@ mother.oneWithdraw(1200);
 console.log(mother.movements);
 console.log(son.movements);
 mother.interest();
+
+export {};
