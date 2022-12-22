@@ -47,6 +47,7 @@ abstract class Lavoratore implements ITasse {
 // figlio 1 di lavoratore
 class InvestigatoreGenealogico extends Lavoratore {
   getTasseInps(utile: number): number {
+    super.getTasseInps(utile);
     if (this.redditoAnnuoLordo >= 30000) {
       return (utile * 21) / 100;
     } else {
@@ -55,6 +56,7 @@ class InvestigatoreGenealogico extends Lavoratore {
   }
 
   getTasseIrpef(utile: number): number {
+    super.getTasseIrpef(utile);
     if (this.redditoAnnuoLordo >= 30000) {
       return (utile * 19) / 100;
     } else {

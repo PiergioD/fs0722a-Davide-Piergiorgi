@@ -48,6 +48,7 @@ var InvestigatoreGenealogico = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     InvestigatoreGenealogico.prototype.getTasseInps = function (utile) {
+        _super.prototype.getTasseInps.call(this, utile);
         if (this.redditoAnnuoLordo >= 30000) {
             return (utile * 21) / 100;
         }
@@ -56,6 +57,7 @@ var InvestigatoreGenealogico = /** @class */ (function (_super) {
         }
     };
     InvestigatoreGenealogico.prototype.getTasseIrpef = function (utile) {
+        _super.prototype.getTasseIrpef.call(this, utile);
         if (this.redditoAnnuoLordo >= 30000) {
             return (utile * 19) / 100;
         }
