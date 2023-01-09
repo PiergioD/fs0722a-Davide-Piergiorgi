@@ -1,0 +1,10 @@
+/* You can add global styles to this file, and also import other style files */
+
+// abbiamo importato boostrap!!!!! con npm i bootstrap(come comando in terminal)
+// possiamo anche fare da cdn mettendo su index.html link e lo script
+@import "~bootstrap/scss/bootstrap";
+
+/*stili globali  d a tutta la applicazione! il scss delle componenets avranno il loro scss,  e per il cascade style sheet, il scss delle singole components avrà priorità*/
+h1 {
+  color: red;
+}
