@@ -1,0 +1,17 @@
+<!--si importerà il contenuto di child! cioe è il nome-->
+<!--qua mi stampa tuttp il p! "ciao sono il child blabla"-->
+<app-child #child></app-child>
+<!--poi mi stampa una proprietà del chidl! cioe il nome-->
+<h3>{{ child.nome }}</h3>
+
+<div class="card w-100">
+  <div class="card-body">
+    <!-- ng content seleziona la classe card title che è h5-->
+    <!-- select è un attributo di ngcontent! è l'iniziezione del cotenuto di un componente in un altro componente-->
+    <ng-content select=".card-title"></ng-content>
+    <h5 class="card-subtitle mb-2 text-muted">Sottotiletto Card</h5>
+    <!-- ng content seleziona la classe card body che è app-user-info-->
+    <!-- fa riferimento all'elemento che sta attivando il component ! cioe il padre-->
+    <ng-content select=".card-body"></ng-content>
+  </div>
+</div>

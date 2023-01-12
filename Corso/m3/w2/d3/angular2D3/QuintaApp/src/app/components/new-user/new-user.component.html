@@ -1,0 +1,18 @@
+<label for="newName">Nome</label>
+<!--two way data binding ricevi valore dal compnenet e lo cambia se vien cambiato dall'utente-->
+<input type="text" name="newName" class="form-control" [(ngModel)]="newName" />
+<label for="newSurname">Cognome</label>
+<input
+  type="text"
+  name="newSurname"
+  class="form-control"
+  [(ngModel)]="newSurname"
+/>
+<!--riceverà il valore che partira da qui in two data binding-->
+<app-eta [(eta)]="newEta"></app-eta>
+<button type="button" class="btn btn-primary me-2" (click)="onAddMAn()">
+  Aggiungi Uomo
+</button>
+<button type="button" class="btn btn-primary me-2" (click)="onAddWoMAn()">
+  Aggiungi Donna
+</button>

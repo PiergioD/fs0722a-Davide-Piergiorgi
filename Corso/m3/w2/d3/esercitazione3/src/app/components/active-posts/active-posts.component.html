@@ -1,0 +1,7 @@
+<div *ngFor="let post of posts">
+  <app-card [data]="post" *ngIf="post.active == true">
+    <div class="d-flex justify-content-center mb-2">
+      <button class="btn btn-secondary w-25" (click)="gimmeFalse()">DISATTIVA</button>
+    </div>
+  </app-card>
+</div>

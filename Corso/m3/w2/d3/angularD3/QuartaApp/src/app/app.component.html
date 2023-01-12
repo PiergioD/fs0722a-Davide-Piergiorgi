@@ -1,0 +1,16 @@
+<div
+  class="container d-flex flex-column justify-content-center align-items-center"
+>
+  <h1>Parent-Child</h1>
+  <app-card>
+    <h5 class="card-title">Titoletto Card</h5>
+    <div class="card-body">
+      <!--questo [user] verrrà preso in @input da userInfo -->
+      <app-user-info
+        [user]="utente"
+        *ngFor="let utente of users"
+      ></app-user-info>
+    </div>
+  </app-card>
+  <a href="www.google.it" target="_blank">google</a>
+</div>
