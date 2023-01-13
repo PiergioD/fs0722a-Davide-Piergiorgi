@@ -1,6 +1,7 @@
 <h1 class="my-2 display-1">Completed</h1>
 
 <div *ngIf="load == true">
+  <!-- item della lista completati con proprietà true!-->
   <ul *ngFor="let item of completati" class="list-group text-center">
     <div *ngIf="item.completed == true">
       <li class="list-group-item">
@@ -13,10 +14,11 @@
   </ul>
 </div>
 
+<!-- load diventa true dopo 2 sec grazie al ngOnInit-->
 <div *ngIf="load == false">
   <h2 class="text-center">Loading...</h2>
 </div>
-
+<!-- se non ci sono elementi e load pè true fai il titoletto-->
 <div *ngIf="completati.length <= 0 && load == true">
   <h2>There isn't any completed task.</h2>
 </div>

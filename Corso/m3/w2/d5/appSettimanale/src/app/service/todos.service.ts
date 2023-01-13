@@ -10,6 +10,7 @@ export class TodosService {
 
   constructor() { }
 
+
   addTask(item:string){
       this.list.push({ id: this.list.length, title: item, completed: false });
       console.log(this.list)
