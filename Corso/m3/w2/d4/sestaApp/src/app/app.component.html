@@ -1,0 +1,96 @@
+<div class="container text-center">
+  <!--direttiva di atrributo-->
+  <h1 appColora [defaultColor]="'cyan'">Ciao</h1>
+
+  <h3>
+    <!-- qui chiamo l'intera direttiva! con appColora e poi definisco il default color ed è blue-->
+    Hello <span [appColora]="'#a6574e'" [defaultColor]="'blue'">WOrld! </span>
+  </h3>
+
+  <!-- direttiva di modifica template-->
+  <!-- al click cambia stato-->
+  <button type="button" class="btn btn-primary" (click)="active = !active">
+    Toggle
+  </button>
+
+  <!-- se active è true fai vedere predefinita!
+   se è falsa, fammi vedere la riga di tetsto alternativa-->
+
+  <!--modo 1: utilizzo della direttiva-->
+  <h3 *ngIf="active">Riga di testo predefinita</h3>
+  <h3 *appComparsa="active">{{ "Riga di testo alternativa" | uppercase }}</h3>
+
+  <!--modo 2: if alternativi-->
+  <!--
+  <h3 *ngIf="active">Riga di testo predefinitia</h3>
+  <h3 *ngIf="!active">RIga di testo alternativa</h3>-->
+
+  <!-- modo 3 : ng-template-- sono delle direttive di angular per creare degli interi template alternativi a far uscire a condiszione
+
+   lo si utilizza quando cio che deve venire al non verificarsi di una condizione, è un bel bloccoone di html(template)--->
+
+  <h2>Clicca per vedere i nostri prodotti di punta</h2>
+  <button type="button" class="btn btn-primary" (click)="mostra = !mostra">
+    Elenco
+  </button>
+  <h3 *ngIf="mostra; else nuovo">
+    <table class="table table-bordered">
+      <tr>
+        <th>NOME</th>
+        <th>Categoria</th>
+        <th>Prezzo</th>
+      </tr>
+      <tr>
+        <td>prodotti 1</td>
+        <td>categoria 1</td>
+        <td>120000</td>
+      </tr>
+      <tr>
+        <td>prodotti 2</td>
+        <td>categoria 2</td>
+        <td>14000</td>
+      </tr>
+      <tr>
+        <td>prodotti 3</td>
+        <td>categoria 3</td>
+        <td>1550000</td>
+      </tr>
+    </table>
+  </h3>
+  <ng-template #nuovo>
+    <table class="table table-bordered">
+      <tr>
+        <th>NOME</th>
+        <th>Categoria</th>
+        <th>Prezzo</th>
+        <th>SPecifiche</th>
+        <th>Disponibilta</th>
+        <th>Spedizione</th>
+      </tr>
+      <tr>
+        <td>prodotti 1</td>
+        <td>categoria 1</td>
+        <td>120000</td>
+        <td>4343434</td>
+        <td>rafdsafdasf</td>
+        <td>43qreawef</td>
+      </tr>
+      <tr>
+        <td>prodotti 2</td>
+        <td>categoria 2</td>
+        <td>14000</td>
+        <td>4343434</td>
+        <td>rafdsafdasf</td>
+        <td>43qreawef</td>
+      </tr>
+      <tr>
+        <td>prodotti 3</td>
+        <td>categoria 3</td>
+        <td>1550000</td>
+        <td>4343434</td>
+        <td>rafdsafdasf</td>
+        <td>43qreawef</td>
+      </tr>
+    </table>
+  </ng-template>
+</div>

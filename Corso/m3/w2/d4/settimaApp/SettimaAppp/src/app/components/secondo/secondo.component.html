@@ -1,0 +1,22 @@
+<h1 class="text-center">Secoondo COmpoenent</h1>
+<h3>
+  QUesto componenete ha due children: si attivano con i pulsanti presenti nella
+  pagina
+</h3>
+<div class="container d-flex justify-content-around">
+  <a
+    class="btn btn-primary"
+    routerLink="secondoA"
+    routerLinkActive="active"
+    [routerLinkActiveOptions]="{ exact: true }"
+    >Primo Child</a
+  >
+  <a class="btn btn-primary" routerLink="secondoB" routerLinkActive="active"
+    >Secondo Child</a
+  >
+  <a class="btn btn-primary" routerLink="/secondo" routerLinkActive="active"
+    >Torna al componenet Padre</a
+  >
+</div>
+<!-- importante scrivere questo!-->
+<router-outlet></router-outlet>
