@@ -1,0 +1,54 @@
+<app-contatore></app-contatore>
+<div class="row d-flex justify-content-center">
+  <button
+    type="button"
+    class="btn btn-outline-success mt-3 col-5 my-4"
+    (click)="recuperaFoto()"
+  >
+    Recupera foto
+  </button>
+</div>
+<div class="row container-fluid">
+  <div class="card m-2" style="width: 22vw" *ngFor="let foto of fotoArr">
+    <img src="{{ foto.thumbnailUrl }}" class="card-img-top" />
+    <div class="card-body">
+      <h5 class="card-title fs-6 text-center">{{ foto.title }} - #{{ foto.id }}</h5>
+      <!-- bottone delete -->
+      <button
+        type="button"
+        (click)="cancellaFoto(foto.id)"
+        class="btn btn-danger float-start"
+      >
+      <i class="bi bi-trash3-fill"></i>
+      </button>
+      <!-- bottone mi piace -->
+      <button
+        type="button"
+        (click)="addClick()"
+        class="btn btn-info text-white float-end"
+      >
+      <i class="bi bi-hand-thumbs-up-fill"></i>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Spinner di caricamento -->
+<div class="text-center">
+<div class="spinner-grow text-success mx-1" role="status" *ngIf="!fotoArr">
+  <span class="visually-hidden">Loading...</span>
+</div>
+<div class="spinner-grow text-warning mx-1 pallina2" role="status" *ngIf="!fotoArr">
+  <span class="visually-hidden">Loading...</span>
+</div>
+<div class="spinner-grow text-danger mx-1 pallina3" role="status" *ngIf="!fotoArr">
+  <span class="visually-hidden">Loading...</span>
+</div>
+</div>
+<!-- <ul class="list-group">
+        <li *ngFor="let user of users" class="list-gruop-item">Id : {{user.id}} - Nome: {{user.first_name}} - Cognome: {{user.last_name}} - E-mail: {{user.email}} - Immagine: <img src="{{user.avatar}}">
+          <button type="button" class="btn btn-danger" (click)="cancellaUtente(user.id)">X</button>
+        </li>
+        <p *ngIf="!users">Non ci sono utenti D:</p>
+
+      </ul> -->

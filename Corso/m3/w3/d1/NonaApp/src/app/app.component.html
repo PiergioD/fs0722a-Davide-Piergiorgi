@@ -1,0 +1,64 @@
+<div class="text-center">
+  <h1>Nuovo Utente</h1>
+  <div class="container">
+    <div class="row">
+      <form>
+        <!-- form in cui puoui creare nuovi utenti-->
+        <div class="form-group">
+          <label for="nome"> NOme</label>
+          <input
+            type="text"
+            class="form-control"
+            required
+            name="name"
+            [(ngModel)]="newUser.first_name"
+          />
+          <div class="form-group">
+            <label for="cognome">Cognome</label>
+            <input
+              type="text"
+              class="form-control"
+              required
+              name="cognome"
+              [(ngModel)]="newUser.last_name"
+            />
+          </div>
+        </div>
+        <!-- buttone per creare nuovo utente-->
+        <button type="button" class="btn btn-primary" (click)="creaUtente()">
+          Crea
+        </button>
+      </form>
+      <hr />
+
+      <!-- bottone per recuperare utenti!-->
+      <button
+        type="button"
+        class="btn btn-success mt-3"
+        (click)="recuperaUtenti()"
+      >
+        recupera Utenti
+      </button>
+      <div class="row">
+        <!-- ogni elemento della lista avrà un elemento di eliminazione!-->
+        <ul class="list-group">
+          <!--l'id viene creato dinamicamente dall'api-->
+          <li *ngFor="let user of users" class="list-group-item">
+            Id: {{ user.id }} - Nome: {{ user.first_name }} - Cognome :
+            {{ user.last_name }} - Email: {{ user.email }} - Immagine:
+            <img src="{{ user.avatar }}" />
+            <button
+              type="button"
+              class="btn btn-danger"
+              (click)="cancellaUtente(user.id)"
+            >
+              X
+            </button>
+          </li>
+        </ul>
+        <!-- questo non ciccierà mai fuori perche l'array non sara mai vuoti, ma sarà undefined! guarda app.component.ts-->
+        <p *ngIf="users.length === 0">NON CI SONO UTENTI</p>
+      </div>
+    </div>
+  </div>
+</div>

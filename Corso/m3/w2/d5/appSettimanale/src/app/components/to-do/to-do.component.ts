@@ -24,8 +24,9 @@ export class ToDoComponent implements OnInit {
           title: itemTodo,
           completed: false,
         });
+        console.log(this.listTo);
       }
-    }, 2000);
+    }, 500);
   }
 
   completeTask(id: number) {
@@ -33,6 +34,6 @@ export class ToDoComponent implements OnInit {
       this.listTo[id].completed = true;
       this.listTo = this.listTo.filter((item) => item.id !== id);
       this.todoSrv.cambiaStatoElementoLista(id);
-    }, 2000);
+    }, 500);
   }
 }
