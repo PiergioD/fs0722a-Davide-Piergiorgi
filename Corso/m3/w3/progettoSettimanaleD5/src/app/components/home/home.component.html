@@ -1,0 +1,28 @@
+<app-sidebar></app-sidebar>
+<div class="container">
+<div class="row">
+    <div  class="card border-0 p-2" style="width: 18rem;" *ngFor="let movie of movies">
+        <img  class="card-img-top" src="https://image.tmdb.org/t/p/w500/{{movie.poster_path}}">
+        <div class="card-body border">
+          <h5 class="card-title">{{movie.original_title}}</h5>
+          <button type="button" class="col-12 btn" (click)="like(movie)" [ngClass]="{
+            'btn-outline-success': isLiked(movie) == 'false',
+            'btn-outline-danger': isLiked(movie) == 'true',
+          }">
+            <i class="bi bi-arrow-through-heart-fill"></i>
+            <i class="bi bi-arrow-through-heart-fill"></i>
+            <i class="bi bi-arrow-through-heart-fill"></i>
+            <i class="bi bi-arrow-through-heart-fill"></i>
+            <i class="bi bi-arrow-through-heart-fill"></i>
+            <i class="bi bi-arrow-through-heart-fill"></i>
+            <i class="bi bi-arrow-through-heart-fill"></i>
+            <i class="bi bi-arrow-through-heart-fill"></i>
+            <i class="bi bi-arrow-through-heart-fill"></i>
+            <i class="bi bi-arrow-through-heart-fill"></i>
+            <i class="bi bi-arrow-through-heart-fill"></i>
+            <i class="bi bi-arrow-through-heart-fill"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+</div>

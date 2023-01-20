@@ -1,0 +1,116 @@
+<div class="container">
+  <h1 class="text-center">Template Driven Form</h1>
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <div>
+          <!-- il viewchild si chiama form!ed è un un ngform-->
+          <form #form="ngForm" (ngSubmit)="submit()">
+            <!--ngmodel group fa referenza nel suo componenet e vede se nel componnet ce aualcosa che si chiama userinfo-->
+            <div
+              ngModelGroup="userInfo"
+              id="userInfo"
+              #userGroup="ngModelGroup"
+            >
+              <div class="form-group">
+                <label for="username">Username</label>
+                <input
+                  type="text"
+                  id="username"
+                  [ngModel]="userForm.defUserName"
+                  name="username"
+                  class="form-control"
+                  required
+                  #username="ngModel"
+                />
+                <!--invalid quando è vuoto e touched quando lo tocchi-->
+                <p *ngIf="username.invalid && username.touched">
+                  <strong>Questo campo è obbligatorio</strong>
+                </p>
+              </div>
+              <button
+                type="button"
+                class="btn btn-outline-info mt-1"
+                (click)="generateUsername()"
+              >
+                Genera Username
+              </button>
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input
+                  type="text"
+                  id="email"
+                  name="email"
+                  required
+                  [ngModel]="userForm.email"
+                  class="form-control"
+                  #email="ngModel"
+                />
+              </div>
+              <p *ngIf="email.invalid && email.touched">
+                <strong>COmpilare Correttamente il Campo</strong>
+              </p>
+              <div class="form-group">
+                <label for="secret">Domanda Segreta</label>
+                <select
+                  name="secret"
+                  id="secret"
+                  class="form-select"
+                  [ngModel]="userForm.question"
+                >
+                  <!-- si binda la select e non i singoli option! il valore che passerà sarà value!-->
+                  <option value="madre">Nome di Battesimo di tua Madre</option>
+                  <option value="padre">Nome di battesimo di tuo padre</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <!--two way binding!-->
+                <p>La tua risposta è : {{ risposta }}</p>
+                <textarea
+                  name="risposta"
+                  class="form-control mt-1"
+                  [(ngModel)]="risposta"
+                  rows="1"
+                ></textarea>
+              </div>
+
+              <div class="radio" *ngFor="let genere of generi">
+                <label>
+                  <!-- devi fare il binding del value che sta nel ts! ngModel binda il dato a ts! che cosa= qualcosa che si chiama value! che sarà effettivamente letto come genere.value-->
+                  <input
+                    type="radio"
+                    name="sesso"
+                    ngModel
+                    [value]="genere.value"
+                    required
+                  />{{ genere.label }}
+                </label>
+              </div>
+              <button
+                type="submit"
+                (click)="submit()"
+                class="btn btn-primary mt-3"
+                [disabled]="form.invalid"
+              >
+                Invia
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr />
+  <div class="container">
+    <div class="row">
+      <div class="col" *ngIf="stampa">
+        <h2>I tuoi Dati</h2>
+        <p>Username: {{ user.username }}</p>
+        <p>Email: {{ user.email }}</p>
+        <p>Domanda Segreta:{{ user.secret }}</p>
+        <p>Risposta:{{ user.risposta }}</p>
+        <p>Sesso:{{ user.sesso }}</p>
+      </div>
+    </div>
+  </div>
+</div>
