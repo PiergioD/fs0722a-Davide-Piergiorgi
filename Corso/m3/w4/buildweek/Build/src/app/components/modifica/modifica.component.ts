@@ -13,7 +13,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class ModificaComponent implements OnInit {
   sub!: Subscription;
   post: Post | undefined;
-
+  load: boolean = false;
   constructor(
     private ps: PostsService,
     private route: ActivatedRoute,
@@ -26,7 +26,10 @@ export class ModificaComponent implements OnInit {
 
   prendiPost() {
     const id = parseInt(this.route.snapshot.paramMap.get('id')!, 10);
-    this.ps.getPost(id).subscribe((post) => (this.post = post));
+    this.ps.getPost(id).subscribe((post) => {
+      this.load = true;
+      return (this.post = post);
+    });
   }
 
   submit() {

@@ -10,6 +10,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class DettagliComponent implements OnInit {
   p!: Post;
+  load: boolean = false;
   constructor(private ps: PostsService, private route: ActivatedRoute) {}
 
   ngOnInit(): void {
@@ -18,6 +19,9 @@ export class DettagliComponent implements OnInit {
 
   prendiPost() {
     const id = parseInt(this.route.snapshot.paramMap.get('id')!, 10);
-    this.ps.getPost(id).subscribe((post) => (this.p = post));
+    this.ps.getPost(id).subscribe((post) => {
+      this.load = true;
+      return (this.p = post);
+    });
   }
 }

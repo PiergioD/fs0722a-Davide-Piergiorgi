@@ -17,7 +17,7 @@
     </svg>
     Back</a
   >
-  <div class="mt-5">
+  <div class="mt-5" *ngIf="load">
     <h2 class="text-center fs-2">Modify</h2>
     <form
       class="container shadow-sm p-3 mb-5 bg-body-tertiary rounded"
@@ -62,4 +62,5 @@
       <button class="btn btn-danger" *ngIf="!post">Loading..</button>
     </form>
   </div>
+  <div class="loader" *ngIf="!load"></div>
 </div>

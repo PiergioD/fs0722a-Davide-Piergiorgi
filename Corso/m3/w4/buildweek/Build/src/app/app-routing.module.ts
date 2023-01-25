@@ -5,6 +5,7 @@ import { DettagliComponent } from './components/dettagli/dettagli.component';
 import { ModificaComponent } from './components/modifica/modifica.component';
 import { CreaNuovoComponent } from './components/crea-nuovo/crea-nuovo.component';
 import { HomeComponent } from './components/home/home.component';
+import { Error404Component } from './components/error404/error404.component';
 const routes: Routes = [
   {
     path: '',
@@ -21,6 +22,10 @@ const routes: Routes = [
   {
     path: 'nuovoPost',
     component: CreaNuovoComponent,
+  },
+  {
+    path: '**',
+    component: Error404Component,
   },
 ];
 

@@ -11,6 +11,7 @@ import { CreaNuovoComponent } from './components/crea-nuovo/crea-nuovo.component
 import { HomeComponent } from './components/home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { Error404Component } from './components/error404/error404.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { FormsModule } from '@angular/forms';
     ModificaComponent,
     CreaNuovoComponent,
     HomeComponent,
+    Error404Component,
   ],
   imports: [
     BrowserModule,

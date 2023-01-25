@@ -19,10 +19,14 @@
   >
   <div>
     <h2 class="text-center fs-2 mt-5">Details</h2>
-    <div class="container shadow-sm p-3 mb-5 bg-body-tertiary rounded">
+
+    <div
+      class="container shadow-sm p-3 mb-5 bg-body-tertiary rounded"
+      *ngIf="load"
+    >
       <div class="card">
         <div class="card-body">
-          <!-- <img src="{{ p.image }}" class="card-img-top" alt="immaginetta bella" /> -->
+          <!-- <img src="{{ p.image }}" class="card-img-top" /> -->
           <p>Id:</p>
           <h6 class="card-body p-0 fs-5">{{ p.id }}</h6>
           <p>Title:</p>
@@ -36,3 +40,4 @@
     </div>
   </div>
 </div>
+<div class="loader" *ngIf="!load"></div>

@@ -24,8 +24,8 @@ export class TableComponent implements OnInit {
     this.sub = this.ps.getPosts().subscribe((ris) => {
       console.log(ris);
       this.postArr = ris;
+      this.load = true;
     });
-    this.load = true;
   }
 
   cancellaPost(id: number) {
