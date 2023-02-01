@@ -7,7 +7,13 @@ public class MainEsercizio2 {
 
 		
 		Sim schedaMia= new Sim("3338232122", 120)  ;
+		
+		schedaMia.ricaricaSim(12);
 		schedaMia.stampaSim();
+		
+		
+		
+		
 	}
 
 }
