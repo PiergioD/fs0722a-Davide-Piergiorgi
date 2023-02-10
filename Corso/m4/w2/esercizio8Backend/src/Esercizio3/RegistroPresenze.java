@@ -25,9 +25,6 @@ public class RegistroPresenze {
 			arr[i]=alunno;
 		String alunnoStringa=alunno.toString();
 		
-		for(int j=0;j<arr.length;j++) {
-			scriviFile(alunnoStringa+ "# ");
-		}
 		}
 		
 		
@@ -39,6 +36,9 @@ public class RegistroPresenze {
 	}
 
 	public static void scriviFile(String testo) throws IOException {
+		String presenzatxt="";
+		
+		
 		FileUtils.writeStringToFile(file, testo, "UTF-8");
 		System.out.println("testo inserito nel file");
 	}
