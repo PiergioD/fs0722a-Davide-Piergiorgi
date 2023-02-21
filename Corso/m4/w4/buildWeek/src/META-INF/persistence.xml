@@ -12,6 +12,9 @@
 	<class>model.ParcoMezzi</class>
 	<class>model.Tram</class>
 	<class>model.Autobus</class>
+	<class>model.Tratta</class>
+	
+	
 	
 	<properties>
             <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver" />
@@ -21,7 +24,7 @@
             
             <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect" />
             <property name="hibernate.default_schema" value="public" />
-            <property name="hibernate.id.new_generator_mappings" value="false" ></property>
+            <property name="hibernate.id.new_generator_mappings" value="false" />
             <property name="hibernate.hbm2ddl.auto" value="update" />
         
         </properties>

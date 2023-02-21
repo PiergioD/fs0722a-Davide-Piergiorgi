@@ -1,17 +1,19 @@
 package model;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
 import javax.persistence.*;
 
 import enums.DurataAbb;
 
-@Entity
+
 @Inheritance(strategy=InheritanceType.TABLE_PER_CLASS) //per ereditarieta, in questo modo viene generata una tabella per ogni figlio
-public abstract class PuntoEmissione {
+@MappedSuperclass
+public abstract class PuntoEmissione implements Serializable {
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Integer id_emissione;
 	@Column
 	private Utente utente;

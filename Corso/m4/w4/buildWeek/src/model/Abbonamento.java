@@ -11,21 +11,17 @@ import enums.DurataAbb;
 public class Abbonamento {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="id_abbonamento")
 	private Integer codice_univoco;
 	@Column(nullable=false)
 	private LocalDate data_emissione=LocalDate.now();
 	@Column
 	private LocalDate data_scadenza;
-	@Column(nullable=false)
 	@Enumerated(EnumType.STRING)
 	private DurataAbb durata;
 	@Column(nullable=false)
 	private boolean validita_abbonamento=true;
-//	@Column(nullable=false)
-//	private Integer count_distributore;
-//	@Column(nullable=false)
-//	private Integer count_rivenditore;
-	@Column
+	@OneToOne(mappedBy = "abbonamento")
 	private Tessera tessera;
 	
 	public Abbonamento() {
@@ -80,21 +76,7 @@ public class Abbonamento {
 		}
 	}
 
-//	public Integer getCount_distributore() {
-//		return count_distributore;
-//	}
-//
-//	public void setCount_distributore(Integer count_distributore) {
-//		this.count_distributore = count_distributore;
-//	}
-//
-//	public Integer getCount_rivenditore() {
-//		return count_rivenditore;
-//	}
-//
-//	public void setCount_rivenditore(Integer count_rivenditore) {
-//		this.count_rivenditore = count_rivenditore;
-//	}
+	
 
 	public Tessera getTessera() {
 		return tessera;

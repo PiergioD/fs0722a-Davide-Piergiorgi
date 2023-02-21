@@ -1,10 +1,10 @@
 package model;
 
-import javax.persistence.Column;
+import javax.persistence.*;
 import javax.persistence.Entity;
 
 @Entity
-public class Autobus {
+public class Autobus extends ParcoMezzi{
 
 	
 	@Column

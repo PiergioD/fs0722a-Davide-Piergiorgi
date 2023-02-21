@@ -10,6 +10,10 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 import enums.DurataAbb;
 
@@ -22,9 +26,13 @@ public class Biglietto {
 	private LocalDate data_emissione;
 	@Column(nullable=false)
 	private boolean validita_biglietto=true;
-	
-	@Column
+	@ManyToOne
+	@JoinColumn(name="utente_id")
 	private Utente utente;
+	
+	
+	
+	
 	public Biglietto() {
 		super();
 		// TODO Auto-generated constructor stub

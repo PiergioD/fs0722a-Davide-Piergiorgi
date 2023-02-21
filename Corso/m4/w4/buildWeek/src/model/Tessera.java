@@ -1,5 +1,6 @@
 package model;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Date;
 
@@ -7,13 +8,15 @@ import javax.persistence.*;
 
 
 @Entity
-public class Tessera {
+public class Tessera implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer numero_tessera;
-	@Column(nullable=false)
+	@OneToOne
+	@JoinColumn(name="id_utente")
 	private Utente utente;
-	@Column
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name="id_abbonamento")
 	private Abbonamento abbonamento;
 	@Column(nullable=false)
 	private LocalDate data_emissione=LocalDate.now();
