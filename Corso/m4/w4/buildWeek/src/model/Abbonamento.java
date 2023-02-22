@@ -1,6 +1,7 @@
 package model;
 
 import java.time.LocalDate;
+import java.util.Set;
 import java.util.Date;
 
 import javax.persistence.*;
@@ -8,6 +9,7 @@ import javax.persistence.*;
 import enums.DurataAbb;
 
 @Entity
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class Abbonamento {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -23,6 +25,9 @@ public class Abbonamento {
 	private boolean validita_abbonamento=true;
 	@OneToOne(mappedBy = "abbonamento")
 	private Tessera tessera;
+	@ManyToOne
+	@JoinColumn(name = "id_emissione")
+	private PuntoEmissione puntoEmissione;
 	
 	public Abbonamento() {
 		super();
@@ -90,8 +95,10 @@ public class Abbonamento {
 	public String toString() {
 		return "Abbonamento [codice_univoco=" + codice_univoco + ", data_emissione=" + data_emissione
 				+ ", data_scadenza=" + data_scadenza + ", durata=" + durata + ", validita_abbonamento="
-				+ validita_abbonamento + ", tessera=" + tessera + "]";
+				+ validita_abbonamento + ", puntoEmissione=" + puntoEmissione + "]";
 	}
+
+	
 
 	
 }

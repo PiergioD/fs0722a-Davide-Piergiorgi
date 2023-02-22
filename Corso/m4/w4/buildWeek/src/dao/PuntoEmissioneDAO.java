@@ -5,6 +5,7 @@ import javax.persistence.EntityTransaction;
 
 
 import model.PuntoEmissione;
+import model.Tessera;
 import utils.JpaUtil;
 
 public class PuntoEmissioneDAO {
@@ -12,20 +13,44 @@ public class PuntoEmissioneDAO {
 	private static final EntityManager em = JpaUtil.getEntityManagerFactory().createEntityManager();
 	private static final EntityTransaction t = em.getTransaction();
 
-	public static void save(PuntoEmissione object) {
+	// SALVA tessera
+		public static void saveTessera (Tessera u) {
+			
+		t.begin();
+		em.persist(u);
+		t.commit();
+		System.out.println("Tessera aggiunto al data base");
+
+			
+		}
 		
-		try {
-			PuntoEmissione ap = object;
-			
-			t.begin();
-			em.persist(ap);
+		//CERCA TEssera
+		public static Tessera cercaTessera(Integer id_tessera) {
+				t.begin();
+			Tessera u=	em.find(Tessera.class, id_tessera);
 			t.commit();
-			
-			System.out.println("Articolo inserito correttamente!");
-		}
-		catch(Exception e) {
-			System.out.println("Errore nell'inserimento del punto di emissione");
-		}
+			System.out.println("Tessera ricercato secondo id: "+id_tessera);
+			return u;
+		
+	}
+		
+	// ELIMINA BY ID tessera
+	public static void deletaUtente(Integer id) {
+		
+		Tessera tes= cercaTessera(id);
+	    t.begin();
+	    em.remove(tes);
+	    t.commit();
+	    System.out.println("Tessera eliminato");
+	}
+		
+		// MODIFICA UTENTE
+	public static void modificaTessera(Tessera u) {
+		
+		em.refresh(u);
+		
+		System.out.println("Tessera modificato");
+		
 	}
 	
 }

@@ -2,23 +2,25 @@ package model;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.Set;
 
 import javax.persistence.*;
 
 import enums.DurataAbb;
 
 
-@Inheritance(strategy=InheritanceType.TABLE_PER_CLASS) //per ereditarieta, in questo modo viene generata una tabella per ogni figlio
-@MappedSuperclass
-public abstract class PuntoEmissione implements Serializable {
+
+@Entity
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+public class PuntoEmissione implements Serializable {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Integer id_emissione;
 	@Column
 	private Utente utente;
-	@Column
-	private Abbonamento abbonamento;
+	@OneToMany(mappedBy = "puntoEmissione")
+	private Set<Abbonamento> abbonamenti;
 	@Column
 	private Integer counter_biglietti=0;
 	@Column
@@ -55,16 +57,8 @@ public abstract class PuntoEmissione implements Serializable {
 		
 	}
 	
-	//FUUNZIONE PER CREARE ABBONAMENTO
-	public Abbonamento creaAbbonamento(Tessera tessera,DurataAbb durata) {
-		Abbonamento abb = new Abbonamento();
-		abb.setDurata(durata);
-		abb.setTessera(tessera);
-		this.counter_abbonamenti++;
-		System.out.println("Abbonamento Creato!");
-		return abb;
-		
-	}
+	
+	
 
 	public Integer getId_emissione() {
 		return id_emissione;
@@ -82,12 +76,11 @@ public abstract class PuntoEmissione implements Serializable {
 		this.utente = utente;
 	}
 
-	public Abbonamento getAbbonamento() {
-		return abbonamento;
-	}
-
-	public void setAbbonamento(Abbonamento abbonamento) {
-		this.abbonamento = abbonamento;
+	
+	public void setAbbonamento(Abbonamento abbonamento,Tessera tessera) {
+		tessera.setAbbonamento(abbonamento);
+		this.counter_abbonamenti++;
+		System.out.println("Abbonamento Creato!");
 	}
 	
 }
