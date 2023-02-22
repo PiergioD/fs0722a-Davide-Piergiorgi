@@ -16,7 +16,7 @@ public class Tessera implements Serializable {
 	@OneToOne(mappedBy = "tessera") // il mappedby va nell'oggetto che vogliamo sia secondario
 	private Utente utente;
 	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name="id_abbonamento")
+	@JoinColumn(name="codice_univoco")
 	private Abbonamento abbonamento;
 	@Column(nullable=false)
 	private LocalDate data_emissione=LocalDate.now();

@@ -37,7 +37,7 @@ public class TesseraDAO {
 }
 	
 // ELIMINA BY ID tessera
-public static void deletaUtente(Integer id) {
+public static void deletaTessera(Integer id) {
 	
 	Tessera tes= cercaTessera(id);
     t.begin();
@@ -46,12 +46,29 @@ public static void deletaUtente(Integer id) {
     System.out.println("Tessera eliminato");
 }
 	
-	// MODIFICA UTENTE
+	// MODIFICA tesera
 public static void modificaTessera(Tessera u) {
 	
-	em.refresh(u);
+	t.begin();
+    em.merge(u);
+    t.commit();
 	
 	System.out.println("Tessera modificato");
+	
+}
+
+
+public static void creaTesseract(Utente u) {
+	Tessera tess = new Tessera();
+	saveTessera(tess);
+	Tessera tessPresa = cercaTessera(tess.getNumero_tessera());
+	u.setTessera(tessPresa);
+	UtenteDAO.modificaUtente(u);
+	modificaTessera(tessPresa);
+	System.out.println("Tessera creata per utente: "+u.getNome()+ " "+u.getCognome());
+	
+	
+	
 	
 }
 	

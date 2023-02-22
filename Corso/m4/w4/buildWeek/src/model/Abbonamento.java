@@ -13,7 +13,6 @@ import enums.DurataAbb;
 public class Abbonamento {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="id_abbonamento")
 	private Integer codice_univoco;
 	@Column(nullable=false)
 	private LocalDate data_emissione=LocalDate.now();
@@ -98,6 +97,23 @@ public class Abbonamento {
 				+ validita_abbonamento + ", puntoEmissione=" + puntoEmissione + "]";
 	}
 
+	public boolean isValidita_abbonamento() {
+		return validita_abbonamento;
+	}
+
+	public void setValidita_abbonamento(boolean validita_abbonamento) {
+		this.validita_abbonamento = validita_abbonamento;
+	}
+
+	public PuntoEmissione getPuntoEmissione() {
+		return puntoEmissione;
+	}
+
+	public void setPuntoEmissione(PuntoEmissione puntoEmissione) {
+		this.puntoEmissione = puntoEmissione;
+	}
+
+	
 	
 
 	

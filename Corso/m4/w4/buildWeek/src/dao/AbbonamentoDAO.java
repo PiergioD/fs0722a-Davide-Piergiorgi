@@ -47,7 +47,9 @@ public class AbbonamentoDAO {
 		// MODIFICA Abbonamento
 	public static void modificaAbbonamento(Abbonamento u) {
 		
-		em.refresh(u);
+		t.begin();
+	    em.merge(u);
+	    t.commit();
 		
 		System.out.println("Abbonamento modificato");
 		

@@ -61,49 +61,57 @@ public class MainProject {
 ////	System.out.println(abb1);
 			
 			
-			//CREIAMO UN UTENTE E LO METTIAMO NEL DATA BASE
+			//CREIAMO UN iSTANZE E LO METTIAMO NEL DATA BASE
 			Utente u1 = new Utente();
-			
-			u1.setNome("CHeBelloILBackend");
-			u1.setCognome("Gesooh");
-			
-			//UtenteDAO.saveUtente(u1);
-			
-			// CREIAMO UNA TESSERA E LA METTIAMO NEL DATABASE
-			
 			Tessera t1 = new Tessera();
+			DistributoreAutomatico atm=new DistributoreAutomatico();
+			RivenditoreAutorizzato gino= new RivenditoreAutorizzato();
 			
+			u1.setNome("Pazzi si");
+			u1.setCognome("Pazzo per gessoooh");
+			
+			
+			
+			
+			
+			//MWETODI CRUD PER SALLVARE
+			//UtenteDAO.saveUtente(u1);
 			//TesseraDAO.saveTessera(t1);
+			//PuntoEmissioneDAO.savePunto(atm);
+			//PuntoEmissioneDAO.savePunto(gino);
 			
-			// cREAIMO ABBONAMENTO E LO METTIAMO NEL DATABASE
-			
-			Abbonamento abb1=new Abbonamento();
-			
-			abb1.setDurata(DurataAbb.MENSILE);
-			abb1.setData_scadenza(abb1.getData_emissione());
-			
-			//AbbonamentoDAO.saveAbbonamento(abb1);
 			
 			
 			
 			// Estrapoliamo dati dal databse
+			Utente utentePreso= UtenteDAO.cercaUtente(3);
+//			Tessera tesseraPresa= TesseraDAO.cercaTessera(1);
+//			Abbonamento abbPreso= AbbonamentoDAO.cercaAbbonamento(1);
+//			PuntoEmissione distrPreso=PuntoEmissioneDAO.cercaPunto(1);
+//			PuntoEmissione ginoPreso=PuntoEmissioneDAO.cercaPunto(2);
 			
-			Utente utentePreso= UtenteDAO.cercaUtente(1);
-			Tessera tesseraPresa= TesseraDAO.cercaTessera(1);
-			Abbonamento abbPreso= AbbonamentoDAO.cercaAbbonamento(1);
 			
-			// CREIAMO OGGETTO PUNTO EMISSIONE
 			
-			DistributoreAutomatico atm=new DistributoreAutomatico();
-			//setti in abbonamento la tessera
-			atm.setAbbonamento(abbPreso, tesseraPresa);
+			// SETTIAMO LE PROPRIETA PRESE
+			//utentePreso.setTessera(tesseraPresa);
+		
+			//UtenteDAO.modificaUtente(utentePreso);
+			//PuntoEmissioneDAO.compraBiglietto(utentePreso, gino);
+			PuntoEmissioneDAO.compraAbbonamento(utentePreso, gino,DurataAbb.MENSILE);
 			
-			System.out.println(tesseraPresa);
+			
+			
+			System.out.println(utentePreso.getTessera());
+			System.out.println(utentePreso.getListaBiglietti());
+			
+			
+			
+			
 			
 			
 			// AGGIONRAMENTO OGGETTO UTENTE NEL DATABASE PERCHE ABBIAMO MESSO UN ATTRIBUTO IN PIU
-			UtenteDAO.modificaUtente(utentePreso);
-			
+			//UtenteDAO.modificaUtente(utentePreso);
+			//TesseraDAO.modificaTessera(tesseraPresa);
 			
 			
 			

@@ -59,6 +59,14 @@ public class Utente implements Serializable {
 	}
 
 	
+	
+	
+	public Set<Biglietto> getListaBiglietti() {
+		return listaBiglietti;
+	}
+	public void setListaBiglietti(Set<Biglietto> listaBiglietti) {
+		this.listaBiglietti = listaBiglietti;
+	}
 	@Override
 	public String toString() {
 		return "Utente [id_utente=" + id_utente + ", tessera=" + tessera + ", nome=" + nome + ", cognome=" + cognome

@@ -54,7 +54,9 @@ public static void deletaUtente(Integer id) {
 	// MODIFICA UTENTE
 public static void modificaUtente(Utente u) {
 	
-	em.refresh(u);
+	t.begin();
+    em.merge(u);
+    t.commit();
 	
 	System.out.println("Utente modificato");
 	

@@ -2,6 +2,7 @@ package model;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.*;
@@ -17,8 +18,6 @@ public class PuntoEmissione implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Integer id_emissione;
-	@Column
-	private Utente utente;
 	@OneToMany(mappedBy = "puntoEmissione")
 	private Set<Abbonamento> abbonamenti;
 	@Column
@@ -46,20 +45,21 @@ public class PuntoEmissione implements Serializable {
 		this.counter_abbonamenti = counter_abbonamenti;
 	}
 
-	//FUNZIONE PER CREARE BIGLIETTO!
-	public Biglietto creaBiglietto() {
-		Biglietto b = new Biglietto();
-		b.setData_emissione(LocalDate.now());
-		b.setUtente(this.utente);
-		this.counter_biglietti++;
-		System.out.println("Biglietto creato! creato da "+utente.getNome()+ " "+utente.getCognome());
-		return b;
-		
-	}
 	
+	public Set<Abbonamento> getAbbonamenti() {
+        return abbonamenti;
+    }
+    public void setAbbonamenti(Set<Abbonamento> abbonamenti) {
+        this.abbonamenti = abbonamenti;
+    }
 	
 	
 
+    
+    
+    
+    
+    
 	public Integer getId_emissione() {
 		return id_emissione;
 	}
@@ -68,19 +68,23 @@ public class PuntoEmissione implements Serializable {
 		this.id_emissione = id_emissione;
 	}
 
-	public Utente getUtente() {
-		return utente;
-	}
-
-	public void setUtente(Utente utente) {
-		this.utente = utente;
-	}
-
 	
-	public void setAbbonamento(Abbonamento abbonamento,Tessera tessera) {
+
+	// settare un abbonamento
+	public void setAbbonamentiCompleto(Abbonamento abbonamento,Tessera tessera) {
+		System.out.println("funzione va");
 		tessera.setAbbonamento(abbonamento);
+		System.out.println("tessera settata");
 		this.counter_abbonamenti++;
-		System.out.println("Abbonamento Creato!");
+		System.out.println("devi andare porca msieria");
+		Set<Abbonamento> listaAbbonamenti = new HashSet<Abbonamento>();
+		listaAbbonamenti.add(abbonamento);
+		System.out.println("elemento pushato nella lsita");
+		this.setAbbonamenti(listaAbbonamenti);
+		
+		
+		
+		
 	}
 	
 }
