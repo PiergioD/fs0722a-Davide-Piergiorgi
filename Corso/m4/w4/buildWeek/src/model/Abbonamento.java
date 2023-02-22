@@ -10,9 +10,10 @@ import enums.DurataAbb;
 
 @Entity
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
-public class Abbonamento {
+public class ParcoMezzi {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="id_ParcoMezzi")
 	private Integer codice_univoco;
 	@Column(nullable=false)
 	private LocalDate data_emissione=LocalDate.now();
@@ -21,14 +22,14 @@ public class Abbonamento {
 	@Enumerated(EnumType.STRING)
 	private DurataAbb durata;
 	@Column(nullable=false)
-	private boolean validita_abbonamento=true;
-	@OneToOne(mappedBy = "abbonamento")
+	private boolean validita_ParcoMezzi=true;
+	@OneToOne(mappedBy = "ParcoMezzi")
 	private Tessera tessera;
 	@ManyToOne
 	@JoinColumn(name = "id_emissione")
 	private PuntoEmissione puntoEmissione;
 	
-	public Abbonamento() {
+	public ParcoMezzi() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -71,12 +72,12 @@ public class Abbonamento {
 	}
 
 	public boolean isValidita() {
-		return validita_abbonamento;
+		return validita_ParcoMezzi;
 	}
-//METODINO PER SETTARE VALIDITA DELL'ABBONAMENTO(DA PROVARE)
+//METODINO PER SETTARE VALIDITA DELL'ParcoMezzi(DA PROVARE)
 	public void setValidita(LocalDate emi,LocalDate scad) {
 		if(emi.isAfter(scad)) {
-			this.validita_abbonamento=false;
+			this.validita_ParcoMezzi=false;
 		}
 	}
 
@@ -92,17 +93,17 @@ public class Abbonamento {
 
 	@Override
 	public String toString() {
-		return "Abbonamento [codice_univoco=" + codice_univoco + ", data_emissione=" + data_emissione
-				+ ", data_scadenza=" + data_scadenza + ", durata=" + durata + ", validita_abbonamento="
-				+ validita_abbonamento + ", puntoEmissione=" + puntoEmissione + "]";
+		return "ParcoMezzi [codice_univoco=" + codice_univoco + ", data_emissione=" + data_emissione
+				+ ", data_scadenza=" + data_scadenza + ", durata=" + durata + ", validita_ParcoMezzi="
+				+ validita_ParcoMezzi + ", puntoEmissione=" + puntoEmissione + "]";
 	}
 
-	public boolean isValidita_abbonamento() {
-		return validita_abbonamento;
+	public boolean isValidita_ParcoMezzi() {
+		return validita_ParcoMezzi;
 	}
 
-	public void setValidita_abbonamento(boolean validita_abbonamento) {
-		this.validita_abbonamento = validita_abbonamento;
+	public void setValidita_ParcoMezzi(boolean validita_ParcoMezzi) {
+		this.validita_ParcoMezzi = validita_ParcoMezzi;
 	}
 
 	public PuntoEmissione getPuntoEmissione() {
@@ -113,7 +114,6 @@ public class Abbonamento {
 		this.puntoEmissione = puntoEmissione;
 	}
 
-	
 	
 
 	

@@ -19,7 +19,7 @@ public class PuntoEmissione implements Serializable {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Integer id_emissione;
 	@OneToMany(mappedBy = "puntoEmissione")
-	private Set<Abbonamento> abbonamenti;
+	private Set<ParcoMezzi> abbonamenti;
 	@Column
 	private Integer counter_biglietti=0;
 	@Column
@@ -46,10 +46,10 @@ public class PuntoEmissione implements Serializable {
 	}
 
 	
-	public Set<Abbonamento> getAbbonamenti() {
+	public Set<ParcoMezzi> getAbbonamenti() {
         return abbonamenti;
     }
-    public void setAbbonamenti(Set<Abbonamento> abbonamenti) {
+    public void setAbbonamenti(Set<ParcoMezzi> abbonamenti) {
         this.abbonamenti = abbonamenti;
     }
 	
@@ -70,21 +70,22 @@ public class PuntoEmissione implements Serializable {
 
 	
 
-	// settare un abbonamento
-	public void setAbbonamentiCompleto(Abbonamento abbonamento,Tessera tessera) {
+	// settare un ParcoMezzi
+	public void setAbbonamentiCompleto(ParcoMezzi ParcoMezzi,Tessera tessera) {
 		System.out.println("funzione va");
-		tessera.setAbbonamento(abbonamento);
+		tessera.setParcoMezzi(ParcoMezzi);
 		System.out.println("tessera settata");
 		this.counter_abbonamenti++;
 		System.out.println("devi andare porca msieria");
-		Set<Abbonamento> listaAbbonamenti = new HashSet<Abbonamento>();
-		listaAbbonamenti.add(abbonamento);
+		Set<ParcoMezzi> listaAbbonamenti = new HashSet<ParcoMezzi>();
+		listaAbbonamenti.add(ParcoMezzi);
 		System.out.println("elemento pushato nella lsita");
 		this.setAbbonamenti(listaAbbonamenti);
-		
-		
-		
-		
+				
+	}
+	
+	public void setCounterPlus() {
+		this.counter_biglietti++;						
 	}
 	
 }

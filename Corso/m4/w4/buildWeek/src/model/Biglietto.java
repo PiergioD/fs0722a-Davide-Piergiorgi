@@ -29,6 +29,8 @@ public class Biglietto {
 	@ManyToOne
 	@JoinColumn(name="utente_id")
 	private Utente utente;
+	@Column
+	private LocalDate data_vidima;
 	
 	
 	
@@ -60,6 +62,12 @@ public class Biglietto {
 	}
 	public void setUtente(Utente utente) {
 		this.utente = utente;
+	}
+	public LocalDate getData_vidima() {
+		return data_vidima;
+	}
+	public void setData_vidima(LocalDate data_vidima) {
+		this.data_vidima = data_vidima;
 	}
 	
 

@@ -1,6 +1,7 @@
 package model;
 
 import java.io.Serializable;
+import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -67,6 +68,16 @@ public class Utente implements Serializable {
 	public void setListaBiglietti(Set<Biglietto> listaBiglietti) {
 		this.listaBiglietti = listaBiglietti;
 	}
+	
+	public void setListBiglCompl(Biglietto biglietto) {
+		Set<Biglietto> listaBig = new HashSet<Biglietto>();
+		System.out.println("lista creata");
+		listaBig.add(biglietto);
+		System.out.println("biglietto agg");
+		this.setListaBiglietti(listaBig);
+		System.out.println("tutto fatto lista");
+	}
+	
 	@Override
 	public String toString() {
 		return "Utente [id_utente=" + id_utente + ", tessera=" + tessera + ", nome=" + nome + ", cognome=" + cognome

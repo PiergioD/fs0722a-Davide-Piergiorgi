@@ -17,7 +17,7 @@ public class Tessera implements Serializable {
 	private Utente utente;
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name="codice_univoco")
-	private Abbonamento abbonamento;
+	private ParcoMezzi ParcoMezzi;
 	@Column(nullable=false)
 	private LocalDate data_emissione=LocalDate.now();
 	
@@ -51,11 +51,11 @@ public class Tessera implements Serializable {
 	public void setUtente(Utente utente) {
 		this.utente = utente;
 	}
-	public Abbonamento getAbbonamento() {
-		return abbonamento;
+	public ParcoMezzi getParcoMezzi() {
+		return ParcoMezzi;
 	}
-	public void setAbbonamento(Abbonamento abbonamento) {
-		this.abbonamento = abbonamento;
+	public void setParcoMezzi(ParcoMezzi ParcoMezzi) {
+		this.ParcoMezzi = ParcoMezzi;
 	}
 	public LocalDate getData_emissione() {
 		return data_emissione;
@@ -80,7 +80,7 @@ public class Tessera implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Tessera [numero_tessera=" + numero_tessera + ", abbonamento=" + abbonamento + ", data_emissione="
+		return "Tessera [numero_tessera=" + numero_tessera + ", ParcoMezzi=" + ParcoMezzi + ", data_emissione="
 				+ data_emissione + ", data_scadenza=" + data_scadenza + ", validita_tessera=" + validita_tessera + "]";
 	}
 

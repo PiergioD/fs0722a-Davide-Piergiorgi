@@ -5,7 +5,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 
-import model.Abbonamento;
+import model.ParcoMezzi;
 import model.Utente;
 import utils.JpaUtil;
 

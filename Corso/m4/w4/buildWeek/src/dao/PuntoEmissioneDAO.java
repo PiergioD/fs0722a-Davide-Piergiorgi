@@ -8,7 +8,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 
 import enums.DurataAbb;
-import model.Abbonamento;
+import model.ParcoMezzi;
 import model.Biglietto;
 import model.PuntoEmissione;
 import model.Tessera;
@@ -58,44 +58,50 @@ public class PuntoEmissioneDAO {
 		t.commit();
 
 		System.out.println("PuntoEmissione modificato");
-
 	}
 
 	// FUNZIONE PER ComprareBIGLIETTO!
 	public static Biglietto compraBiglietto(Utente utente, PuntoEmissione atm) {
 		Biglietto b = new Biglietto();
-		Set<Biglietto> listaB = new HashSet<Biglietto>();
 		b.setData_emissione(LocalDate.now());
 		b.setUtente(utente);
-		atm.setCounter_biglietti(atm.getCounter_biglietti() + 1);
-		listaB.add(b);
-		utente.setListaBiglietti(listaB);
+		BigliettoDAO.saveBiglietto(b);
+		Biglietto bigl = BigliettoDAO.cercaBiglietto(b.getCodice_univoco());
+		System.out.println("cercato!");
+		atm.setCounterPlus();
+		System.out.println("aggiunto counter");
+		utente.setListBiglCompl(bigl);
+		System.out.println("creata lista");
 		UtenteDAO.modificaUtente(utente);
+		System.out.println("salvato utente");
 		modificaPunto(atm);
+		System.out.println("salvato atm");
 		System.out.println("Biglietto comprato! comprato da " + utente.getNome() + " " + utente.getCognome());
-		return b;
+		return bigl;
 
 	}
 
-	// FUNZIONE PER COMPRARE ABBONAMENTO
-	public static void compraAbbonamento(Utente u, PuntoEmissione atm, DurataAbb durata) {
+	// FUNZIONE PER COMPRARE ParcoMezzi
+	public static void compraParcoMezzi(Utente u, PuntoEmissione atm, DurataAbb durata) {
 		
 		// se l'utente ha la tessera fa fuori if, se nn ce lha fa prima latessera 
 		if (u.getTessera() == null) {
 			
 			TesseraDAO.creaTesseract(u);
 			
-		} 
-		Abbonamento abb = new Abbonamento();
+		}
+		
+		ParcoMezzi abb = new ParcoMezzi();
 		abb.setDurata(durata);
 		abb.setData_scadenza(abb.getData_emissione());
-		AbbonamentoDAO.saveAbbonamento(abb);
-		Abbonamento abbPreso = AbbonamentoDAO.cercaAbbonamento(abb.getCodice_univoco());
+		abb.setPuntoEmissione(atm);
+		ParcoMezziDAO.saveParcoMezzi(abb);
+		ParcoMezzi abbPreso = ParcoMezziDAO.cercaParcoMezzi(abb.getCodice_univoco());
 		atm.setAbbonamentiCompleto(abbPreso, u.getTessera());
 		TesseraDAO.modificaTessera(u.getTessera());
 		modificaPunto(atm);
 
-		System.out.println("Abbonamento comprato! comprato da " + u.getNome() + " " + u.getCognome()
+		System.out.println("ParcoMezzi comprato! comprato da " + u.getNome() + " " + u.getCognome()
 				+ " con numero tessera: " + u.getTessera());
 
 		
