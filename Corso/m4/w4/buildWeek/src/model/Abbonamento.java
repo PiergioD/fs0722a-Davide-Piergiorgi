@@ -10,10 +10,9 @@ import enums.DurataAbb;
 
 @Entity
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
-public class ParcoMezzi {
+public class Abbonamento {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="id_ParcoMezzi")
 	private Integer codice_univoco;
 	@Column(nullable=false)
 	private LocalDate data_emissione=LocalDate.now();
@@ -22,14 +21,14 @@ public class ParcoMezzi {
 	@Enumerated(EnumType.STRING)
 	private DurataAbb durata;
 	@Column(nullable=false)
-	private boolean validita_ParcoMezzi=true;
-	@OneToOne(mappedBy = "ParcoMezzi")
+	private boolean validita_abbonamento=true;
+	@OneToOne(mappedBy = "abbonamento")
 	private Tessera tessera;
 	@ManyToOne
 	@JoinColumn(name = "id_emissione")
 	private PuntoEmissione puntoEmissione;
 	
-	public ParcoMezzi() {
+	public Abbonamento() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -53,6 +52,7 @@ public class ParcoMezzi {
 	public LocalDate getData_scadenza() {
 		return data_scadenza;
 	}
+	
 //METODINO PER SETTARE SCADENZA ABBONAMENTINO
 	public void setData_scadenza(LocalDate data_emissione) {
 		if(this.durata==DurataAbb.MENSILE) {
@@ -62,6 +62,15 @@ public class ParcoMezzi {
 		
 		
 	}
+	
+	
+//METODINO PER SETTARE VALIDITA DELL'ABBONAMENTO(DA PROVARE)
+		public void setValidita(LocalDate emi,LocalDate scad) {
+			if(emi.isAfter(scad)) {
+				this.validita_abbonamento=false;
+			}
+		}
+
 
 	public DurataAbb getDurata() {
 		return durata;
@@ -72,15 +81,9 @@ public class ParcoMezzi {
 	}
 
 	public boolean isValidita() {
-		return validita_ParcoMezzi;
+		return validita_abbonamento;
 	}
-//METODINO PER SETTARE VALIDITA DELL'ParcoMezzi(DA PROVARE)
-	public void setValidita(LocalDate emi,LocalDate scad) {
-		if(emi.isAfter(scad)) {
-			this.validita_ParcoMezzi=false;
-		}
-	}
-
+	
 	
 
 	public Tessera getTessera() {
@@ -91,19 +94,13 @@ public class ParcoMezzi {
 		this.tessera = tessera;
 	}
 
-	@Override
-	public String toString() {
-		return "ParcoMezzi [codice_univoco=" + codice_univoco + ", data_emissione=" + data_emissione
-				+ ", data_scadenza=" + data_scadenza + ", durata=" + durata + ", validita_ParcoMezzi="
-				+ validita_ParcoMezzi + ", puntoEmissione=" + puntoEmissione + "]";
+
+	public boolean isValidita_abbonamento() {
+		return validita_abbonamento;
 	}
 
-	public boolean isValidita_ParcoMezzi() {
-		return validita_ParcoMezzi;
-	}
-
-	public void setValidita_ParcoMezzi(boolean validita_ParcoMezzi) {
-		this.validita_ParcoMezzi = validita_ParcoMezzi;
+	public void setValidita_abbonamento(boolean validita_abbonamento) {
+		this.validita_abbonamento = validita_abbonamento;
 	}
 
 	public PuntoEmissione getPuntoEmissione() {
@@ -115,6 +112,12 @@ public class ParcoMezzi {
 	}
 
 	
-
+	
+	@Override
+	public String toString() {
+		return "Abbonamento [codice_univoco=" + codice_univoco + ", data_emissione=" + data_emissione
+				+ ", data_scadenza=" + data_scadenza + ", durata=" + durata + ", validita_abbonamento="
+				+ validita_abbonamento + ", puntoEmissione=" + puntoEmissione + "]";
+	}
 	
 }

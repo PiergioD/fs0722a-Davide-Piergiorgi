@@ -19,10 +19,12 @@ import javax.persistence.MappedSuperclass;
 import javax.persistence.OneToOne;
 
 import dao.BigliettoDAO;
+import dao.ParcoMezziDAO;
+import dao.TrattaDAO;
 import dao.UtenteDAO;
 
 @Entity
-@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+@Inheritance(strategy=InheritanceType.TABLE_PER_CLASS)
 public abstract class ParcoMezzi implements Serializable {
 
 	/**
@@ -30,78 +32,34 @@ public abstract class ParcoMezzi implements Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Integer id_mezzo;
-	@Column(nullable = false)
-	private boolean inServizio;
+	@Column(nullable=false)
+	private boolean inServizio=true;
 	@Column
-	private Date dataInizioManutenzione;
+	private LocalDate dataInizioManutenzione;
 	@Column
-	private Date dataFineManutenzione;
+	private LocalDate dataFineManutenzione;
 	@Column
-	private Integer counter_biglietti = 0;
-
+	private Integer counter_biglietti=0;
+	@Column
+	private Integer counter_tappa=0;
 	@OneToOne(mappedBy = "mezzo")
 	private Tratta tratta;
-
+	
 	// il constructor nelle entita va sempre vuoto!!!
 	public ParcoMezzi() {
 		super();
 	}
-
-	public boolean isInServizio() {
-		return inServizio;
-	}
-
-	public void setInServizio(boolean inServizio) {
-		this.inServizio = inServizio;
-	}
-
-	public Date getDataInizioManutenzione() {
-		return dataInizioManutenzione;
-	}
-
-	public void setDataInizioManutenzione(Date dataInizioManutenzione) {
-		this.dataInizioManutenzione = dataInizioManutenzione;
-	}
-
-	public Date getDataFineManutenzione() {
-		return dataFineManutenzione;
-	}
-
-	public void setDataFineManutenzione(Date dataFineManutenzione) {
-		this.dataFineManutenzione = dataFineManutenzione;
-	}
-
-	public Tratta getTratta() {
-		return tratta;
-	}
-
-	public void setTratta(Tratta tratta) {
-		this.tratta = tratta;
-	}
-
-	public Integer getId_mezzo() {
-		return id_mezzo;
-	}
-
-	public void setId_mezzo(Integer id_mezzo) {
-		this.id_mezzo = id_mezzo;
-	}
-
-	public Integer getCounter_biglietti() {
-		return counter_biglietti;
-	}
-
-	public void setCounter_biglietti(Integer counter_biglietti) {
-		this.counter_biglietti = counter_biglietti;
-	}
-
-	public void counterPlus() {
-		this.counter_biglietti++;
-	}
-
-	public void vidimaBigl(Utente u) {
+	
+public void tempoEffettivo() {
+	Tratta t= this.getTratta();
+	System.out.println("Per andare da " + t.getPartenza() + " a " + t.getArrivo() + " questo mezzo impiega " + t.getDurataMediaTrattainMinuti() + " min");
+	System.out.println("Per andare da " + t.getPartenza() + " a " + t.getArrivo() + " e tornare questo mezzo impiega " + t.getDurataMediaTrattainMinuti()*2 + " min");
+	System.out.println("Questo mezzo ha viaggiato per " + (t.getDurataMediaTrattainMinuti()*this.getCounter_tappa()) + " min");
+}
+	
+public void vidimaBigl(Utente u) {
 		
 		Set<Biglietto> listB = u.getListaBiglietti();
 		List<Biglietto> listBigliettiValidi = listB.stream().filter(el->
@@ -115,13 +73,85 @@ public abstract class ParcoMezzi implements Serializable {
 		UtenteDAO.modificaUtente(u);
 		
 	}
+
+public void counterPlus() {
+	this.counter_biglietti++;
+}
+public void counterTappa() {
+	this.counter_tappa++;
+}
+public void corri(Tratta tratta) {
+	this.setTratta(tratta);
+	tratta.setMezzo(ParcoMezziDAO.cercaMezzo(this.id_mezzo));
+	TrattaDAO.modificaTratta(tratta);
+	this.counterTappa();
+	ParcoMezziDAO.modificaMezzo(ParcoMezziDAO.cercaMezzo(this.id_mezzo));
+}
+
+//////////////////////////////////////////
+	public boolean isInServizio() {
+		return inServizio;
+	}
 	
+
+	public Integer getCounter_tappa() {
+		return counter_tappa;
+	}
+
+	public void setCounter_tappa(Integer counter_tappa) {
+		this.counter_tappa = counter_tappa;
+	}
+
+	public Integer getCounter_biglietti() {
+		return counter_biglietti;
+	}
+
+	public void setCounter_biglietti(Integer counter_biglietti) {
+		this.counter_biglietti = counter_biglietti;
+	}
+
+	public Integer getId_mezzo() {
+		return id_mezzo;
+	}
+
+	public void setInServizio(boolean inServizio) {
+		this.inServizio = inServizio;
+	}
+
+	public LocalDate getDataInizioManutenzione() {
+		return dataInizioManutenzione;
+	}
+
+	public void setDataInizioManutenzione(LocalDate dataInizioManutenzione) {
+		this.dataInizioManutenzione = dataInizioManutenzione;
+	}
+
+	public LocalDate getDataFineManutenzione() {
+		return dataFineManutenzione;
+	}
+
+	public void setDataFineManutenzione(LocalDate dataFineManutenzione) {
+		this.dataFineManutenzione = dataFineManutenzione;
+	}
+
+	
+
+	public Tratta getTratta() {
+		return tratta;
+	}
+
+	public void setTratta(Tratta tratta) {
+		this.tratta = tratta;
+	}
+
 	@Override
 	public String toString() {
 		return "ParcoMezzi [id_mezzo=" + id_mezzo + ", inServizio=" + inServizio + ", dataInizioManutenzione="
-				+ dataInizioManutenzione + ", dataFineManutenzione=" + dataFineManutenzione + ", " + ", tratta="
-				+ tratta + "]";
+				+ dataInizioManutenzione + ", dataFineManutenzione=" + dataFineManutenzione + ", "
+				+ ", tratta=" + tratta + "]";
 	}
+	
 
-
+	
+	
 }

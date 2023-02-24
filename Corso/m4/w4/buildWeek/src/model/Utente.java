@@ -58,16 +58,6 @@ public class Utente implements Serializable {
 	public void setCognome(String cognome) {
 		this.cognome = cognome;
 	}
-
-	
-	
-	
-	public Set<Biglietto> getListaBiglietti() {
-		return listaBiglietti;
-	}
-	public void setListaBiglietti(Set<Biglietto> listaBiglietti) {
-		this.listaBiglietti = listaBiglietti;
-	}
 	
 	public void setListBiglCompl(Biglietto biglietto) {
 		Set<Biglietto> listaBig = new HashSet<Biglietto>();
@@ -77,7 +67,14 @@ public class Utente implements Serializable {
 		this.setListaBiglietti(listaBig);
 		System.out.println("tutto fatto lista");
 	}
-	
+
+
+	public Set<Biglietto> getListaBiglietti() {
+		return listaBiglietti;
+	}
+	public void setListaBiglietti(Set<Biglietto> listaBiglietti) {
+		this.listaBiglietti = listaBiglietti;
+	}
 	@Override
 	public String toString() {
 		return "Utente [id_utente=" + id_utente + ", tessera=" + tessera + ", nome=" + nome + ", cognome=" + cognome

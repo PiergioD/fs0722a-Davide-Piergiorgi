@@ -3,65 +3,65 @@ package dao;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 
-import model.ParcoMezzi;
+import model.Abbonamento;
 import model.Tessera;
 import model.Utente;
 import utils.JpaUtil;
 
-public class ParcoMezziDAO {
+public class AbbonamentoDAO {
 	private static final EntityManager em = JpaUtil.getEntityManagerFactory().createEntityManager();
 	private static final EntityTransaction t = em.getTransaction();
 
 	
 	
-	// SALVA ParcoMezzi
-		public static void saveParcoMezzi (ParcoMezzi u) {
+	// SALVA abbonamento
+		public static void saveAbbonamento (Abbonamento u) {
 			
 		t.begin();
 		em.persist(u);
 		t.commit();
-		System.out.println("ParcoMezzi aggiunto al data base");
+		System.out.println("Abbonamento aggiunto al data base");
 
 			
 		}
 		
-		//CERCA abonnamneto
-		public static ParcoMezzi cercaParcoMezzi(Integer id_ParcoMezzi) {
+	//CERCA abonnamneto
+		public static Abbonamento cercaAbbonamento(Integer id_abbonamento) {
 				t.begin();
-			ParcoMezzi u=	em.find(ParcoMezzi.class, id_ParcoMezzi);
+			Abbonamento u=	em.find(Abbonamento.class, id_abbonamento);
 			t.commit();
-			System.out.println("Abbonamneto ricercato secondo id: "+id_ParcoMezzi);
+			System.out.println("Abbonamneto ricercato secondo id: "+id_abbonamento);
 			return u;
 		
 	}
 		
 	// ELIMINA BY ID tessera
-	public static void deletaParcoMezzi(Integer id) {
+	public static void deletaUtente(Integer id) {
 		
-		ParcoMezzi tes= cercaParcoMezzi(id);
+		Abbonamento tes= cercaAbbonamento(id);
 	    t.begin();
 	    em.remove(tes);
 	    t.commit();
-	    System.out.println("ParcoMezzi eliminato");
+	    System.out.println("Abbonamento eliminato");
 	}
 		
-		// MODIFICA ParcoMezzi
-	public static void modificaParcoMezzi(ParcoMezzi u) {
+		// MODIFICA Abbonamento
+	public static void modificaAbbonamento(Abbonamento u) {
 		
 		t.begin();
 	    em.merge(u);
 	    t.commit();
 		
-		System.out.println("ParcoMezzi modificato");
+		System.out.println("Abbonamento modificato");
 		
 	}
 	
 	public static void checkValiditaAbb(Utente u) {
 		Tessera tess = u.getTessera();
-		ParcoMezzi abb = tess.getParcoMezzi();
+		Abbonamento abb = tess.getAbbonamento();
 		if(abb.isValidita() == true) {
-			System.out.println("ParcoMezzi valido!");
+			System.out.println("Abbonamento valido!");
 		}else
-			System.out.println("ParcoMezzi non valido!");
+			System.out.println("Abbonamento non valido!");
 	}
 }

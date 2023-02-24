@@ -1,13 +1,21 @@
 package control;
 
+import java.time.LocalDate;
+import java.util.List;
+
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
+import javax.persistence.Query;
 
 import dao.ParcoMezziDAO;
 import dao.PuntoEmissioneDAO;
 import dao.TesseraDAO;
+import dao.TrattaDAO;
 import dao.UtenteDAO;
+import enums.Arrivi;
 import enums.DurataAbb;
+import enums.Partenze;
 import model.*;
 import utils.JpaUtil;
 
@@ -17,112 +25,92 @@ public class MainProject {
 	public static void main(String[] args) {
 		
 		try {
+			
+	//UTENTI
+		Utente u = new Utente();
+		u.setNome("Simona");
+		u.setCognome("Neri");
+		//UtenteDAO.saveUtente(u);
+		Utente u1 = UtenteDAO.cercaUtente(1);
+		Utente u2 = UtenteDAO.cercaUtente(2);
+		Utente u3 = UtenteDAO.cercaUtente(3);
 		
-//		DistributoreAutomatico atm = new DistributoreAutomatico();
-//		Utente u1= new Utente();
-//		Tessera t1= new Tessera();
-//		
-//		
-//		//System.out.println(abb1);
-//	
-//		
-////		u1.setTessera(t1);
-////		u1.setNome("Gino");
-////		u1.setCognome("Il porcospino");
-////		
-////		
-////		atm.setUtente(u1);
-////		atm.creaBiglietto();
-//		
-//		
-//		//Utente presodalDatabase=UtenteDAO.cercaUtente(2);
-//		//System.out.println(presodalDatabase);
-//		//TesseraDAO.saveTessera(t1);
-//		Tessera tesPresa= TesseraDAO.cercaTessera(1);
-//	
-//		ParcoMezzi abb1= new ParcoMezzi();
-//		
-//		ParcoMezzi abbRecuperato = ParcoMezziDAO.cercaParcoMezzi(1);
-//		System.out.println(abbRecuperato);
-//		
-//		//ParcoMezzi abbPreso=ParcoMezziDAO.cercaParcoMezzi(1);
-//		//System.out.println(abb1);
-//		//ParcoMezziDAO.saveParcoMezzi(abb1);
-//		atm.setParcoMezzi(abbRecuperato, tesPresa);
-//		
-//		System.out.println(tesPresa);
-//		
-//		TesseraDAO.modificaTessera(tesPresa);
-//		
-//		//System.out.println(t1);
-//		
-////	ParcoMezzi abb1=atm.creaParcoMezzi(t1, DurataAbb.SETTIMANALE);
-////	abb1.setData_scadenza(abb1.getData_emissione());
-////	System.out.println(abb1);
-			
-			
-			//CREIAMO UN UTENTE E LO METTIAMO NEL DATA BASE
-			//Utente u1 = new Utente();
-			
-			//u1.setNome("CHeBelloILBackend");
-			//u1.setCognome("Gesooh");
-			//Tessera t1 = new Tessera();
-			//u1.setTessera(t1);
-			//TesseraDAO.saveTessera(t1);
-			//UtenteDAO.saveUtente(u1);
-			
-			// CREIAMO UNA TESSERA E LA METTIAMO NEL DATABASE
-			
-			
-			
-			// cREAIMO ParcoMezzi E LO METTIAMO NEL DATABASE
-			
-			//ParcoMezzi abb1=new ParcoMezzi();
-			
-			//abb1.setDurata(DurataAbb.MENSILE);
-			//abb1.setData_scadenza(abb1.getData_emissione());
-			
-			//ParcoMezziDAO.saveParcoMezzi(abb1);
-			
-			
-			
-			// Estrapoliamo dati dal databse
-			
-			//Utente utentePreso= UtenteDAO.cercaUtente(1);
-			//Tessera tesseraPresa= TesseraDAO.cercaTessera(1);
-			//ParcoMezzi abbPreso= ParcoMezziDAO.cercaParcoMezzi(1);
-			
-			// CREIAMO OGGETTO PUNTO EMISSIONE
-			
-			//DistributoreAutomatico atm=new DistributoreAutomatico();
-			//setti in ParcoMezzi la tessera
-			//atm.setParcoMezzi(abbPreso, tesseraPresa);
-			
-			//System.out.println(tesseraPresa);
-			
-			
-			// AGGIONRAMENTO OGGETTO UTENTE NEL DATABASE PERCHE ABBIAMO MESSO UN ATTRIBUTO IN PIU
-			//UtenteDAO.modificaUtente(utentePreso);
-			
-			//DistributoreAutomatico atm = new DistributoreAutomatico();
-			//RivenditoreAutorizzato tabaccaio = new RivenditoreAutorizzato();
-			//Utente guy = new Utente();
-			//guy.setCognome("Fieri");
-			//guy.setNome("Guy");
-			//UtenteDAO.saveUtente(guy);
-			//PuntoEmissioneDAO.savePunto(atm);
-			//PuntoEmissioneDAO.savePunto(tabaccaio);
-			Utente guy = UtenteDAO.cercaUtente(2);
 		
+	//PUNTI EMISSIONE
+		DistributoreAutomatico distrubutore = new DistributoreAutomatico();
+		RivenditoreAutorizzato rivenditore = new RivenditoreAutorizzato();
+		
+		//PuntoEmissioneDAO.savePunto(rivenditore);
+		PuntoEmissione punto1 = PuntoEmissioneDAO.cercaPunto(6);
+		PuntoEmissione punto2 = PuntoEmissioneDAO.cercaPunto(7);
+		
+	//TRATTE
+		Tratta tratta = new Tratta();
+		tratta.setPartenza(Partenze.Castellamare);
+		tratta.setArrivo(Arrivi.StrangolaGalli);
+		tratta.setDurataMediaTrattainMinuti(250);
+		//TrattaDAO.saveTratta(tratta);
+		Tratta t1 = TrattaDAO.cercaTratta(1);
+		Tratta t2 = TrattaDAO.cercaTratta(2);
+		Tratta t3 = TrattaDAO.cercaTratta(3);
+		
+		
+		
+	//MEZZI
+		
+		Tram tram = new Tram();
+		tram.setTratta(t2);
+		//ParcoMezziDAO.saveMezzo(tram);
+		
+		Autobus autobus = new Autobus();
+		autobus.setTratta(t3);
+		//ParcoMezziDAO.saveMezzo(autobus);
+		
+		ParcoMezzi tram1 = ParcoMezziDAO.cercaMezzo(8);
+		ParcoMezzi tram2 = ParcoMezziDAO.cercaMezzo(9);
+		ParcoMezzi autobus1 = ParcoMezziDAO.cercaMezzo(10);
+		
+		
+	//TESSERA UTENTE
+		
+		//TesseraDAO.creaTesseract(u1);  //risalva utente in db 
+		
+	    //PuntoEmissioneDAO.compraAbbonamento(u2, punto1, DurataAbb.SETTIMANALE); //non ha la tessera, quindi gliela genera
+	    //PuntoEmissioneDAO.compraAbbonamento(u1, punto1, DurataAbb.MENSILE); //lui ha la tessera, e gli fa solo abbonamento
+	    
+	//BIGLIETTI
+			
+	    //PuntoEmissioneDAO.compraBiglietto(u3, punto2);	
+	    //PuntoEmissioneDAO.compraBiglietto(u3, punto2);
+	  
+	//VIDIMA BIGLIETTO
+	    
+	    //ParcoMezziDAO.vidimaBiglietto(autobus1, u3);
+	   //ParcoMezziDAO.vidimaBiglietto(tram1, u3);
+		
+	//MEZZO CHE PARTE
+		
+	 //autobus1.corri(t1);
+	 //tram1.corri(t2);
+	  
+	//MANDIAMO MEZZO IN ANUTENZIONE
+		//ParcoMezziDAO.mandaInManutenzione(tram2);
+		//ParcoMezziDAO.fineManutenzione(tram2);  //da fare domani 
+		
+	//info MANUTENZIONE
+		infoManutenzione(tram2);
+		infoManutenzione(tram1);
+			
+		autobus1.tempoEffettivo();
+		tram1.tempoEffettivo();
 			
 			
+  //QUERY
+		bigliettiPerDate(LocalDate.parse("2023-02-22"), LocalDate.parse("2023-02-25"));
 			
-			//PuntoEmissione atm = PuntoEmissioneDAO.cercaPunto(3);
-			//PuntoEmissioneDAO.compraBiglietto(guy, atm);
-			//TesseraDAO.creaTesseract(guy);
-			//PuntoEmissioneDAO.compraParcoMezzi(guy, atm, DurataAbb.SETTIMANALE);
-			
-			
+		abbonamentoPerDate(LocalDate.parse("2023-02-22"), LocalDate.parse("2023-02-25"));
+		
+		bigliettiVidimatiPerDate(LocalDate.parse("2023-02-22"), LocalDate.parse("2023-02-25"));
 			
 			
 			
@@ -135,5 +123,60 @@ public class MainProject {
         }
 	
 	}
+	
+	public static List<Biglietto> bigliettiPerDate(LocalDate a, LocalDate b) {
+		Query query = em.createQuery("SELECT ele FROM Biglietto ele WHERE ele.data_emissione > :a AND ele.data_emissione < :b");
+		query.setParameter("a", a);
+		query.setParameter("b", b);
+		
+		List<Biglietto> results = query.getResultList();
+		for(Biglietto ap:results) {
+    		System.out.println(ap);
+    	}
+		return results;
+		
+		
+	}
+	
+	public static List<Abbonamento> abbonamentoPerDate(LocalDate a, LocalDate b) {
+		Query query = em.createQuery("SELECT ele FROM Abbonamento ele WHERE ele.data_emissione > :a AND ele.data_emissione < :b");
+		query.setParameter("a", a);
+		query.setParameter("b", b);
+		
+		List<Abbonamento> results = query.getResultList();
+		for(Abbonamento ap:results) {
+    		System.out.println(ap);
+    	}
+		return results;
+
+	}
+	
+	public static List<Biglietto> bigliettiVidimatiPerDate(LocalDate a, LocalDate b) {
+		Query query = em.createQuery("SELECT ele FROM Biglietto ele WHERE ele.data_vidima > :a AND ele.data_vidima < :b");
+		query.setParameter("a", a);
+		query.setParameter("b", b);
+		
+		List<Biglietto> results = query.getResultList();
+		for(Biglietto ap:results) {
+    		System.out.println(ap);
+    	}
+		return results;
+		
+	}
+	
+	public static void infoManutenzione(ParcoMezzi p) {
+		if(p.isInServizio()==false) {
+			System.out.println("Mezzo in manutenzione da: " + p.getDataInizioManutenzione());
+		}else {
+			System.out.println("Mezzo in servizio");
+			if(p.getDataInizioManutenzione()==null) {
+				System.out.println("Il mezzo non è mai stato in manutenzione");
+			}else {
+				System.out.println("Ultima manutenzione: " + p.getDataInizioManutenzione() + "/" + p.getDataFineManutenzione());
+			}
+		}
+	}
+	
+	
 
 }

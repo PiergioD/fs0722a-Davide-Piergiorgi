@@ -12,6 +12,7 @@
 	<class>model.Tram</class>
 	<class>model.Autobus</class>
 	<class>model.Tratta</class>
+	<class>model.Abbonamento</class>
 	
 	
 	

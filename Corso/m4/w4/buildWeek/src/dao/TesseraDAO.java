@@ -67,8 +67,7 @@ public static void creaTesseract(Utente u) {
 	modificaTessera(tessPresa);
 	System.out.println("Tessera creata per utente: "+u.getNome()+ " "+u.getCognome());
 	
-	
-	
+
 	
 }
 	

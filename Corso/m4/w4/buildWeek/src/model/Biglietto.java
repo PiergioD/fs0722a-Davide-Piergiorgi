@@ -16,6 +16,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 import enums.DurataAbb;
+import net.bytebuddy.asm.Advice.Local;
 
 @Entity
 public class Biglietto {
@@ -33,12 +34,20 @@ public class Biglietto {
 	private LocalDate data_vidima;
 	
 	
-	
-	
 	public Biglietto() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+	
+	
+	public LocalDate getData_vidima() {
+		return data_vidima;
+	}
+
+	public void setData_vidima(LocalDate data_vidima) {
+		this.data_vidima = data_vidima;
+	}
+
 	public Integer getCodice_univoco() {
 		return codice_univoco;
 	}
@@ -63,11 +72,13 @@ public class Biglietto {
 	public void setUtente(Utente utente) {
 		this.utente = utente;
 	}
-	public LocalDate getData_vidima() {
-		return data_vidima;
-	}
-	public void setData_vidima(LocalDate data_vidima) {
-		this.data_vidima = data_vidima;
+
+
+	@Override
+	public String toString() {
+		return "Biglietto [codice_univoco=" + codice_univoco + ", data_emissione=" + data_emissione
+				+ ", validita_biglietto=" + validita_biglietto + ", data_vidima=" + data_vidima
+				+ "]";
 	}
 	
 

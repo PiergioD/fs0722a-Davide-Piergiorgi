@@ -4,6 +4,8 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -21,19 +23,18 @@ public class Tratta {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id_tratta;
-	@Column
+	
+	@Enumerated(EnumType.STRING)
 	private Partenze partenza;
-	@Column
+	@Enumerated(EnumType.STRING)
 	private Arrivi arrivo;
-	// cambiare in onetomany di mezzo per tenere traccia dei mezzi che percorrono determinate tratte
-	// tenere traccia di bniglietti e abbonamenti messi in una dato periodo di tempo
-	// risettare il database
-	// sistemare tutto quanto nel main
+	
 	@OneToOne
 	@JoinColumn(name = "id_mezzo")
 	private ParcoMezzi mezzo;
 	@Column
 	private Integer durataMediaTrattainMinuti;
+	
 	
 	public Integer getId_tratta() {
 		return id_tratta;
